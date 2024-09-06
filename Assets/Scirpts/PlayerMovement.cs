@@ -2,24 +2,28 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;   
+    [SerializeField] private float moveSpeed = 5f;  
     [SerializeField] private float jumpForce = 10f;  
 
-    private Rigidbody2D rb2d;     
-    private Rigidbody rb3d;       
-    private bool isGrounded;      
-
-    private bool is3DMode;        
-    private bool facingRight = true; 
+    private Rigidbody2D rb2d;
+    private Rigidbody rb3d;
+    private bool isGrounded;
+    private bool is3DMode;
+    private bool facingRight = true;
 
     [SerializeField] private Transform groundCheck;  
     [SerializeField] private LayerMask groundLayer;  
 
     private bool isPointAndClickMode = false; 
+    private bool isInCombat = false;  
 
-    private GameObject heldObject = null; 
-    private Vector3 mouseOffset;         
-    private float mouseZCoord;           
+    
+    private GameObject heldObject = null;  
+    private Vector3 mouseOffset;          
+    private float mouseZCoord;             
+
+    private GameObject enemy;  
+    [SerializeField] private float maxDistance = 3f;  
 
     void Start()
     {
@@ -37,22 +41,19 @@ public class PlayerMovement : MonoBehaviour
             is3DMode = false;
             rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
-        else
-        {
-            Debug.LogError("no Rigidbody! add Rigidbody or Rigidbody2D");
-        }
+        
     }
 
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && !isInCombat)
         {
             SwitchMode();
         }
 
         
-        if (!isPointAndClickMode)
+        if (!isPointAndClickMode && !isInCombat)
         {
             if (is3DMode)
             {
@@ -65,10 +66,18 @@ public class PlayerMovement : MonoBehaviour
 
             FlipCharacter();
         }
-        else
+        else if (isPointAndClickMode && !isInCombat)
         {
-            
             HandlePointAndClickMode();
+        }
+
+        
+        CheckForEnemy();
+
+        
+        if (enemy != null && Input.GetKeyDown(KeyCode.E) && !isInCombat)
+        {
+            StartCombat();
         }
 
         
@@ -79,6 +88,49 @@ public class PlayerMovement : MonoBehaviour
     }
 
     
+    private void CheckForEnemy()
+    {
+        
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemy = null;  
+
+        foreach (GameObject potentialEnemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, potentialEnemy.transform.position);
+
+            
+            if (distance <= maxDistance)
+            {
+                enemy = potentialEnemy; 
+                
+                break;
+            }
+        }
+    }
+
+    
+    private void StartCombat()
+    {
+        EnterCombatMode();
+        CombatManager combatManager = FindObjectOfType<CombatManager>();
+        combatManager.playerCombatant = GetComponent<Combatant>();
+        combatManager.enemyCombatant = enemy.GetComponent<Combatant>();
+        combatManager.StartBattle();
+    }
+
+    public void EnterCombatMode()
+    {
+        isInCombat = true;
+        
+    }
+
+    public void ExitCombatMode()
+    {
+        isInCombat = false;
+        
+    }
+
+    
     private void MovePlayer2D()
     {
         float moveInput = Input.GetAxis("Horizontal");
@@ -86,8 +138,6 @@ public class PlayerMovement : MonoBehaviour
 
         
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-
-        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb2d.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -103,12 +153,17 @@ public class PlayerMovement : MonoBehaviour
 
         
         isGrounded = Physics.CheckSphere(groundCheck.position, 0.2f, groundLayer);
-
-        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb3d.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+    }
+
+    
+    private void SwitchMode()
+    {
+        isPointAndClickMode = !isPointAndClickMode;
+        
     }
 
     
@@ -126,20 +181,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
     private void Flip()
     {
         facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
-    }
-
-    
-    private void SwitchMode()
-    {
-        isPointAndClickMode = !isPointAndClickMode;
-        Debug.Log(isPointAndClickMode ? "Switched to Point & Click Mode" : "Switched to Platformer Mode");
+        transform.Rotate(0f, 180f, 0f);  
     }
 
     
@@ -147,7 +192,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (heldObject == null) 
+            if (heldObject == null)
             {
                 if (is3DMode)
                 {
@@ -169,7 +214,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                DropObject(); 
+                DropObject();
             }
         }
     }
@@ -177,21 +222,21 @@ public class PlayerMovement : MonoBehaviour
     
     private void PickUpObject(GameObject obj)
     {
-        heldObject = obj; 
+        heldObject = obj;
 
         if (is3DMode)
         {
             mouseZCoord = Camera.main.WorldToScreenPoint(heldObject.transform.position).z;
             mouseOffset = heldObject.transform.position - GetMouseWorldPosition3D();
-            obj.GetComponent<Rigidbody>().isKinematic = true; 
+            obj.GetComponent<Rigidbody>().isKinematic = true;
         }
         else
         {
             mouseOffset = heldObject.transform.position - GetMouseWorldPosition2D();
-            obj.GetComponent<Rigidbody2D>().isKinematic = true; 
+            obj.GetComponent<Rigidbody2D>().isKinematic = true;
         }
 
-        Debug.Log("PickUp: " + obj.name);
+        
     }
 
     
@@ -199,15 +244,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (is3DMode)
         {
-            heldObject.GetComponent<Rigidbody>().isKinematic = false; 
+            heldObject.GetComponent<Rigidbody>().isKinematic = false;
         }
         else
         {
-            heldObject.GetComponent<Rigidbody2D>().isKinematic = false; 
+            heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
         }
 
-        heldObject = null; 
-        Debug.Log("Place");
+        heldObject = null;
+        
     }
 
     
@@ -231,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
-   
+    
     private Vector3 GetMouseWorldPosition3D()
     {
         Vector3 mousePoint = Input.mousePosition;

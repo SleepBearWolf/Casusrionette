@@ -31,19 +31,19 @@ public class PlayerSystem : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        // ล็อกการหมุนในแกน Z เพื่อป้องกันไม่ให้ตัวละครล้ม
+        
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
     private void Update()
     {
-        // สลับโหมดเมื่อกดปุ่ม Q
+        
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SwitchMode();
         }
 
-        // ถ้าไม่ใช่โหมด Point-and-Click และไม่ได้เดินกลับ
+        
         if (!isPointAndClickMode && !isReturning && !isPaused)
         {
             MovePlayer();
@@ -51,39 +51,39 @@ public class PlayerSystem : MonoBehaviour
             Jump();
             FlipCharacter();
 
-            // ตรวจสอบว่าตัวละครออกนอกขอบเขตหรือไม่
+            
             if (transform.position.x < minX || transform.position.x > maxX)
             {
-                StartReturning(); // เริ่มเดินกลับ
+                StartReturning(); 
             }
         }
 
-        // ถ้าอยู่ในสถานะเดินกลับ
+        
         if (isReturning)
         {
             ReturnToBounds();
         }
 
-        // ถ้าอยู่ในโหมด Point and Click
+        
         if (isPointAndClickMode && !isReturning)
         {
             HandlePointAndClickMode();
         }
 
-        // ถ้ามีการยกของ ให้ลากของตามเมาส์
+        
         if (heldObject != null)
         {
             DragObject();
         }
 
-        // ตรวจสอบสถานะการหยุด
+       
         if (isPaused)
         {
             pauseTimer += Time.deltaTime;
             if (pauseTimer >= pauseDuration)
             {
                 isPaused = false;
-                isReturning = true;  // เริ่มเดินกลับหลังจากหยุดชั่วคราว
+                isReturning = true;  
             }
         }
     }
@@ -100,7 +100,7 @@ public class PlayerSystem : MonoBehaviour
 
     private void Jump()
     {
-        // กระโดดเมื่อกด Space และผู้เล่นอยู่บนพื้น
+        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb2d.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -109,7 +109,7 @@ public class PlayerSystem : MonoBehaviour
 
     private void CheckIfGrounded()
     {
-        // ตรวจสอบว่าผู้เล่นสัมผัสพื้นหรือไม่ โดยใช้ Physics2D และ groundCheck
+        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
@@ -139,7 +139,7 @@ public class PlayerSystem : MonoBehaviour
     {
         isPointAndClickMode = !isPointAndClickMode;
 
-        // ถ้ามีการยกของอยู่และสลับโหมด ให้วางของลง
+        
         if (heldObject != null)
         {
             DropObject();

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerSystem : MonoBehaviour
 {
@@ -27,23 +28,35 @@ public class PlayerSystem : MonoBehaviour
     private GameObject heldObject = null;
     private Vector3 mouseOffset;
 
+    public GameObject toolUI;
+    private RectTransform toolUIRectTransform;
+    public bool isToolUIVisible = false;
+
+    public float hidePositionY = -600f;
+    public float showPositionY = 0f;
+    public float uiMoveSpeed = 0.5f;
+
+    private bool isAnimating = false; 
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-
-        
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        toolUIRectTransform = toolUI.GetComponent<RectTransform>();
+
+        // ซ่อน UI ตอนเริ่ม
+        toolUI.SetActive(false);
+        toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
     }
 
     private void Update()
     {
-        
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SwitchMode();
         }
 
-        
         if (!isPointAndClickMode && !isReturning && !isPaused)
         {
             MovePlayer();
@@ -51,39 +64,34 @@ public class PlayerSystem : MonoBehaviour
             Jump();
             FlipCharacter();
 
-            
             if (transform.position.x < minX || transform.position.x > maxX)
             {
-                StartReturning(); 
+                StartReturning();
             }
         }
 
-        
         if (isReturning)
         {
             ReturnToBounds();
         }
 
-        
         if (isPointAndClickMode && !isReturning)
         {
             HandlePointAndClickMode();
         }
 
-        
         if (heldObject != null)
         {
             DragObject();
         }
 
-       
         if (isPaused)
         {
             pauseTimer += Time.deltaTime;
             if (pauseTimer >= pauseDuration)
             {
                 isPaused = false;
-                isReturning = true;  
+                isReturning = true;
             }
         }
     }
@@ -100,7 +108,6 @@ public class PlayerSystem : MonoBehaviour
 
     private void Jump()
     {
-        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb2d.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
@@ -109,7 +116,6 @@ public class PlayerSystem : MonoBehaviour
 
     private void CheckIfGrounded()
     {
-        
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
@@ -137,15 +143,52 @@ public class PlayerSystem : MonoBehaviour
 
     private void SwitchMode()
     {
+        if (isAnimating) return; 
+
         isPointAndClickMode = !isPointAndClickMode;
 
-        
         if (heldObject != null)
         {
             DropObject();
         }
 
+        if (isPointAndClickMode)
+        {
+            ShowToolUI();
+        }
+        else
+        {
+            HideToolUI();
+        }
+
         Debug.Log("Switched to " + (isPointAndClickMode ? "Point and Click Mode" : "Normal Mode"));
+    }
+
+    private void ShowToolUI()
+    {
+        if (!isToolUIVisible)
+        {
+            isAnimating = true; 
+            toolUI.SetActive(true);
+            LeanTween.moveY(toolUIRectTransform, showPositionY, uiMoveSpeed).setEase(LeanTweenType.easeInOutQuad)
+                .setOnComplete(() => isAnimating = false); 
+            isToolUIVisible = true;
+        }
+    }
+
+    private void HideToolUI()
+    {
+        if (isToolUIVisible)
+        {
+            isAnimating = true; 
+            LeanTween.moveY(toolUIRectTransform, hidePositionY, uiMoveSpeed).setEase(LeanTweenType.easeInOutQuad)
+                .setOnComplete(() =>
+                {
+                    toolUI.SetActive(false);
+                    isAnimating = false; 
+                });
+            isToolUIVisible = false;
+        }
     }
 
     private void HandlePointAndClickMode()

@@ -36,7 +36,7 @@ public class PlayerSystem : MonoBehaviour
     public float showPositionY = 0f;
     public float uiMoveSpeed = 0.5f;
 
-    private bool isAnimating = false; 
+    private bool isAnimating = false;
 
     private void Start()
     {
@@ -45,9 +45,11 @@ public class PlayerSystem : MonoBehaviour
 
         toolUIRectTransform = toolUI.GetComponent<RectTransform>();
 
-        // ซ่อน UI ตอนเริ่ม
         toolUI.SetActive(false);
         toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
@@ -143,7 +145,7 @@ public class PlayerSystem : MonoBehaviour
 
     private void SwitchMode()
     {
-        if (isAnimating) return; 
+        if (isAnimating) return;
 
         isPointAndClickMode = !isPointAndClickMode;
 
@@ -155,10 +157,14 @@ public class PlayerSystem : MonoBehaviour
         if (isPointAndClickMode)
         {
             ShowToolUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
             HideToolUI();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         Debug.Log("Switched to " + (isPointAndClickMode ? "Point and Click Mode" : "Normal Mode"));
@@ -168,10 +174,10 @@ public class PlayerSystem : MonoBehaviour
     {
         if (!isToolUIVisible)
         {
-            isAnimating = true; 
+            isAnimating = true;
             toolUI.SetActive(true);
             LeanTween.moveY(toolUIRectTransform, showPositionY, uiMoveSpeed).setEase(LeanTweenType.easeInOutQuad)
-                .setOnComplete(() => isAnimating = false); 
+                .setOnComplete(() => isAnimating = false);
             isToolUIVisible = true;
         }
     }
@@ -180,12 +186,12 @@ public class PlayerSystem : MonoBehaviour
     {
         if (isToolUIVisible)
         {
-            isAnimating = true; 
+            isAnimating = true;
             LeanTween.moveY(toolUIRectTransform, hidePositionY, uiMoveSpeed).setEase(LeanTweenType.easeInOutQuad)
                 .setOnComplete(() =>
                 {
                     toolUI.SetActive(false);
-                    isAnimating = false; 
+                    isAnimating = false;
                 });
             isToolUIVisible = false;
         }

@@ -3,23 +3,32 @@ using UnityEngine.UI;
 
 public class ToolMenu : MonoBehaviour
 {
-    public GameObject toolPanel;
-    private bool isPanelVisible = false;
+    public GameObject toolPanel;  
+    private bool isPanelVisible = false;  
 
-    private Vector3 hiddenPosition;
-    private Vector3 shownPosition;
+    private Vector3 hiddenPosition;  
+    private Vector3 shownPosition;   
 
-    public Button toolButton;  
+    public Button toolButton; 
 
-    private void Start()
+    void Start()
     {
+        
         hiddenPosition = toolPanel.transform.localPosition;
         shownPosition = new Vector3(hiddenPosition.x, hiddenPosition.y + 300, hiddenPosition.z);
 
         
-        toolButton.onClick.AddListener(ToggleToolPanel);
+        if (toolButton != null && toolPanel != null)
+        {
+            toolButton.onClick.AddListener(ToggleToolPanel);
+        }
+        else
+        {
+            Debug.LogError("ToolButton or ToolPanel is not connected in Inspector!");
+        }
     }
 
+    
     public void ToggleToolPanel()
     {
         if (isPanelVisible)

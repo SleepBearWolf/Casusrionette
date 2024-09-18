@@ -38,6 +38,9 @@ public class PlayerSystem : MonoBehaviour
 
     private bool isAnimating = false;
 
+    private GameObject currentTool = null; 
+    private Vector2 originalToolPosition; 
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -56,7 +59,7 @@ public class PlayerSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SwitchMode();
+            SwitchMode(); 
         }
 
         if (!isPointAndClickMode && !isReturning && !isPaused)
@@ -151,7 +154,7 @@ public class PlayerSystem : MonoBehaviour
 
         if (heldObject != null)
         {
-            DropObject();
+            DropObject(); 
         }
 
         if (isPointAndClickMode)
@@ -165,10 +168,19 @@ public class PlayerSystem : MonoBehaviour
             HideToolUI();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+           
+            GameObject[] toolItems = GameObject.FindGameObjectsWithTag("Tool"); 
+            foreach (GameObject tool in toolItems)
+            {
+                tool.GetComponent<DragAndDropTool>().ResetToolPosition(); 
+            }
         }
 
         Debug.Log("Switched to " + (isPointAndClickMode ? "Point and Click Mode" : "Normal Mode"));
     }
+
+
 
     private void ShowToolUI()
     {

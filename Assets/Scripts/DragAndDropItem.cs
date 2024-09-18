@@ -12,17 +12,17 @@ public class DragAndDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         startPosition = transform.position;
         originalParent = transform.parent;
-        transform.SetParent(canvas.transform); 
+        transform.SetParent(canvas.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = Input.mousePosition; 
+        transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
+
         if (eventData.pointerEnter != null && eventData.pointerEnter.tag == "Slot")
         {
             transform.SetParent(eventData.pointerEnter.transform);
@@ -30,7 +30,7 @@ public class DragAndDropItem : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
         else
         {
-            
+
             transform.position = startPosition;
             transform.SetParent(originalParent);
         }

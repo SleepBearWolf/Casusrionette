@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - PickUpObject
+  - CorrectTarget
+  - Tool
   layers:
   - Default
   - TransparentFX
@@ -42,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Map
+    uniqueID: 3765154793
+    locked: 0
+  - name: UI
+    uniqueID: 2784274967
     locked: 0

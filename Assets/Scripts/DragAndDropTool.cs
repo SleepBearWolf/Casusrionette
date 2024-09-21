@@ -3,63 +3,97 @@ using UnityEngine.EventSystems;
 
 public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHandler
 {
-    private RectTransform rectTransform; 
-    private Canvas canvas; 
-    private Vector2 originalPosition;
-    private bool isDragging = false; 
+    private RectTransform toolRectTransform;
+    private Canvas toolCanvas;
+    private Vector2 originalToolPosition;
+    private bool isToolBeingDragged = false;
+
+    private PlayerItems toolPlayerItems;
+    private CanvasGroup toolCanvasGroup;
+    private PlayerSystem toolPlayerSystem;
 
     private void Start()
     {
-        rectTransform = GetComponent<RectTransform>(); 
-        canvas = GetComponentInParent<Canvas>(); 
-        originalPosition = rectTransform.anchoredPosition; 
+        toolRectTransform = GetComponent<RectTransform>();
+        toolCanvas = GetComponentInParent<Canvas>();
+        originalToolPosition = toolRectTransform.anchoredPosition;
+
+        toolPlayerItems = FindObjectOfType<PlayerItems>();
+        toolCanvasGroup = GetComponent<CanvasGroup>();
+        toolPlayerSystem = FindObjectOfType<PlayerSystem>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
-        if (eventData.button == PointerEventData.InputButton.Left)
+        // Handle left click to pick up the tool
+        if (toolPlayerItems.currentTool == null && toolPlayerSystem.IsPointAndClickModeActive())
         {
-            isDragging = true;
-            Cursor.visible = false;
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                isToolBeingDragged = true;
+                Cursor.visible = false;
+
+                if (toolPlayerItems != null)
+                {
+                    toolPlayerItems.SetCurrentTool(gameObject);
+                }
+
+                if (toolCanvasGroup != null)
+                {
+                    toolCanvasGroup.blocksRaycasts = false;
+                }
+            }
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        
-        if (eventData.button == PointerEventData.InputButton.Right && isDragging)
+        // Handle right-click to hide tool menu
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
-            ResetToolPosition();
+            toolPlayerSystem.HideToolUI(); // ซ่อนเฉพาะ Tool Menu โดยไม่คืนเครื่องมือ
         }
     }
 
     private void Update()
     {
-        if (isDragging)
+        if (isToolBeingDragged)
         {
-            
-            if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
+            if (toolCanvas.renderMode == RenderMode.ScreenSpaceOverlay)
             {
-                rectTransform.position = Input.mousePosition; 
+                toolRectTransform.position = Input.mousePosition;
             }
-            else if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
+            else if (toolCanvas.renderMode == RenderMode.ScreenSpaceCamera)
             {
                 Vector2 localPointerPosition;
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform,
-                                                                        Input.mousePosition,
-                                                                        canvas.worldCamera,
-                                                                        out localPointerPosition);
-                rectTransform.anchoredPosition = localPointerPosition; 
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    toolCanvas.transform as RectTransform,
+                    Input.mousePosition,
+                    toolCanvas.worldCamera,
+                    out localPointerPosition);
+                toolRectTransform.anchoredPosition = localPointerPosition;
             }
         }
     }
 
-   
+    // เพิ่มฟังก์ชัน ResetToolPosition
     public void ResetToolPosition()
     {
-        isDragging = false; 
-        Cursor.visible = true; 
-        rectTransform.anchoredPosition = originalPosition; 
+        // คืนค่า tool กลับไปที่ตำแหน่งเริ่มต้น
+        isToolBeingDragged = false;
+        Cursor.visible = true;
+        toolRectTransform.anchoredPosition = originalToolPosition;
+
+        // เปิดการตรวจจับ Raycast กลับมา
+        if (toolCanvasGroup != null)
+        {
+            toolCanvasGroup.blocksRaycasts = true;
+        }
+
+        // ปล่อยเครื่องมือจาก PlayerItems
+        if (toolPlayerItems != null)
+        {
+            toolPlayerItems.SetCurrentTool(null);
+        }
     }
 }

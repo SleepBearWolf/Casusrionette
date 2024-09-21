@@ -24,9 +24,9 @@ public class PlayerSystem : MonoBehaviour
     private float pauseTimer = 0f;
 
     private bool isPointAndClickMode = false;
-
-    private GameObject heldObject = null;
+    private GameObject heldObject = null; // เก็บ object ที่ถืออยู่
     private Vector3 mouseOffset;
+    private Vector3 originalPosition;
 
     public GameObject toolUI;
     private RectTransform toolUIRectTransform;
@@ -37,9 +37,7 @@ public class PlayerSystem : MonoBehaviour
     public float uiMoveSpeed = 0.5f;
 
     private bool isAnimating = false;
-
-    private GameObject currentTool = null; 
-    private Vector2 originalToolPosition; 
+    private PlayerItems playerItems; // เพิ่มการเชื่อมต่อกับ PlayerItems
 
     private void Start()
     {
@@ -48,8 +46,11 @@ public class PlayerSystem : MonoBehaviour
 
         toolUIRectTransform = toolUI.GetComponent<RectTransform>();
 
+        // ซ่อน Tool UI เริ่มต้น
         toolUI.SetActive(false);
         toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
+
+        playerItems = FindObjectOfType<PlayerItems>(); // ค้นหา PlayerItems
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -57,11 +58,13 @@ public class PlayerSystem : MonoBehaviour
 
     private void Update()
     {
+        // สลับโหมดเมื่อกดปุ่ม Q
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SwitchMode(); 
+            SwitchMode();
         }
 
+        // จัดการการเคลื่อนที่และการกลับเข้าเขตในโหมด Normal
         if (!isPointAndClickMode && !isReturning && !isPaused)
         {
             MovePlayer();
@@ -80,16 +83,25 @@ public class PlayerSystem : MonoBehaviour
             ReturnToBounds();
         }
 
+        // จัดการการหยิบวัตถุในโหมด Point-and-Click
         if (isPointAndClickMode && !isReturning)
         {
             HandlePointAndClickMode();
         }
 
+        // จัดการการลากวัตถุ
         if (heldObject != null)
         {
             DragObject();
         }
 
+        // คืนวัตถุเมื่อกดคลิกขวา
+        if (Input.GetMouseButtonDown(1) && heldObject != null)
+        {
+            ResetItemPosition(); // คืนตำแหน่งวัตถุ
+        }
+
+        // จัดการสถานะ pause
         if (isPaused)
         {
             pauseTimer += Time.deltaTime;
@@ -146,6 +158,11 @@ public class PlayerSystem : MonoBehaviour
         transform.localScale = scaler;
     }
 
+    public bool IsPointAndClickModeActive()
+    {
+        return isPointAndClickMode;
+    }
+
     private void SwitchMode()
     {
         if (isAnimating) return;
@@ -154,7 +171,7 @@ public class PlayerSystem : MonoBehaviour
 
         if (heldObject != null)
         {
-            DropObject(); 
+            DropObject();
         }
 
         if (isPointAndClickMode)
@@ -169,18 +186,20 @@ public class PlayerSystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-           
-            GameObject[] toolItems = GameObject.FindGameObjectsWithTag("Tool"); 
+            // คืนตำแหน่ง item เมื่อสลับโหมด
+            if (heldObject != null)
+            {
+                ResetItemPosition();
+            }
+
+            // Reset เครื่องมือทั้งหมดที่ถืออยู่
+            GameObject[] toolItems = GameObject.FindGameObjectsWithTag("Tool");
             foreach (GameObject tool in toolItems)
             {
-                tool.GetComponent<DragAndDropTool>().ResetToolPosition(); 
+                tool.GetComponent<DragAndDropTool>().ResetToolPosition();
             }
         }
-
-        Debug.Log("Switched to " + (isPointAndClickMode ? "Point and Click Mode" : "Normal Mode"));
     }
-
-
 
     private void ShowToolUI()
     {
@@ -194,7 +213,7 @@ public class PlayerSystem : MonoBehaviour
         }
     }
 
-    private void HideToolUI()
+    public void HideToolUI()
     {
         if (isToolUIVisible)
         {
@@ -230,11 +249,21 @@ public class PlayerSystem : MonoBehaviour
 
     private void PickUpObject(GameObject obj)
     {
-        heldObject = obj;
-        mouseOffset = heldObject.transform.position - GetMouseWorldPosition2D();
-        obj.GetComponent<Rigidbody2D>().isKinematic = true;
+        if (heldObject == null)
+        {
+            heldObject = obj;
+            originalPosition = obj.transform.position;
+            obj.GetComponent<Rigidbody2D>().isKinematic = true;
 
-        Debug.Log("Picked up: " + obj.name);
+            Debug.Log("Picked up: " + obj.name);
+
+            // ตั้งค่า PlayerItems ให้จำ Tool นี้
+            playerItems.SetCurrentTool(heldObject);
+        }
+        else
+        {
+            Debug.Log("Cannot pick up multiple items at once.");
+        }
     }
 
     private void DropObject()
@@ -245,6 +274,9 @@ public class PlayerSystem : MonoBehaviour
             heldObject = null;
 
             Debug.Log("Dropped object");
+
+            // ลบการตั้งค่า Tool ใน PlayerItems
+            playerItems.RemoveCurrentTool();
         }
     }
 
@@ -262,6 +294,21 @@ public class PlayerSystem : MonoBehaviour
         mousePoint.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+
+    private void ResetItemPosition()
+    {
+        if (heldObject != null)
+        {
+            heldObject.transform.position = originalPosition;
+            heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            heldObject = null;
+
+            // ลบการตั้งค่าเครื่องมือใน PlayerItems
+            playerItems.RemoveCurrentTool();
+            Debug.Log("Item reset to original position");
+        }
+    }
+
 
     private void StartReturning()
     {

@@ -25,7 +25,7 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Handle left click to pick up the tool
+        
         if (toolPlayerItems.currentTool == null && toolPlayerSystem.IsPointAndClickModeActive())
         {
             if (eventData.button == PointerEventData.InputButton.Left)
@@ -48,10 +48,10 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        // Handle right-click to hide tool menu
+        
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            toolPlayerSystem.HideToolUI(); // ซ่อนเฉพาะ Tool Menu โดยไม่คืนเครื่องมือ
+            toolPlayerSystem.HideToolUI(); 
         }
     }
 
@@ -76,21 +76,21 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
         }
     }
 
-    // เพิ่มฟังก์ชัน ResetToolPosition
+    
     public void ResetToolPosition()
     {
-        // คืนค่า tool กลับไปที่ตำแหน่งเริ่มต้น
+        
         isToolBeingDragged = false;
         Cursor.visible = true;
         toolRectTransform.anchoredPosition = originalToolPosition;
 
-        // เปิดการตรวจจับ Raycast กลับมา
+       
         if (toolCanvasGroup != null)
         {
             toolCanvasGroup.blocksRaycasts = true;
         }
 
-        // ปล่อยเครื่องมือจาก PlayerItems
+        
         if (toolPlayerItems != null)
         {
             toolPlayerItems.SetCurrentTool(null);

@@ -24,7 +24,7 @@ public class PlayerSystem : MonoBehaviour
     private float pauseTimer = 0f;
 
     private bool isPointAndClickMode = false;
-    private GameObject heldObject = null; // เก็บ object ที่ถืออยู่
+    private GameObject heldObject = null; 
     private Vector3 mouseOffset;
     private Vector3 originalPosition;
 
@@ -37,7 +37,7 @@ public class PlayerSystem : MonoBehaviour
     public float uiMoveSpeed = 0.5f;
 
     private bool isAnimating = false;
-    private PlayerItems playerItems; // เพิ่มการเชื่อมต่อกับ PlayerItems
+    private PlayerItems playerItems; 
 
     private void Start()
     {
@@ -46,11 +46,11 @@ public class PlayerSystem : MonoBehaviour
 
         toolUIRectTransform = toolUI.GetComponent<RectTransform>();
 
-        // ซ่อน Tool UI เริ่มต้น
+        
         toolUI.SetActive(false);
         toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
 
-        playerItems = FindObjectOfType<PlayerItems>(); // ค้นหา PlayerItems
+        playerItems = FindObjectOfType<PlayerItems>(); 
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -58,13 +58,13 @@ public class PlayerSystem : MonoBehaviour
 
     private void Update()
     {
-        // สลับโหมดเมื่อกดปุ่ม Q
+        
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SwitchMode();
         }
 
-        // จัดการการเคลื่อนที่และการกลับเข้าเขตในโหมด Normal
+        
         if (!isPointAndClickMode && !isReturning && !isPaused)
         {
             MovePlayer();
@@ -83,25 +83,25 @@ public class PlayerSystem : MonoBehaviour
             ReturnToBounds();
         }
 
-        // จัดการการหยิบวัตถุในโหมด Point-and-Click
+        
         if (isPointAndClickMode && !isReturning)
         {
             HandlePointAndClickMode();
         }
 
-        // จัดการการลากวัตถุ
+       
         if (heldObject != null)
         {
             DragObject();
         }
 
-        // คืนวัตถุเมื่อกดคลิกขวา
+        
         if (Input.GetMouseButtonDown(1) && heldObject != null)
         {
-            ResetItemPosition(); // คืนตำแหน่งวัตถุ
+            ResetItemPosition(); 
         }
 
-        // จัดการสถานะ pause
+        
         if (isPaused)
         {
             pauseTimer += Time.deltaTime;
@@ -186,13 +186,13 @@ public class PlayerSystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            // คืนตำแหน่ง item เมื่อสลับโหมด
+           
             if (heldObject != null)
             {
                 ResetItemPosition();
             }
 
-            // Reset เครื่องมือทั้งหมดที่ถืออยู่
+            
             GameObject[] toolItems = GameObject.FindGameObjectsWithTag("Tool");
             foreach (GameObject tool in toolItems)
             {

@@ -3,24 +3,24 @@ using UnityEngine.UI;
 
 public class WorldToolUI : MonoBehaviour
 {
-    public string requiredTool; // ชื่อเครื่องมือที่จำเป็น
-    private PlayerItems playerItems; // ตัวอ้างอิงถึง PlayerItems
-    public Button toolButton; // ปุ่มที่ใช้ใน UI
+    public string requiredTool; 
+    private PlayerItems playerItems; 
+    public Button toolButton; 
 
     private void Start()
     {
-        playerItems = FindObjectOfType<PlayerItems>(); // ค้นหา PlayerItems ในฉาก
+        playerItems = FindObjectOfType<PlayerItems>(); 
 
-        // ตรวจสอบการตั้งค่า PlayerItems
+       
         if (playerItems == null)
         {
             Debug.LogError("PlayerItems ไม่ถูกตั้งค่าใน WorldToolUI!");
         }
 
-        // ตรวจสอบว่ามีการตั้งค่าปุ่มใน Inspector
+        
         if (toolButton != null)
         {
-            toolButton.onClick.AddListener(OnButtonClick); // เพิ่ม Listener สำหรับปุ่ม
+            toolButton.onClick.AddListener(OnButtonClick); 
         }
         else
         {
@@ -28,13 +28,13 @@ public class WorldToolUI : MonoBehaviour
         }
     }
 
-    // ฟังก์ชันสำหรับการคลิกปุ่ม
+   
     public void OnButtonClick()
     {
         if (playerItems != null && playerItems.HasTool(requiredTool))
         {
             Debug.Log("ใช้เครื่องมือถูกต้อง! ลบ UI");
-            Destroy(gameObject); // ลบ UI เมื่อใช้เครื่องมือถูกต้อง
+            Destroy(gameObject); 
         }
         else
         {

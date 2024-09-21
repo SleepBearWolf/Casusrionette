@@ -257,7 +257,7 @@ public class PlayerSystem : MonoBehaviour
 
             Debug.Log("Picked up: " + obj.name);
 
-            // ตั้งค่า PlayerItems ให้จำ Tool นี้
+           
             playerItems.SetCurrentTool(heldObject);
         }
         else
@@ -275,7 +275,7 @@ public class PlayerSystem : MonoBehaviour
 
             Debug.Log("Dropped object");
 
-            // ลบการตั้งค่า Tool ใน PlayerItems
+            
             playerItems.RemoveCurrentTool();
         }
     }
@@ -303,7 +303,7 @@ public class PlayerSystem : MonoBehaviour
             heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
             heldObject = null;
 
-            // ลบการตั้งค่าเครื่องมือใน PlayerItems
+            
             playerItems.RemoveCurrentTool();
             Debug.Log("Item reset to original position");
         }

@@ -6511,6 +6511,16 @@ MonoBehaviour:
   hidePositionY: -600
   showPositionY: -440
   uiMoveSpeed: 0.5
+  sceneLoadPoints:
+  - boundaryObject: {fileID: 0}
+    keyToLoadScene: 101
+    sceneName: 
+    loadOnCollision: 0
+    loadOnKeyPress: 0
+    requiredCollisionCount: 1
+    sceneToLoad: {fileID: 0}
+  playerTools: []
+  currentTool: {fileID: 0}
 --- !u!4 &1566704458
 Transform:
   m_ObjectHideFlags: 0

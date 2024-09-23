@@ -3,44 +3,50 @@ using UnityEngine.EventSystems;
 
 public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHandler
 {
-    private RectTransform toolRectTransform;
-    private Canvas toolCanvas;
-    private Vector2 originalToolPosition;
-    private bool isToolBeingDragged = false;
+    private RectTransform rectTransform;
+    private Canvas canvas;
+    private Vector2 originalPosition;
+    private bool isFollowingMouse = false;
 
-    private PlayerItems toolPlayerItems;
-    private CanvasGroup toolCanvasGroup;
-    private PlayerSystem toolPlayerSystem;
+    private PlayerItems playerItems;
+    private CanvasGroup canvasGroup;
+    private PlayerSystem playerSystem;
 
     private void Start()
     {
-        toolRectTransform = GetComponent<RectTransform>();
-        toolCanvas = GetComponentInParent<Canvas>();
-        originalToolPosition = toolRectTransform.anchoredPosition;
+        rectTransform = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
+        originalPosition = rectTransform.anchoredPosition;
 
-        toolPlayerItems = FindObjectOfType<PlayerItems>();
-        toolCanvasGroup = GetComponent<CanvasGroup>();
-        toolPlayerSystem = FindObjectOfType<PlayerSystem>();
+        playerItems = FindObjectOfType<PlayerItems>();
+        canvasGroup = GetComponent<CanvasGroup>();
+        playerSystem = FindObjectOfType<PlayerSystem>();
+
+        if (canvasGroup != null)
+        {
+            
+            canvasGroup.blocksRaycasts = true;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         
-        if (toolPlayerItems.currentTool == null && toolPlayerSystem.IsPointAndClickModeActive())
+        if (playerItems.currentTool == null && playerSystem.IsPointAndClickModeActive())
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                isToolBeingDragged = true;
+                isFollowingMouse = true;
                 Cursor.visible = false;
 
-                if (toolPlayerItems != null)
+                if (playerItems != null)
                 {
-                    toolPlayerItems.SetCurrentTool(gameObject);
+                    playerItems.SetCurrentTool(gameObject);
                 }
 
-                if (toolCanvasGroup != null)
+                if (canvasGroup != null)
                 {
-                    toolCanvasGroup.blocksRaycasts = false;
+                    canvasGroup.blocksRaycasts = false;  
                 }
             }
         }
@@ -49,51 +55,69 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
     public void OnPointerUp(PointerEventData eventData)
     {
         
-        if (eventData.button == PointerEventData.InputButton.Right)
+        if (eventData.button == PointerEventData.InputButton.Right && isFollowingMouse)
         {
-            toolPlayerSystem.HideToolUI(); 
+            CancelTool();  
+        }
+    }
+
+    
+    public void CancelTool()
+    {
+        isFollowingMouse = false;
+        rectTransform.anchoredPosition = originalPosition;
+
+        
+        if (canvasGroup != null)
+        {
+            canvasGroup.blocksRaycasts = true;  
+        }
+
+        
+        if (playerItems != null)
+        {
+            playerItems.RemoveCurrentTool();
+        }
+
+        Cursor.visible = true;  
+    }
+
+    public void ResetToolPosition()
+    {
+        rectTransform.anchoredPosition = originalPosition;
+        isFollowingMouse = false;
+
+        if (canvasGroup != null)
+        {
+            canvasGroup.blocksRaycasts = true;
         }
     }
 
     private void Update()
     {
-        if (isToolBeingDragged)
+        
+        if (isFollowingMouse)
         {
-            if (toolCanvas.renderMode == RenderMode.ScreenSpaceOverlay)
+            if (canvas.renderMode == RenderMode.ScreenSpaceOverlay)
             {
-                toolRectTransform.position = Input.mousePosition;
+                rectTransform.position = Input.mousePosition;
             }
-            else if (toolCanvas.renderMode == RenderMode.ScreenSpaceCamera)
+            else if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
             {
                 Vector2 localPointerPosition;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    toolCanvas.transform as RectTransform,
+                    canvas.transform as RectTransform,
                     Input.mousePosition,
-                    toolCanvas.worldCamera,
+                    canvas.worldCamera,
                     out localPointerPosition);
-                toolRectTransform.anchoredPosition = localPointerPosition;
+                rectTransform.anchoredPosition = localPointerPosition;
             }
         }
-    }
-
-    
-    public void ResetToolPosition()
-    {
-        
-        isToolBeingDragged = false;
-        Cursor.visible = true;
-        toolRectTransform.anchoredPosition = originalToolPosition;
-
-       
-        if (toolCanvasGroup != null)
-        {
-            toolCanvasGroup.blocksRaycasts = true;
-        }
 
         
-        if (toolPlayerItems != null)
+        if (Input.GetKeyDown(KeyCode.E) && isFollowingMouse)
         {
-            toolPlayerItems.SetCurrentTool(null);
+            CancelTool();  
         }
     }
 }

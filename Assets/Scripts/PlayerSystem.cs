@@ -57,13 +57,13 @@ public class PlayerSystem : MonoBehaviour
 
     private void Update()
     {
-        // กด Q เพื่อสลับโหมด
+        
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SwitchMode();
         }
 
-        // ตรวจสอบการเคลื่อนที่ในโหมด Normal
+        
         if (!isPointAndClickMode && !isReturning && !isPaused)
         {
             MovePlayer();
@@ -82,19 +82,19 @@ public class PlayerSystem : MonoBehaviour
             ReturnToBounds();
         }
 
-        // จัดการโหมด Point-and-Click
+        
         if (isPointAndClickMode && !isReturning)
         {
             HandlePointAndClickMode();
         }
 
-        // จัดการการคืนเครื่องมือเมื่อกดคลิกขวา
+        
         if (Input.GetMouseButtonDown(1) && heldObject != null)
         {
-            ResetHeldTool();  // เรียกใช้การคืนเครื่องมือ
+            ResetHeldTool();  
         }
 
-        // จัดการการหยุดชั่วคราว
+        
         if (isPaused)
         {
             pauseTimer += Time.deltaTime;
@@ -106,16 +106,16 @@ public class PlayerSystem : MonoBehaviour
         }
     }
 
-    // ฟังก์ชันคืนเครื่องมือที่ถืออยู่
+    
     private void ResetHeldTool()
     {
         if (heldObject != null)
         {
-            // เรียกฟังก์ชัน ResetToolPosition ใน DragAndDropTool
-            heldObject.GetComponent<DragAndDropTool>().CancelTool();  // ใช้ CancelTool() แทน ResetToolPosition()
+            
+            heldObject.GetComponent<DragAndDropTool>().CancelTool();  
             heldObject = null;
 
-            // คืนการตั้งค่า Cursor และปล่อยเครื่องมือ
+            
             Cursor.visible = true;
             playerItems.RemoveCurrentTool();
 

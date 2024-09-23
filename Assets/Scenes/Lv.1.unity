@@ -1386,8 +1386,10 @@ MonoBehaviour:
   spawnInterval: 1
   minX: -18
   maxX: 25
-  minY: -5
-  maxY: 5
+  topZoneMinY: 0
+  topZoneMaxY: 5
+  bottomZoneMinY: -5
+  bottomZoneMaxY: -1
   toolColors:
   - {r: 0.4339623, g: 0.24020554, b: 0.18627627, a: 1}
   - {r: 0, g: 0.68229055, b: 1, a: 1}
@@ -1398,6 +1400,7 @@ MonoBehaviour:
   - {fileID: 629436631}
   - {fileID: 979531829}
   - {fileID: 1215902060}
+  isTopZoneForTool: 00010100
 --- !u!1 &413020365
 GameObject:
   m_ObjectHideFlags: 0

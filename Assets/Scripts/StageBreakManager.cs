@@ -14,14 +14,25 @@ public class StageBreakManager : MonoBehaviour
     [Header("Spawn Settings")]
     public int maxSpawns = 5;
     public float spawnInterval = 3f;
+
+    [Header("Zone Settings")]
     public float minX = -18f;
     public float maxX = 25f;
-    public float minY = -5f;
-    public float maxY = 5f;
+
+    
+    public float topZoneMinY = 0f;
+    public float topZoneMaxY = 5f;
+
+    
+    public float bottomZoneMinY = -5f;
+    public float bottomZoneMaxY = -1f;
 
     [Header("Tool Settings")]
-    public List<Color> toolColors = new List<Color>(); 
-    public List<GameObject> toolObjects = new List<GameObject>();  
+    public List<Color> toolColors = new List<Color>();
+    public List<GameObject> toolObjects = new List<GameObject>();
+
+    
+    public List<bool> isTopZoneForTool = new List<bool>();
 
     private int spawnCount = 0;
     private PlayerItems playerItems;
@@ -63,8 +74,22 @@ public class StageBreakManager : MonoBehaviour
         }
 
         
+        int randomIndex = Random.Range(0, toolObjects.Count);
+        GameObject randomTool = toolObjects[randomIndex];
+
+        
+        float randomY;
+        if (isTopZoneForTool[randomIndex])
+        {
+            randomY = Random.Range(topZoneMinY, topZoneMaxY);  
+        }
+        else
+        {
+            randomY = Random.Range(bottomZoneMinY, bottomZoneMaxY);  
+        }
+
+        
         float randomX = Random.Range(minX, maxX);
-        float randomY = Random.Range(minY, maxY);
 
         
         GameObject newUI = Instantiate(uiPrefab, uiContainer);
@@ -87,13 +112,9 @@ public class StageBreakManager : MonoBehaviour
         newUI.GetComponent<RectTransform>().sizeDelta = randomSize;
 
         
-        int randomIndex = Random.Range(0, toolObjects.Count);
-        GameObject randomTool = toolObjects[randomIndex];
-
-        
         if (randomIndex < toolColors.Count)
         {
-            uiImage.color = toolColors[randomIndex]; 
+            uiImage.color = toolColors[randomIndex];
         }
         else
         {
@@ -105,7 +126,7 @@ public class StageBreakManager : MonoBehaviour
         WorldToolUI worldToolUI = newUI.GetComponent<WorldToolUI>();
         if (worldToolUI != null)
         {
-            worldToolUI.requiredTool = randomTool.name;  
+            worldToolUI.requiredTool = randomTool.name;
         }
 
         spawnCount++;

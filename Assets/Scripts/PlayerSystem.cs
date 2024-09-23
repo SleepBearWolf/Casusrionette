@@ -57,13 +57,13 @@ public class PlayerSystem : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             SwitchMode();
         }
 
-        
+
         if (!isPointAndClickMode && !isReturning && !isPaused)
         {
             MovePlayer();
@@ -82,19 +82,19 @@ public class PlayerSystem : MonoBehaviour
             ReturnToBounds();
         }
 
-        
+
         if (isPointAndClickMode && !isReturning)
         {
             HandlePointAndClickMode();
         }
 
-        
+
         if (Input.GetMouseButtonDown(1) && heldObject != null)
         {
-            ResetHeldTool();  
+            ResetHeldTool();
         }
 
-        
+
         if (isPaused)
         {
             pauseTimer += Time.deltaTime;
@@ -106,16 +106,16 @@ public class PlayerSystem : MonoBehaviour
         }
     }
 
-    
+
     private void ResetHeldTool()
     {
         if (heldObject != null)
         {
-            
-            heldObject.GetComponent<DragAndDropTool>().CancelTool();  
+
+            heldObject.GetComponent<DragAndDropTool>().CancelTool();
             heldObject = null;
 
-            
+
             Cursor.visible = true;
             playerItems.RemoveCurrentTool();
 
@@ -178,12 +178,21 @@ public class PlayerSystem : MonoBehaviour
     {
         if (isAnimating) return;
 
-        isPointAndClickMode = !isPointAndClickMode;
-
+        
         if (heldObject != null)
         {
-            DropObject();
+            
+            var dragAndDropTool = heldObject.GetComponent<DragAndDropTool>();
+            if (dragAndDropTool != null)
+            {
+                dragAndDropTool.CancelTool();  
+            }
+            heldObject = null;
+            playerItems.RemoveCurrentTool();  
         }
+
+        
+        isPointAndClickMode = !isPointAndClickMode;
 
         if (isPointAndClickMode)
         {
@@ -196,19 +205,9 @@ public class PlayerSystem : MonoBehaviour
             HideToolUI();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-
-            if (heldObject != null)
-            {
-                ResetItemPosition();
-            }
-
-            GameObject[] toolItems = GameObject.FindGameObjectsWithTag("Tool");
-            foreach (GameObject tool in toolItems)
-            {
-                tool.GetComponent<DragAndDropTool>().ResetToolPosition();
-            }
         }
     }
+
 
     private void ShowToolUI()
     {

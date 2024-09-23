@@ -46,7 +46,7 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
 
                 if (canvasGroup != null)
                 {
-                    canvasGroup.blocksRaycasts = false;  
+                    canvasGroup.blocksRaycasts = false; 
                 }
             }
         }
@@ -67,13 +67,13 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
         isFollowingMouse = false;
         rectTransform.anchoredPosition = originalPosition;
 
-        
+       
         if (canvasGroup != null)
         {
-            canvasGroup.blocksRaycasts = true;  
+            canvasGroup.blocksRaycasts = true; 
         }
 
-        
+       
         if (playerItems != null)
         {
             playerItems.RemoveCurrentTool();
@@ -117,7 +117,14 @@ public class DragAndDropTool : MonoBehaviour, IPointerClickHandler, IPointerUpHa
         
         if (Input.GetKeyDown(KeyCode.E) && isFollowingMouse)
         {
+            CancelTool();
+        }
+
+        
+        if (Input.GetKeyDown(KeyCode.Q) && isFollowingMouse)
+        {
             CancelTool();  
         }
     }
+
 }

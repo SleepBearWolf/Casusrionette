@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
-using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
+[RequireComponent(typeof(Collider2D))]
 public class PlayerSystem : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private float returnSpeed = 2f;
@@ -24,19 +30,28 @@ public class PlayerSystem : MonoBehaviour
     private float pauseTimer = 0f;
 
     private bool isPointAndClickMode = false;
-
     private GameObject heldObject = null;
     private Vector3 mouseOffset;
+    private Vector3 originalPosition;
 
     public GameObject toolUI;
     private RectTransform toolUIRectTransform;
     public bool isToolUIVisible = false;
 
     public float hidePositionY = -600f;
-    public float showPositionY = 0f;
+    public float showPositionY = -440f;
     public float uiMoveSpeed = 0.5f;
 
     private bool isAnimating = false;
+
+   
+    [Header("Scene Load Settings")]
+    public List<SceneLoadPoint> sceneLoadPoints = new List<SceneLoadPoint>();
+
+    
+    [Header("Player Tools Settings")]
+    public List<GameObject> playerTools = new List<GameObject>();
+    public GameObject currentTool;
 
     private void Start()
     {
@@ -70,6 +85,8 @@ public class PlayerSystem : MonoBehaviour
             {
                 StartReturning();
             }
+
+            CheckBoundaries();
         }
 
         if (isReturning)
@@ -82,9 +99,9 @@ public class PlayerSystem : MonoBehaviour
             HandlePointAndClickMode();
         }
 
-        if (heldObject != null)
+        if (Input.GetMouseButtonDown(1) && heldObject != null)
         {
-            DragObject();
+            ResetHeldTool();
         }
 
         if (isPaused)
@@ -95,6 +112,54 @@ public class PlayerSystem : MonoBehaviour
                 isPaused = false;
                 isReturning = true;
             }
+        }
+
+       
+        foreach (var loadPoint in sceneLoadPoints)
+        {
+            if (loadPoint.CheckCondition(transform.position))
+            {
+                loadPoint.IncrementCollisionCount();
+                if (loadPoint.CanLoadScene())
+                {
+                    LoadScene(loadPoint.sceneName);
+                    loadPoint.ResetCollisionCount();
+                }
+            }
+        }
+    }
+
+    private void CheckBoundaries()
+    {
+        if (transform.position.x <= minX || transform.position.x >= maxX)
+        {
+            
+        }
+    }
+
+    private void LoadScene(string sceneName)
+    {
+        if (!string.IsNullOrEmpty(sceneName))
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogWarning("ไม่มีการตั้งค่าชื่อฉากที่จะโหลดใน Inspector!");
+        }
+    }
+
+    private void ResetHeldTool()
+    {
+        if (heldObject != null)
+        {
+            heldObject.GetComponent<DragAndDropTool>().CancelTool();
+            heldObject = null;
+
+            Cursor.visible = true;
+            RemoveCurrentTool();
+
+            Debug.Log("Reset tool to original position");
         }
     }
 
@@ -143,16 +208,27 @@ public class PlayerSystem : MonoBehaviour
         transform.localScale = scaler;
     }
 
+    public bool IsPointAndClickModeActive()
+    {
+        return isPointAndClickMode;
+    }
+
     private void SwitchMode()
     {
         if (isAnimating) return;
 
-        isPointAndClickMode = !isPointAndClickMode;
-
         if (heldObject != null)
         {
-            DropObject();
+            var dragAndDropTool = heldObject.GetComponent<DragAndDropTool>();
+            if (dragAndDropTool != null)
+            {
+                dragAndDropTool.CancelTool();
+            }
+            heldObject = null;
+            RemoveCurrentTool();
         }
+
+        isPointAndClickMode = !isPointAndClickMode;
 
         if (isPointAndClickMode)
         {
@@ -166,8 +242,6 @@ public class PlayerSystem : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-
-        Debug.Log("Switched to " + (isPointAndClickMode ? "Point and Click Mode" : "Normal Mode"));
     }
 
     private void ShowToolUI()
@@ -182,7 +256,7 @@ public class PlayerSystem : MonoBehaviour
         }
     }
 
-    private void HideToolUI()
+    public void HideToolUI()
     {
         if (isToolUIVisible)
         {
@@ -218,11 +292,20 @@ public class PlayerSystem : MonoBehaviour
 
     private void PickUpObject(GameObject obj)
     {
-        heldObject = obj;
-        mouseOffset = heldObject.transform.position - GetMouseWorldPosition2D();
-        obj.GetComponent<Rigidbody2D>().isKinematic = true;
+        if (heldObject == null)
+        {
+            heldObject = obj;
+            originalPosition = obj.transform.position;
+            obj.GetComponent<Rigidbody2D>().isKinematic = true;
 
-        Debug.Log("Picked up: " + obj.name);
+            Debug.Log("Picked up: " + obj.name);
+
+            SetCurrentTool(heldObject);
+        }
+        else
+        {
+            Debug.Log("Cannot pick up multiple items at once.");
+        }
     }
 
     private void DropObject()
@@ -233,6 +316,8 @@ public class PlayerSystem : MonoBehaviour
             heldObject = null;
 
             Debug.Log("Dropped object");
+
+            RemoveCurrentTool();
         }
     }
 
@@ -249,6 +334,19 @@ public class PlayerSystem : MonoBehaviour
         Vector3 mousePoint = Input.mousePosition;
         mousePoint.z = Camera.main.nearClipPlane;
         return Camera.main.ScreenToWorldPoint(mousePoint);
+    }
+
+    private void ResetItemPosition()
+    {
+        if (heldObject != null)
+        {
+            heldObject.transform.position = originalPosition;
+            heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
+            heldObject = null;
+
+            RemoveCurrentTool();
+            Debug.Log("Item reset to original position");
+        }
     }
 
     private void StartReturning()
@@ -289,5 +387,98 @@ public class PlayerSystem : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector3(minX, -10, 0), new Vector3(minX, 10, 0));
         Gizmos.DrawLine(new Vector3(maxX, -10, 0), new Vector3(maxX, 10, 0));
+    }
+
+
+    public bool HasTool(string toolName)
+    {
+        return currentTool != null && currentTool.name == toolName;
+    }
+
+    public void SetCurrentTool(GameObject tool)
+    {
+        if (currentTool != null && tool != null)
+        {
+            Debug.Log("Player already has a tool: " + currentTool.name);
+            return;
+        }
+
+        currentTool = tool;
+        if (tool != null)
+        {
+            Debug.Log("Picked up new tool: " + tool.name);
+        }
+    }
+
+    public void AddTool(GameObject newTool)
+    {
+        playerTools.Add(newTool);
+        Debug.Log("Added new tool: " + newTool.name);
+    }
+
+    public void RemoveCurrentTool()
+    {
+        if (currentTool != null)
+        {
+            Debug.Log("Dropped tool: " + currentTool.name);
+            currentTool = null;
+        }
+    }
+}
+
+[System.Serializable]
+public class SceneLoadPoint
+{
+    public GameObject boundaryObject;
+    public KeyCode keyToLoadScene;
+    public string sceneName;
+    public bool loadOnCollision;
+    public bool loadOnKeyPress;
+
+    public int requiredCollisionCount = 1;
+    private int currentCollisionCount = 0;
+
+#if UNITY_EDITOR
+    public SceneAsset sceneToLoad;
+
+    public string GetSceneName()
+    {
+        return sceneToLoad != null ? sceneToLoad.name : string.Empty;
+    }
+
+    public void SetSceneName()
+    {
+        if (sceneToLoad != null)
+        {
+            sceneName = sceneToLoad.name;
+        }
+    }
+#endif
+
+    public bool CheckCondition(Vector3 playerPosition)
+    {
+        if (boundaryObject != null && playerPosition.x >= boundaryObject.transform.position.x)
+        {
+            if (loadOnCollision || (loadOnKeyPress && Input.GetKeyDown(keyToLoadScene)))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void IncrementCollisionCount()
+    {
+        currentCollisionCount++;
+    }
+
+    public bool CanLoadScene()
+    {
+        return currentCollisionCount >= requiredCollisionCount;
+    }
+
+    public void ResetCollisionCount()
+    {
+        currentCollisionCount = 0;
     }
 }

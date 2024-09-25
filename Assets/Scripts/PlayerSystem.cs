@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 [RequireComponent(typeof(Collider2D))]
 public class PlayerSystem : MonoBehaviour
@@ -44,11 +41,9 @@ public class PlayerSystem : MonoBehaviour
 
     private bool isAnimating = false;
 
-   
     [Header("Scene Load Settings")]
     public List<SceneLoadPoint> sceneLoadPoints = new List<SceneLoadPoint>();
 
-    
     [Header("Player Tools Settings")]
     public List<GameObject> playerTools = new List<GameObject>();
     public GameObject currentTool;
@@ -85,8 +80,6 @@ public class PlayerSystem : MonoBehaviour
             {
                 StartReturning();
             }
-
-            CheckBoundaries();
         }
 
         if (isReturning)
@@ -114,20 +107,76 @@ public class PlayerSystem : MonoBehaviour
             }
         }
 
-       
         foreach (var loadPoint in sceneLoadPoints)
         {
             if (loadPoint.CheckCondition(transform.position))
             {
-                loadPoint.IncrementCollisionCount();
-                if (loadPoint.CanLoadScene())
+                if (loadPoint.loadType == SceneLoadPoint.LoadType.Collision)
                 {
-                    LoadScene(loadPoint.sceneName);
-                    loadPoint.ResetCollisionCount();
+                    if (loadPoint.CanLoadSceneWithCollision())
+                    {
+                        LoadScene(loadPoint.sceneName);
+                        loadPoint.ResetCollisionCount();
+                    }
+                }
+                else if (loadPoint.loadType == SceneLoadPoint.LoadType.KeyPress)
+                {
+                    if (Input.GetKeyDown(loadPoint.keyToLoadScene))
+                    {
+                        loadPoint.IncrementKeyPressCount();
+                        if (loadPoint.CanLoadSceneWithKeyPress())
+                        {
+                            LoadScene(loadPoint.sceneName);
+                            loadPoint.ResetKeyPressCount();
+                        }
+                    }
                 }
             }
         }
     }
+    private bool isInTrigger = false;
+    [SerializeField] private float collisionCooldown = 0.5f;
+    private float lastCollisionTime = 0f;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        foreach (var loadPoint in sceneLoadPoints)
+        {
+            
+            if (other.gameObject == loadPoint.boundaryObject && loadPoint.loadType == SceneLoadPoint.LoadType.Collision && !isInTrigger)
+            {
+                isInTrigger = true; 
+
+               
+                if (Time.time - lastCollisionTime > collisionCooldown)
+                {
+                    lastCollisionTime = Time.time; 
+                    loadPoint.IncrementCollisionCount(); 
+
+                    Debug.Log("Collision count: " + loadPoint.currentCollisionCount + " / " + loadPoint.requiredCollisionCount);
+
+                    
+                    if (loadPoint.CanLoadSceneWithCollision())
+                    {
+                        LoadScene(loadPoint.sceneName);
+                        loadPoint.ResetCollisionCount(); 
+                    }
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        foreach (var loadPoint in sceneLoadPoints)
+        {
+            if (other.gameObject == loadPoint.boundaryObject)
+            {
+                isInTrigger = false;  
+            }
+        }
+    }
+
 
     private void CheckBoundaries()
     {
@@ -145,7 +194,7 @@ public class PlayerSystem : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("ไม่มีการตั้งค่าชื่อฉากที่จะโหลดใน Inspector!");
+            Debug.LogWarning("There is no scene name setting to load in Inspector!");
         }
     }
 
@@ -389,7 +438,6 @@ public class PlayerSystem : MonoBehaviour
         Gizmos.DrawLine(new Vector3(maxX, -10, 0), new Vector3(maxX, 10, 0));
     }
 
-
     public bool HasTool(string toolName)
     {
         return currentTool != null && currentTool.name == toolName;
@@ -429,56 +477,53 @@ public class PlayerSystem : MonoBehaviour
 [System.Serializable]
 public class SceneLoadPoint
 {
+    public enum LoadType { Collision, KeyPress } 
+    public LoadType loadType; 
+
     public GameObject boundaryObject;
     public KeyCode keyToLoadScene;
     public string sceneName;
-    public bool loadOnCollision;
-    public bool loadOnKeyPress;
 
     public int requiredCollisionCount = 1;
-    private int currentCollisionCount = 0;
+    public int requiredKeyPressCount = 1;
 
-#if UNITY_EDITOR
-    public SceneAsset sceneToLoad;
-
-    public string GetSceneName()
-    {
-        return sceneToLoad != null ? sceneToLoad.name : string.Empty;
-    }
-
-    public void SetSceneName()
-    {
-        if (sceneToLoad != null)
-        {
-            sceneName = sceneToLoad.name;
-        }
-    }
-#endif
+    public int currentCollisionCount = 0;
+    public int currentKeyPressCount = 0;
 
     public bool CheckCondition(Vector3 playerPosition)
     {
-        if (boundaryObject != null && playerPosition.x >= boundaryObject.transform.position.x)
-        {
-            if (loadOnCollision || (loadOnKeyPress && Input.GetKeyDown(keyToLoadScene)))
-            {
-                return true;
-            }
-        }
-        return false;
+        return boundaryObject != null && playerPosition.x >= boundaryObject.transform.position.x;
     }
 
     public void IncrementCollisionCount()
     {
         currentCollisionCount++;
+        Debug.Log("Current collision count: " + currentCollisionCount);
     }
 
-    public bool CanLoadScene()
+    public void IncrementKeyPressCount()
+    {
+        currentKeyPressCount++;
+    }
+
+    public bool CanLoadSceneWithCollision()
     {
         return currentCollisionCount >= requiredCollisionCount;
+    }
+
+    public bool CanLoadSceneWithKeyPress()
+    {
+        return currentKeyPressCount >= requiredKeyPressCount;
     }
 
     public void ResetCollisionCount()
     {
         currentCollisionCount = 0;
     }
+
+    public void ResetKeyPressCount()
+    {
+        currentKeyPressCount = 0;
+    }
 }
+

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 public class PlayerSystem : MonoBehaviour
@@ -40,13 +39,6 @@ public class PlayerSystem : MonoBehaviour
     public float uiMoveSpeed = 0.5f;
 
     private bool isAnimating = false;
-
-    [Header("Scene Load Settings")]
-    public List<SceneLoadPoint> sceneLoadPoints = new List<SceneLoadPoint>();
-
-    [Header("Player Tools Settings")]
-    public List<GameObject> playerTools = new List<GameObject>();
-    public GameObject currentTool;
 
     private void Start()
     {
@@ -106,96 +98,6 @@ public class PlayerSystem : MonoBehaviour
                 isReturning = true;
             }
         }
-
-        foreach (var loadPoint in sceneLoadPoints)
-        {
-            if (loadPoint.CheckCondition(transform.position))
-            {
-                if (loadPoint.loadType == SceneLoadPoint.LoadType.Collision)
-                {
-                    if (loadPoint.CanLoadSceneWithCollision())
-                    {
-                        LoadScene(loadPoint.sceneName);
-                        loadPoint.ResetCollisionCount();
-                    }
-                }
-                else if (loadPoint.loadType == SceneLoadPoint.LoadType.KeyPress)
-                {
-                    if (Input.GetKeyDown(loadPoint.keyToLoadScene))
-                    {
-                        loadPoint.IncrementKeyPressCount();
-                        if (loadPoint.CanLoadSceneWithKeyPress())
-                        {
-                            LoadScene(loadPoint.sceneName);
-                            loadPoint.ResetKeyPressCount();
-                        }
-                    }
-                }
-            }
-        }
-    }
-    private bool isInTrigger = false;
-    [SerializeField] private float collisionCooldown = 0.5f;
-    private float lastCollisionTime = 0f;
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        foreach (var loadPoint in sceneLoadPoints)
-        {
-            
-            if (other.gameObject == loadPoint.boundaryObject && loadPoint.loadType == SceneLoadPoint.LoadType.Collision && !isInTrigger)
-            {
-                isInTrigger = true; 
-
-               
-                if (Time.time - lastCollisionTime > collisionCooldown)
-                {
-                    lastCollisionTime = Time.time; 
-                    loadPoint.IncrementCollisionCount(); 
-
-                    Debug.Log("Collision count: " + loadPoint.currentCollisionCount + " / " + loadPoint.requiredCollisionCount);
-
-                    
-                    if (loadPoint.CanLoadSceneWithCollision())
-                    {
-                        LoadScene(loadPoint.sceneName);
-                        loadPoint.ResetCollisionCount(); 
-                    }
-                }
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        foreach (var loadPoint in sceneLoadPoints)
-        {
-            if (other.gameObject == loadPoint.boundaryObject)
-            {
-                isInTrigger = false;  
-            }
-        }
-    }
-
-
-    private void CheckBoundaries()
-    {
-        if (transform.position.x <= minX || transform.position.x >= maxX)
-        {
-            
-        }
-    }
-
-    private void LoadScene(string sceneName)
-    {
-        if (!string.IsNullOrEmpty(sceneName))
-        {
-            SceneManager.LoadScene(sceneName);
-        }
-        else
-        {
-            Debug.LogWarning("There is no scene name setting to load in Inspector!");
-        }
     }
 
     private void ResetHeldTool()
@@ -206,9 +108,6 @@ public class PlayerSystem : MonoBehaviour
             heldObject = null;
 
             Cursor.visible = true;
-            RemoveCurrentTool();
-
-            Debug.Log("Reset tool to original position");
         }
     }
 
@@ -274,7 +173,6 @@ public class PlayerSystem : MonoBehaviour
                 dragAndDropTool.CancelTool();
             }
             heldObject = null;
-            RemoveCurrentTool();
         }
 
         isPointAndClickMode = !isPointAndClickMode;
@@ -348,8 +246,6 @@ public class PlayerSystem : MonoBehaviour
             obj.GetComponent<Rigidbody2D>().isKinematic = true;
 
             Debug.Log("Picked up: " + obj.name);
-
-            SetCurrentTool(heldObject);
         }
         else
         {
@@ -365,8 +261,6 @@ public class PlayerSystem : MonoBehaviour
             heldObject = null;
 
             Debug.Log("Dropped object");
-
-            RemoveCurrentTool();
         }
     }
 
@@ -393,7 +287,6 @@ public class PlayerSystem : MonoBehaviour
             heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
             heldObject = null;
 
-            RemoveCurrentTool();
             Debug.Log("Item reset to original position");
         }
     }
@@ -437,93 +330,4 @@ public class PlayerSystem : MonoBehaviour
         Gizmos.DrawLine(new Vector3(minX, -10, 0), new Vector3(minX, 10, 0));
         Gizmos.DrawLine(new Vector3(maxX, -10, 0), new Vector3(maxX, 10, 0));
     }
-
-    public bool HasTool(string toolName)
-    {
-        return currentTool != null && currentTool.name == toolName;
-    }
-
-    public void SetCurrentTool(GameObject tool)
-    {
-        if (currentTool != null && tool != null)
-        {
-            Debug.Log("Player already has a tool: " + currentTool.name);
-            return;
-        }
-
-        currentTool = tool;
-        if (tool != null)
-        {
-            Debug.Log("Picked up new tool: " + tool.name);
-        }
-    }
-
-    public void AddTool(GameObject newTool)
-    {
-        playerTools.Add(newTool);
-        Debug.Log("Added new tool: " + newTool.name);
-    }
-
-    public void RemoveCurrentTool()
-    {
-        if (currentTool != null)
-        {
-            Debug.Log("Dropped tool: " + currentTool.name);
-            currentTool = null;
-        }
-    }
 }
-
-[System.Serializable]
-public class SceneLoadPoint
-{
-    public enum LoadType { Collision, KeyPress } 
-    public LoadType loadType; 
-
-    public GameObject boundaryObject;
-    public KeyCode keyToLoadScene;
-    public string sceneName;
-
-    public int requiredCollisionCount = 1;
-    public int requiredKeyPressCount = 1;
-
-    public int currentCollisionCount = 0;
-    public int currentKeyPressCount = 0;
-
-    public bool CheckCondition(Vector3 playerPosition)
-    {
-        return boundaryObject != null && playerPosition.x >= boundaryObject.transform.position.x;
-    }
-
-    public void IncrementCollisionCount()
-    {
-        currentCollisionCount++;
-        Debug.Log("Current collision count: " + currentCollisionCount);
-    }
-
-    public void IncrementKeyPressCount()
-    {
-        currentKeyPressCount++;
-    }
-
-    public bool CanLoadSceneWithCollision()
-    {
-        return currentCollisionCount >= requiredCollisionCount;
-    }
-
-    public bool CanLoadSceneWithKeyPress()
-    {
-        return currentKeyPressCount >= requiredKeyPressCount;
-    }
-
-    public void ResetCollisionCount()
-    {
-        currentCollisionCount = 0;
-    }
-
-    public void ResetKeyPressCount()
-    {
-        currentKeyPressCount = 0;
-    }
-}
-

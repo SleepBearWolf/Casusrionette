@@ -1420,6 +1420,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 410011177}
+  - component: {fileID: 410011183}
   - component: {fileID: 410011182}
   m_Layer: 0
   m_Name: GameManager
@@ -1478,6 +1479,28 @@ MonoBehaviour:
   - {fileID: 979531829}
   - {fileID: 1215902060}
   isTopZoneForTool: 00010100
+--- !u!114 &410011183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410011175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2089d86b0968eb46a9f755f5783c7b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneLoadPoints:
+  - loadType: 1
+    boundaryObject: {fileID: 282966176}
+    keyToLoadScene: 101
+    sceneName: Lv.1 1
+    requiredCollisionCount: 0
+    requiredKeyPressCount: 3
+    currentCollisionCount: 0
+    currentKeyPressCount: 0
+  collisionCooldown: 1
 --- !u!1 &413020365
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,18 +6611,6 @@ MonoBehaviour:
   hidePositionY: -600
   showPositionY: -440
   uiMoveSpeed: 0.5
-  sceneLoadPoints:
-  - loadType: 0
-    boundaryObject: {fileID: 282966176}
-    keyToLoadScene: 101
-    sceneName: Lv.1 1
-    requiredCollisionCount: 3
-    requiredKeyPressCount: 0
-    currentCollisionCount: 0
-    currentKeyPressCount: 0
-  playerTools: []
-  currentTool: {fileID: 0}
-  collisionCooldown: 5
 --- !u!4 &1566704458
 Transform:
   m_ObjectHideFlags: 0

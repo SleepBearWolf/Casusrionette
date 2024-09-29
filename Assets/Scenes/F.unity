@@ -1149,7 +1149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &93663190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4276,7 +4276,7 @@ MonoBehaviour:
     boundaryObject: {fileID: 1144709101}
     keyToLoadScene: 101
     sceneName: Lv.1 1
-    requiredCollisionCount: 1
+    requiredCollisionCount: 3
     requiredKeyPressCount: 1
     currentCollisionCount: 0
     currentKeyPressCount: 0
@@ -10383,7 +10383,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.6466, y: -4.01, z: 0}
-  m_LocalScale: {x: 93.108574, y: 0.92980623, z: 1}
+  m_LocalScale: {x: 178.07014, y: 0.92980623, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -12398,7 +12398,7 @@ Transform:
   m_GameObject: {fileID: 1144709101}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.9, y: -0.23613437, z: -0.055207394}
+  m_LocalPosition: {x: -59.43, y: -0.23613437, z: -0.055207394}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16567,8 +16567,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  minX: -70
-  maxX: 70
+  minX: -59
+  maxX: 59
   toolUI: {fileID: 388666413}
   isToolUIVisible: 0
   hidePositionY: -600

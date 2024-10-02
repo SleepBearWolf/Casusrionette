@@ -9,6 +9,8 @@ public class PlayerInventory : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode dropKey = KeyCode.R;
 
+    public int inventoryCapacity = 10; 
+
     private bool isPointAndClickMode = false;
     private bool isDroppingItem = false;
     private GameObject heldItemObject = null;
@@ -24,7 +26,8 @@ public class PlayerInventory : MonoBehaviour
         if (isPointAndClickMode)
         {
             HandleItemDrop();
-            ScrollToSelectItem();
+
+            ScrollToSelectItemWithKeys();
         }
 
         if (heldItemObject != null)
@@ -59,24 +62,39 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void ScrollToSelectItem()
+    private void ScrollToSelectItemWithKeys()
     {
-        if (items.Count == 0) return;
+        if (items.Count == 0 || !isDroppingItem) return;
 
-        float scroll = Input.mouseScrollDelta.y;
+        bool itemChanged = false;
 
-        if (scroll > 0)
+        if (Input.GetKeyDown(KeyCode.D))
         {
             selectedItemIndex = (selectedItemIndex + 1) % items.Count;
+            itemChanged = true;
         }
-        else if (scroll < 0)
+        else if (Input.GetKeyDown(KeyCode.A))
         {
-            selectedItemIndex = (selectedItemIndex - 1 + items.Count) % items.Count;
+            selectedItemIndex = (selectedItemIndex - 1 + items.Count) % items.Count; 
+            itemChanged = true;
         }
 
-        selectedItemIndex = Mathf.Clamp(selectedItemIndex, 0, items.Count - 1);
+        
+        if (selectedItemIndex < 0 || selectedItemIndex >= items.Count)
+        {
+            selectedItemIndex = 0; 
+        }
 
-        Debug.Log("Selected item: " + items[selectedItemIndex].itemName);
+        if (itemChanged)
+        {
+            if (isDroppingItem && heldItemObject != null)
+            {
+                Destroy(heldItemObject); 
+                StartDrop(); 
+            }
+
+            Debug.Log("Selected item: " + items[selectedItemIndex].itemName);
+        }
     }
 
     private void StartDrop()
@@ -100,7 +118,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if (heldItemObject != null)
         {
-            Destroy(heldItemObject); 
+            Destroy(heldItemObject);
             heldItemObject = null;
         }
         isDroppingItem = false;
@@ -128,11 +146,11 @@ public class PlayerInventory : MonoBehaviour
             Rigidbody2D rb = heldItemObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.isKinematic = false;  
-                rb.velocity = Vector2.zero; 
+                rb.isKinematic = false;
+                rb.velocity = Vector2.zero;
             }
 
-            heldItemObject = null;  
+            heldItemObject = null;
             isDroppingItem = false;
 
             RemoveItem(items[selectedItemIndex]);
@@ -149,7 +167,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool AddItem(ItemBaseData item)
     {
-        if (items.Count < 10)
+        if (items.Count < inventoryCapacity) 
         {
             items.Add(item);
             Debug.Log("Added item: " + item.itemName);

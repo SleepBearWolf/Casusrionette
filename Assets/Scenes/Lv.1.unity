@@ -652,7 +652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &266973515
 Transform:
   m_ObjectHideFlags: 0
@@ -6794,6 +6794,7 @@ MonoBehaviour:
   overlapBoxSize: {x: 1.8, y: 2.9}
   pickupKey: 101
   dropKey: 114
+  inventoryCapacity: 3
 --- !u!1 &1567953495
 GameObject:
   m_ObjectHideFlags: 0

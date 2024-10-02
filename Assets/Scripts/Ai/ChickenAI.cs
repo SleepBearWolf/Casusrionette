@@ -12,27 +12,32 @@ public class ChickenAI : MonoBehaviour
     public Transform player;
     public float detectionRange = 5f;
     public float escapeSpeed = 4f;
-    public float jumpForce = 5f; 
+    public float jumpForce = 5f;
     public LayerMask groundLayer;
     public Transform groundCheck;
 
     private Rigidbody2D rb2d;
     private bool isGrounded;
 
-    private bool isCaught = false;  
+    private bool isCaught = false;
 
     private void Start()
     {
         initialPosition = transform.position;
         rb2d = GetComponent<Rigidbody2D>();
+
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player").transform;
+        }
     }
 
     private void Update()
     {
         if (!isCaught)
         {
-            Patrol();  
-            DetectPlayer(); 
+            Patrol();
+            DetectPlayer();
         }
 
         CheckIfGrounded();
@@ -45,7 +50,7 @@ public class ChickenAI : MonoBehaviour
             rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
             if (transform.position.x >= initialPosition.x + patrolRange)
             {
-                movingRight = false; 
+                movingRight = false;
             }
         }
         else
@@ -64,7 +69,7 @@ public class ChickenAI : MonoBehaviour
 
         if (distanceToPlayer < detectionRange)
         {
-            FleeFromPlayer();  
+            FleeFromPlayer();
         }
     }
 
@@ -74,12 +79,10 @@ public class ChickenAI : MonoBehaviour
 
         if (isGrounded)
         {
-            
             rb2d.velocity = fleeDirection * escapeSpeed;
         }
         else
         {
-            
             rb2d.AddForce(new Vector2(fleeDirection.x, jumpForce), ForceMode2D.Impulse);
         }
     }
@@ -92,8 +95,18 @@ public class ChickenAI : MonoBehaviour
     public void Capture()
     {
         isCaught = true;
-        rb2d.velocity = Vector2.zero;  
-        gameObject.SetActive(false);  
+        rb2d.velocity = Vector2.zero;
+        gameObject.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        isCaught = false;
+        rb2d.velocity = Vector2.zero;
+
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player").transform;
+        }
     }
 }
-

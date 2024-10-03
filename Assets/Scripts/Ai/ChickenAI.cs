@@ -35,7 +35,6 @@ public class ChickenAI : MonoBehaviour
         currentPatrolCenter = initialPosition;
         rb2d = GetComponent<Rigidbody2D>();
 
-        // ล็อคการหมุนของไก่ไม่ให้พลิกคว่ำ
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         if (player == null)
@@ -46,7 +45,6 @@ public class ChickenAI : MonoBehaviour
 
     private void Update()
     {
-        // ตรวจสอบการพลิกคว่ำ และแก้ไขให้กลับมาในท่าปกติ
         CorrectRotationIfFlipped();
 
         CheckIfGrounded();
@@ -61,7 +59,6 @@ public class ChickenAI : MonoBehaviour
                 FleeFromPlayer();
                 break;
             case ChickenState.Attack:
-                // โจมตีผู้เล่น
                 StartCoroutine(ChargeAttackPlayer());
                 break;
             case ChickenState.Return:
@@ -72,7 +69,6 @@ public class ChickenAI : MonoBehaviour
 
     private void CorrectRotationIfFlipped()
     {
-        // ถ้ามุมการหมุน Z ของไก่ไม่เท่ากับ 0 ให้ปรับกลับมาเป็น 0
         if (Mathf.Abs(transform.rotation.z) > 0.01f)
         {
             transform.rotation = Quaternion.identity;
@@ -142,7 +138,6 @@ public class ChickenAI : MonoBehaviour
 
     private IEnumerator ChargeAttackPlayer()
     {
-        // พุ่งโจมตีผู้เล่น
         Vector2 chargeDirection = (player.position - transform.position).normalized;
         rb2d.velocity = chargeDirection * escapeSpeed;
 
@@ -199,7 +194,6 @@ public class ChickenAI : MonoBehaviour
         return Physics2D.Raycast(transform.position, direction, 0.5f, obstacleLayer);
     }
 
-    // แสดงขอบเขตของไก่ด้วย Gizmos
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;

@@ -9691,6 +9691,54 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1566704458}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: jumpForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: escapeSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: patrolRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: stunDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: pauseDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: detectionRange
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: maxFleeDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: timeBeforeReturn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: playerStopThreshold
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: waitBeforeNewPatrol
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1995238681349863776, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5747878324244233854, guid: 6c0dd645cab54e74aac4ce63b2ef2d17, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.6314226

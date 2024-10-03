@@ -57,7 +57,14 @@ public class PlayerInventory : MonoBehaviour
             }
             else
             {
-                StartDrop();
+                if (items.Count > 0)
+                {
+                    StartDrop();
+                }
+                else
+                {
+                    Debug.LogWarning("Cannot drop. No items in the inventory.");
+                }
             }
         }
     }
@@ -99,7 +106,11 @@ public class PlayerInventory : MonoBehaviour
 
     private void StartDrop()
     {
-        if (items.Count == 0) return;
+        if (items.Count == 0)
+        {
+            Debug.LogWarning("No items to drop. Inventory is empty.");
+            return;
+        }
 
         isDroppingItem = true;
         ItemBaseData selectedItem = items[selectedItemIndex];
@@ -110,12 +121,16 @@ public class PlayerInventory : MonoBehaviour
             GameObject droppedItem = Instantiate(selectedItem.itemPrefab, transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
             heldItemObject = droppedItem;
             heldItemObject.GetComponent<Rigidbody2D>().isKinematic = true;
-
+        }
+        else
+        {
+            Debug.LogWarning("Selected item cannot be dropped.");
         }
     }
 
+
     private void CancelDrop()
-    {
+    {                   
         if (heldItemObject != null)
         {
             Destroy(heldItemObject);

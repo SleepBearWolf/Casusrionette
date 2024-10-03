@@ -323,6 +323,16 @@ public class PlayerSystem : MonoBehaviour
             isReturning = false;
         }
     }
+    public void Stun(float duration)
+    {
+        Debug.Log("Player stunned for " + duration + " seconds.");
+    }
+
+    public void PushBack(Vector2 direction, float force)
+    {
+        rb2d.AddForce(direction * force, ForceMode2D.Impulse);
+        Debug.Log("Player pushed back with force: " + force);
+    }
 
     private void OnDrawGizmos()
     {

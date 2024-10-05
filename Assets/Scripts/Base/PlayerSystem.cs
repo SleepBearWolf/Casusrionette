@@ -11,6 +11,8 @@ public class PlayerSystem : MonoBehaviour
     [SerializeField] private float returnSpeed = 2f;
     [SerializeField] private float pauseDuration = 1f;
     [SerializeField] private float flipDelay = 0.5f;
+    [SerializeField] private float pushBackDuration = 1f;  // ระยะเวลาที่จะถูกผลัก
+    [SerializeField] private float pushBackSpeed = 3f;  // ความเร็วในการเดินถอยหลัง
 
     private Rigidbody2D rb2d;
     private bool isGrounded;
@@ -23,6 +25,7 @@ public class PlayerSystem : MonoBehaviour
 
     private bool isReturning = false;
     private bool isPaused = false;
+    private bool isPushedBack = false; // สถานะว่ากำลังถูกผลักถอยหลัง
     private float pauseTimer = 0f;
 
     private bool isPointAndClickMode = false;
@@ -61,7 +64,7 @@ public class PlayerSystem : MonoBehaviour
             SwitchMode();
         }
 
-        if (!isPointAndClickMode && !isReturning && !isPaused)
+        if (!isPointAndClickMode && !isReturning && !isPaused && !isPushedBack)
         {
             MovePlayer();
             CheckIfGrounded();
@@ -323,15 +326,35 @@ public class PlayerSystem : MonoBehaviour
             isReturning = false;
         }
     }
+
     public void Stun(float duration)
     {
         Debug.Log("Player stunned for " + duration + " seconds.");
+        StartCoroutine(DisablePlayerControl(duration)); 
     }
 
     public void PushBack(Vector2 direction, float force)
     {
-        rb2d.AddForce(direction * force, ForceMode2D.Impulse);
         Debug.Log("Player pushed back with force: " + force);
+        StartCoroutine(PushBackCoroutine(direction, force));  
+    }
+
+    private IEnumerator DisablePlayerControl(float duration)
+    {
+        isPaused = true;
+        rb2d.velocity = Vector2.zero;
+        yield return new WaitForSeconds(duration);
+        isPaused = false;
+    }
+
+    private IEnumerator PushBackCoroutine(Vector2 direction, float force)
+    {
+        isPushedBack = true;
+        rb2d.velocity = -direction * pushBackSpeed;
+
+        yield return new WaitForSeconds(pushBackDuration);
+
+        isPushedBack = false;
     }
 
     private void OnDrawGizmos()

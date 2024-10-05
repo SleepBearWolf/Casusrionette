@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode dropKey = KeyCode.R;
 
-    public int inventoryCapacity = 10; 
+    public int inventoryCapacity = 10;
 
     private bool isPointAndClickMode = false;
     private bool isDroppingItem = false;
@@ -26,13 +26,17 @@ public class PlayerInventory : MonoBehaviour
         if (isPointAndClickMode)
         {
             HandleItemDrop();
-
             ScrollToSelectItemWithKeys();
         }
 
         if (heldItemObject != null)
         {
             DragHeldItem();
+        }
+
+        if (Input.GetKeyDown(pickupKey))
+        {
+            PickupItem();
         }
     }
 
@@ -82,22 +86,21 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            selectedItemIndex = (selectedItemIndex - 1 + items.Count) % items.Count; 
+            selectedItemIndex = (selectedItemIndex - 1 + items.Count) % items.Count;
             itemChanged = true;
         }
 
-        
         if (selectedItemIndex < 0 || selectedItemIndex >= items.Count)
         {
-            selectedItemIndex = 0; 
+            selectedItemIndex = 0;
         }
 
         if (itemChanged)
         {
             if (isDroppingItem && heldItemObject != null)
             {
-                Destroy(heldItemObject); 
-                StartDrop(); 
+                Destroy(heldItemObject);
+                StartDrop();
             }
 
             Debug.Log("Selected item: " + items[selectedItemIndex].itemName);
@@ -121,6 +124,14 @@ public class PlayerInventory : MonoBehaviour
             GameObject droppedItem = Instantiate(selectedItem.itemPrefab, transform.position + new Vector3(1f, 0f, 0f), Quaternion.identity);
             heldItemObject = droppedItem;
             heldItemObject.GetComponent<Rigidbody2D>().isKinematic = true;
+
+            ItemPickupAndDraggable draggable = heldItemObject.GetComponent<ItemPickupAndDraggable>();
+            if (draggable != null)
+            {
+                draggable.DropAndEnableDrag();
+            }
+
+            isDroppingItem = false;
         }
         else
         {
@@ -128,9 +139,8 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-
     private void CancelDrop()
-    {                   
+    {
         if (heldItemObject != null)
         {
             Destroy(heldItemObject);
@@ -182,7 +192,7 @@ public class PlayerInventory : MonoBehaviour
 
     public bool AddItem(ItemBaseData item)
     {
-        if (items.Count < inventoryCapacity) 
+        if (items.Count < inventoryCapacity)
         {
             items.Add(item);
             Debug.Log("Added item: " + item.itemName);
@@ -205,6 +215,19 @@ public class PlayerInventory : MonoBehaviour
         else
         {
             Debug.LogWarning("Item not found in inventory.");
+        }
+    }
+
+    private void PickupItem()
+    {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, overlapBoxSize, 0f);
+        foreach (Collider2D collider in colliders)
+        {
+            ItemPickupAndDraggable itemPickup = collider.GetComponent<ItemPickupAndDraggable>();
+            if (itemPickup != null)
+            {
+                itemPickup.PickupItem();
+            }
         }
     }
 

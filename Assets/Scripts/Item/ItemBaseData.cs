@@ -14,8 +14,8 @@ public class ItemBaseData : ScriptableObject
     public string itemName;
     public string itemDescription;
     public ItemType itemType;
-    public Sprite itemIcon; 
-    public GameObject itemPrefab; 
+    public Sprite itemIcon;
+    public GameObject itemPrefab;
 
     public void Use()
     {

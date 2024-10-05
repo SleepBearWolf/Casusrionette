@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18287adf80c2cbe4ea8a495f866aca6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boxSize: {x: 2, y: 2}
+  captureDuration: 5
 --- !u!114 &221375388269685049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,10 +156,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

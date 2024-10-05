@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class PlayerSystem : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -11,8 +12,17 @@ public class PlayerSystem : MonoBehaviour
     [SerializeField] private float returnSpeed = 2f;
     [SerializeField] private float pauseDuration = 1f;
     [SerializeField] private float flipDelay = 0.5f;
-    [SerializeField] private float pushBackDuration = 1f;  // ระยะเวลาที่จะถูกผลัก
-    [SerializeField] private float pushBackSpeed = 3f;  // ความเร็วในการเดินถอยหลัง
+    [SerializeField] private float pushBackDuration = 1f;
+    [SerializeField] private float pushBackSpeed = 3f;
+
+    [Header("Animation Settings")]
+    private Animator animator;
+
+    [SerializeField] private AnimationClip runAnimationClip;
+    [SerializeField] private AnimationClip idleAnimationClip;
+    [SerializeField] private AnimationClip jumpAnimationClip;
+    [SerializeField] private AnimationClip stunAnimationClip;
+    [SerializeField] private AnimationClip pushBackAnimationClip;
 
     private Rigidbody2D rb2d;
     private bool isGrounded;
@@ -25,7 +35,7 @@ public class PlayerSystem : MonoBehaviour
 
     private bool isReturning = false;
     private bool isPaused = false;
-    private bool isPushedBack = false; // สถานะว่ากำลังถูกผลักถอยหลัง
+    private bool isPushedBack = false;
     private float pauseTimer = 0f;
 
     private bool isPointAndClickMode = false;
@@ -49,12 +59,13 @@ public class PlayerSystem : MonoBehaviour
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         toolUIRectTransform = toolUI.GetComponent<RectTransform>();
-
         toolUI.SetActive(false);
         toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        animator = GetComponent<Animator>(); 
     }
 
     private void Update()
@@ -70,6 +81,7 @@ public class PlayerSystem : MonoBehaviour
             CheckIfGrounded();
             Jump();
             FlipCharacter();
+            UpdateAnimation(); 
 
             if (transform.position.x < minX || transform.position.x > maxX)
             {
@@ -100,6 +112,32 @@ public class PlayerSystem : MonoBehaviour
                 isPaused = false;
                 isReturning = true;
             }
+        }
+    }
+
+    private void UpdateAnimation()
+    {
+        float moveInput = Mathf.Abs(Input.GetAxis("Horizontal"));
+
+        if (isGrounded && moveInput > 0)
+        {
+            PlayAnimation(runAnimationClip); 
+        }
+        else if (isGrounded && moveInput == 0)
+        {
+            PlayAnimation(idleAnimationClip); 
+        }
+        else if (!isGrounded)
+        {
+            PlayAnimation(jumpAnimationClip);  
+        }
+    }
+
+    private void PlayAnimation(AnimationClip clip)
+    {
+        if (animator != null && clip != null)
+        {
+            animator.Play(clip.name);
         }
     }
 
@@ -330,13 +368,15 @@ public class PlayerSystem : MonoBehaviour
     public void Stun(float duration)
     {
         Debug.Log("Player stunned for " + duration + " seconds.");
-        StartCoroutine(DisablePlayerControl(duration)); 
+        PlayAnimation(stunAnimationClip); 
+        StartCoroutine(DisablePlayerControl(duration));
     }
 
     public void PushBack(Vector2 direction, float force)
     {
         Debug.Log("Player pushed back with force: " + force);
-        StartCoroutine(PushBackCoroutine(direction, force));  
+        PlayAnimation(pushBackAnimationClip); 
+        StartCoroutine(PushBackCoroutine(direction, force));
     }
 
     private IEnumerator DisablePlayerControl(float duration)

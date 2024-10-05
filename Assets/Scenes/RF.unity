@@ -14494,12 +14494,14 @@ MonoBehaviour:
   returnSpeed: 5
   pauseDuration: 0.5
   flipDelay: 0.5
+  pushBackDuration: 1
+  pushBackSpeed: 3
   groundCheck: {fileID: 891195048}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   minX: -53
-  maxX: 55
+  maxX: 53
   toolUI: {fileID: 388666413}
   isToolUIVisible: 0
   hidePositionY: -600

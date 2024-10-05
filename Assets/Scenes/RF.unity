@@ -4674,7 +4674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9dcb9557f3a6e944b6976062da404aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1535376941}
   offset: {x: 0, y: 2.5, z: -10}
   smoothSpeed: 2
   minX: -45
@@ -14361,6 +14361,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1804251236}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1535376941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1337616394222745277, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+  m_PrefabInstance: {fileID: 1719137881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1535595399
 GameObject:
   m_ObjectHideFlags: 0
@@ -15906,7 +15911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 168940867106238174, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: 'Player '
       objectReference: {fileID: 0}
     - target: {fileID: 415701162164007931, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_LocalPosition.x

@@ -17,18 +17,19 @@ public class ChickenAI : MonoBehaviour
     public float pushBackForce = 5f;
     public float maxFleeDistance = 10f;
 
-    public float attackRadius = 0.5f;  
-    public float baitDelay = 1f;  
-    public LayerMask groundLayer;  
-    public LayerMask playerLayer;  
+    public float attackRadius = 0.5f;
+    public float baitDelay = 1f;
+    public LayerMask groundLayer;
+    public LayerMask playerLayer;
 
     public Transform player;
     public Transform groundCheck;
     public Transform attackPoint;
-    public GameObject net; 
+    public GameObject net;
 
-    public Vector2 overlapBoxSize = new Vector2(1f, 1f);  
-    public float overlapBoxOffsetY = -0.5f;  
+    public Vector2 overlapBoxSize = new Vector2(1f, 1f);
+    public float overlapBoxOffsetY = -0.5f;
+    private bool facingRight = true;
 
     private Vector2 initialPosition;
     private Vector2 currentPatrolCenter;
@@ -47,6 +48,14 @@ public class ChickenAI : MonoBehaviour
         get { return currentState; }
     }
 
+    public AnimationClip walkAnimation;  
+    public AnimationClip idleAnimation;
+    public AnimationClip fleeAnimation;
+    public AnimationClip attackAnimation;
+    public AnimationClip capturedAnimation;
+
+    private Animator animator;
+
     private void Start()
     {
         currentState = ChickenState.Patrol;
@@ -54,6 +63,8 @@ public class ChickenAI : MonoBehaviour
         currentPatrolCenter = initialPosition;
         rb2d = GetComponent<Rigidbody2D>();
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        animator = GetComponent<Animator>();
 
         if (player == null)
         {
@@ -72,11 +83,13 @@ public class ChickenAI : MonoBehaviour
     {
         if (currentState == ChickenState.Captured)
         {
-            rb2d.velocity = Vector2.zero;  
-            return; 
+            rb2d.velocity = Vector2.zero;
+            PlayAnimation(capturedAnimation);
+            return;
         }
 
         CheckForNet();
+        UpdateAnimation();
 
         switch (currentState)
         {
@@ -102,6 +115,14 @@ public class ChickenAI : MonoBehaviour
         }
     }
 
+    private void PlayAnimation(AnimationClip clip)
+    {
+        if (clip != null)
+        {
+            animator.Play(clip.name);
+        }
+    }
+
     private void CheckForNet()
     {
         Vector2 boxCenter = new Vector2(transform.position.x, transform.position.y + overlapBoxOffsetY);
@@ -109,11 +130,11 @@ public class ChickenAI : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            if (hit.gameObject.CompareTag("Net")) 
+            if (hit.gameObject.CompareTag("Net"))
             {
                 if (currentState != ChickenState.Captured)
                 {
-                    CaptureChicken(hit.gameObject);  
+                    CaptureChicken(hit.gameObject);
                 }
             }
         }
@@ -121,17 +142,17 @@ public class ChickenAI : MonoBehaviour
 
     public void CaptureChicken(GameObject netObject)
     {
-        currentState = ChickenState.Captured;  
-        rb2d.velocity = Vector2.zero; 
-        net = netObject;  
+        currentState = ChickenState.Captured;
+        rb2d.velocity = Vector2.zero;
+        net = netObject;
 
         transform.position = new Vector2(net.transform.position.x, net.transform.position.y - 0.5f);
     }
 
     public void ReleaseChicken()
     {
-        currentState = ChickenState.Patrol; 
-        net = null;  
+        currentState = ChickenState.Patrol;
+        net = null;
     }
 
     private void Patrol()
@@ -174,9 +195,26 @@ public class ChickenAI : MonoBehaviour
 
         rb2d.velocity = new Vector2(moveDirection * moveSpeed, rb2d.velocity.y);
 
-        if ((moveDirection > 0 && transform.localScale.x < 0) || (moveDirection < 0 && transform.localScale.x > 0))
+        if ((moveDirection > 0 && !facingRight) || (moveDirection < 0 && facingRight))
         {
-            Flip();
+            Flip(); 
+        }
+    }
+
+
+    private void UpdateAnimation()
+    {
+        if (currentState == ChickenState.Patrol)
+        {
+            PlayAnimation(isWalking ? walkAnimation : idleAnimation);
+        }
+        else if (currentState == ChickenState.Flee)
+        {
+            PlayAnimation(fleeAnimation);
+        }
+        else if (currentState == ChickenState.Attack)
+        {
+            PlayAnimation(attackAnimation);
         }
     }
 
@@ -232,11 +270,7 @@ public class ChickenAI : MonoBehaviour
             if (playerSystem != null)
             {
                 playerSystem.Stun(stunDuration);
-
-                Vector2 pushDirection = (player.position - transform.position).normalized;
-                float pushForce = 10f;
-
-                playerSystem.PushBack(pushDirection, pushForce);
+                playerSystem.PushBack((player.position - transform.position).normalized, 10f);
             }
         }
 
@@ -249,15 +283,7 @@ public class ChickenAI : MonoBehaviour
         rb2d.velocity = Vector2.zero;
         yield return new WaitForSeconds(baitDelay);
 
-        if (Random.value > 0.5f)
-        {
-            currentState = ChickenState.Flee;
-        }
-        else
-        {
-            currentState = ChickenState.JumpEvade;
-        }
-
+        currentState = Random.value > 0.5f ? ChickenState.Flee : ChickenState.JumpEvade;
         isBaiting = false;
     }
 
@@ -274,8 +300,7 @@ public class ChickenAI : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, initialPosition) > 0.1f)
         {
-            Vector2 direction = (initialPosition - (Vector2)transform.position).normalized;
-            rb2d.velocity = direction * moveSpeed;
+            rb2d.velocity = (initialPosition - (Vector2)transform.position).normalized * moveSpeed;
         }
         else
         {
@@ -286,10 +311,13 @@ public class ChickenAI : MonoBehaviour
 
     private void Flip()
     {
+        facingRight = !facingRight;
+
         Vector3 scale = transform.localScale;
-        scale.x *= -1;
+        scale.x *= -1; 
         transform.localScale = scale;
     }
+
 
     private void CheckIfGrounded()
     {
@@ -304,7 +332,6 @@ public class ChickenAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, detectionRange);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
-
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(new Vector2(transform.position.x, transform.position.y + overlapBoxOffsetY), overlapBoxSize);
     }

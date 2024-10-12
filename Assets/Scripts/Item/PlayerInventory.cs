@@ -205,17 +205,45 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public void RemoveItem(ItemBaseData item)
+    public void RemoveItem(ItemBaseData item, int amount = 1)
     {
-        if (items.Contains(item))
+        int itemsRemoved = 0;
+
+        for (int i = items.Count - 1; i >= 0; i--)
         {
-            items.Remove(item);
-            Debug.Log(item.itemName + " removed from inventory.");
+            if (items[i] == item)
+            {
+                items.RemoveAt(i);
+                itemsRemoved++;
+            }
+
+            if (itemsRemoved >= amount)
+            {
+                Debug.Log(item.itemName + " removed from inventory.");
+                return;
+            }
         }
-        else
+
+        Debug.LogWarning("Not enough items to remove.");
+    }
+
+    public bool HasItem(ItemBaseData item, int amount = 1)
+    {
+        int itemCount = 0;
+
+        foreach (ItemBaseData inventoryItem in items)
         {
-            Debug.LogWarning("Item not found in inventory.");
+            if (inventoryItem == item)
+            {
+                itemCount++;
+            }
+            if (itemCount >= amount)
+            {
+                return true;
+            }
         }
+
+        return false;
     }
 
     private void PickupItem()

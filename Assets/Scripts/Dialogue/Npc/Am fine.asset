@@ -10,17 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31b4861e1b64e9f48b579b141a4d7f5a, type: 3}
-  m_Name: Hi
+  m_Name: Am fine
   m_EditorClassIdentifier: 
   characterName: Cap
   dialogueLines:
-  - dialogueText: Hi
+  - dialogueText: I want Chicken
     hasChoices: 0
     choices: []
-  - dialogueText: What do you want?
+  - dialogueText: You have?
     hasChoices: 1
     choices:
-    - choiceText: How are you ?
-      nextDialogue: {fileID: 11400000, guid: c2d55e68f10c1d144a207c3afe53ac9a, type: 2}
-    - choiceText: Notting
+    - choiceText: Yes i Have
       nextDialogue: {fileID: 11400000, guid: 39ab4c068b6034e4b9d4cb4d5d42e569, type: 2}
+      associatedTask: {fileID: 11400000, guid: 984ff08bff6e9cf43991f52405f6ed40, type: 2}
+    - choiceText: No
+      nextDialogue: {fileID: 11400000, guid: 39ab4c068b6034e4b9d4cb4d5d42e569, type: 2}
+      associatedTask: {fileID: 0}

@@ -13,7 +13,7 @@ public class NpcDialogueSystem : MonoBehaviour
     [Header("UI Elements")]
     public GameObject dialogueUI;
     public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI characterNameText; 
+    public TextMeshProUGUI characterNameText;
     public GameObject choiceBox;
     public Button choiceButtonPrefab;
 
@@ -28,8 +28,11 @@ public class NpcDialogueSystem : MonoBehaviour
     private List<Button> choiceButtons = new List<Button>();
     private Coroutine typingCoroutine;
 
+    [Header("Task System")]
+    public NpcTaskSystem taskSystem;   
+
     [Header("Typing Settings")]
-    public float typingSpeed = 0.05f;  
+    public float typingSpeed = 0.05f;
 
     private void Start()
     {
@@ -69,13 +72,13 @@ public class NpcDialogueSystem : MonoBehaviour
     private void StartDialogue()
     {
         isTalking = true;
-        currentDialogue = startingDialogue;
         currentLineIndex = 0;
+        currentDialogue = startingDialogue;
         dialogueUI.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        characterNameText.text = currentDialogue.characterName; 
+        characterNameText.text = currentDialogue.characterName;
         ShowCurrentLine();
     }
 
@@ -105,7 +108,7 @@ public class NpcDialogueSystem : MonoBehaviour
         foreach (char letter in dialogue.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);  
+            yield return new WaitForSeconds(typingSpeed);
         }
 
         isTyping = false;
@@ -181,11 +184,22 @@ public class NpcDialogueSystem : MonoBehaviour
         {
             EndDialogue();
         }
+
+        if (taskSystem != null)
+        {
+            taskSystem.CheckTaskCompletion();  
+        }
     }
 
     private void EndDialogue()
     {
         isTalking = false;
+        currentLineIndex = 0;
+        currentDialogue = startingDialogue;
+        dialogueText.text = "";
+
+        HideChoices();
+
         ResetDialogueUI();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

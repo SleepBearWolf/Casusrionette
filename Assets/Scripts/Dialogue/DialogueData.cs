@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue/DialogueData")]
 public class DialogueData : ScriptableObject
 {
-    public string characterName; 
+    public string characterName;
     public DialogueLine[] dialogueLines;
 }
 
@@ -22,4 +22,6 @@ public class DialogueChoice
 {
     public string choiceText;
     public DialogueData nextDialogue;
+    public TaskData associatedTask; 
 }
+

@@ -4878,6 +4878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158171108}
   - component: {fileID: 1158171107}
+  - component: {fileID: 1158171109}
   - component: {fileID: 1158171106}
   m_Layer: 0
   m_Name: NPC
@@ -4907,6 +4908,7 @@ MonoBehaviour:
   choiceBox: {fileID: 390185840}
   choiceButtonPrefab: {fileID: 7907603848545713771, guid: a7061ba54d74a744281b22347ac0c109, type: 3}
   startingDialogue: {fileID: 11400000, guid: 7ee3cc44db65b9140b61fbe8865ec5e6, type: 2}
+  taskSystem: {fileID: 1158171109}
   typingSpeed: 0.05
 --- !u!212 &1158171107
 SpriteRenderer:
@@ -4975,6 +4977,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1158171109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158171105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3017913c8004de4ea3e2d1b0a6238b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcTasks:
+  - {fileID: 11400000, guid: 984ff08bff6e9cf43991f52405f6ed40, type: 2}
+  playerInventory: {fileID: 1995793539}
 --- !u!1 &1178322360
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,6 +8830,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1995793539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2656053344888718892, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+  m_PrefabInstance: {fileID: 1531393801}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6611713a36d164e468109a6b31628468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1995925310
 GameObject:
   m_ObjectHideFlags: 0

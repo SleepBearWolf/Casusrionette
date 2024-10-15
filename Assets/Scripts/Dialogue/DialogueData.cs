@@ -20,8 +20,14 @@ public class DialogueLine
 [System.Serializable]
 public class DialogueChoice
 {
-    public string choiceText;
-    public DialogueData nextDialogue;
-    public TaskData associatedTask; 
+    public string choiceText; 
+    public DialogueData nextDialogue;  
+    public TaskData associatedTask;  
+
+    public bool isTaskRelated()
+    {
+        return associatedTask != null;
+    }
 }
+
 

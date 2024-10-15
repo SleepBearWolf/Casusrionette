@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Chicken
   taskDescription: Fine Chicken
-  requiredItem: {fileID: 11400000, guid: 66933541f81de224ba860a25b3e52047, type: 2}
-  requiredAmount: 1
-  isCompleted: 0
-  rewardItem: {fileID: 11400000, guid: 08782535abeff7d47afed987f57f1f13, type: 2}
+  requiredItems:
+  - {fileID: 11400000, guid: 66933541f81de224ba860a25b3e52047, type: 2}
+  - {fileID: 11400000, guid: 5790922318d2e1a4498ce0a758d919c8, type: 2}
+  requiredAmounts: 0100000001000000
+  isCompleted: 1
+  rewardItems:
+  - {fileID: 11400000, guid: 08782535abeff7d47afed987f57f1f13, type: 2}
+  - {fileID: 11400000, guid: 8acbb0feb4a8f2146b5d6e746fc814b0, type: 2}

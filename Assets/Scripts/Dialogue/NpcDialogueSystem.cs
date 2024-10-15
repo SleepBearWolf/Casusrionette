@@ -1,43 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
+using DialogueEditor; 
 
 public class NpcDialogueSystem : MonoBehaviour
 {
     public Transform player;
-    public Vector2 overlapBoxSize = new Vector2(2f, 2f);
-    public KeyCode interactKey = KeyCode.E;
-
-    [Header("UI Elements")]
-    public GameObject dialogueUI;
-    public TextMeshProUGUI dialogueText;
-    public TextMeshProUGUI characterNameText;
-    public GameObject choiceBox;
-    public Button choiceButtonPrefab;
-
-    [Header("Dialogue Data")]
-    public DialogueData startingDialogue;
-    private DialogueData currentDialogue;
-    private int currentLineIndex = 0;
-    private bool isTalking = false;
-    private bool playerInRange = false;
-    private bool isTyping = false;
-    private bool showingChoices = false;
-    private List<Button> choiceButtons = new List<Button>();
-    private Coroutine typingCoroutine;
+    public Vector2 overlapBoxSize = new Vector2(2f, 2f); 
+    public KeyCode interactKey = KeyCode.E;  
 
     [Header("Task System")]
-    public NpcTaskSystem taskSystem;   
+    public NpcTaskSystem taskSystem; 
 
-    [Header("Typing Settings")]
-    public float typingSpeed = 0.05f;
+    [Header("Dialogue System")]
+    public NPCConversation npcConversation;  
 
-    private void Start()
-    {
-        ResetDialogueUI();
-    }
+    private bool isTalking = false;  
+    private bool playerInRange = false;  
 
     private void Update()
     {
@@ -58,161 +37,62 @@ public class NpcDialogueSystem : MonoBehaviour
             StartDialogue();
         }
 
-        if (isTalking && Input.GetMouseButtonDown(0) && !isTyping && !showingChoices)
-        {
-            ShowNextLineOrChoices();
-        }
-
         if (!playerInRange && isTalking)
         {
             EndDialogue();
+        }
+
+        if (isTalking && IsShowingOptions())
+        {
+            ShowMouse(); 
+        }
+        else if (isTalking && !IsShowingOptions())
+        {
+            HideMouse(); 
         }
     }
 
     private void StartDialogue()
     {
         isTalking = true;
-        currentLineIndex = 0;
-        currentDialogue = startingDialogue;
-        dialogueUI.SetActive(true);
+        if (npcConversation != null)
+        {
+            ConversationManager.Instance.StartConversation(npcConversation);
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        characterNameText.text = currentDialogue.characterName;
-        ShowCurrentLine();
-    }
-
-    private void ShowCurrentLine()
-    {
-        if (currentLineIndex >= currentDialogue.dialogueLines.Length)
-        {
-            EndDialogue();
-            return;
-        }
-
-        DialogueLine line = currentDialogue.dialogueLines[currentLineIndex];
-
-        if (typingCoroutine != null)
-        {
-            StopCoroutine(typingCoroutine);
-        }
-
-        typingCoroutine = StartCoroutine(TypeDialogue(line.dialogueText));
-    }
-
-    private IEnumerator TypeDialogue(string dialogue)
-    {
-        isTyping = true;
-        dialogueText.text = "";
-
-        foreach (char letter in dialogue.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(typingSpeed);
-        }
-
-        isTyping = false;
-    }
-
-    private void ShowNextLineOrChoices()
-    {
-        DialogueLine line = currentDialogue.dialogueLines[currentLineIndex];
-
-        if (line.hasChoices)
-        {
-            ShowChoices(line.choices);
-        }
-        else
-        {
-            currentLineIndex++;
-            ShowCurrentLine();
-        }
-    }
-
-    private void ShowChoices(DialogueChoice[] choices)
-    {
-        choiceBox.SetActive(true);
-        showingChoices = true;
-
-        foreach (var button in choiceButtons)
-        {
-            Destroy(button.gameObject);
-        }
-        choiceButtons.Clear();
-
-        for (int i = 0; i < choices.Length; i++)
-        {
-            Button choiceButton = Instantiate(choiceButtonPrefab, choiceBox.transform);
-
-            TextMeshProUGUI buttonText = choiceButton.GetComponentInChildren<TextMeshProUGUI>();
-            if (buttonText != null)
-            {
-                buttonText.text = choices[i].choiceText;
-            }
-
-            int choiceIndex = i;
-
-            choiceButton.onClick.AddListener(() => OnChoiceSelected(choices[choiceIndex]));
-            choiceButtons.Add(choiceButton);
-        }
-    }
-
-    private void HideChoices()
-    {
-        choiceBox.SetActive(false);
-        showingChoices = false;
-
-        foreach (var button in choiceButtons)
-        {
-            Destroy(button.gameObject);
-        }
-        choiceButtons.Clear();
-    }
-
-    private void OnChoiceSelected(DialogueChoice choice)
-    {
-        Debug.Log("Choice selected: " + choice.choiceText);
-
-        if (choice.nextDialogue != null)
-        {
-            currentDialogue = choice.nextDialogue;
-            currentLineIndex = 0;
-            HideChoices();
-            ShowCurrentLine();
-        }
-        else
-        {
-            EndDialogue();
-        }
-
-        if (taskSystem != null)
-        {
-            taskSystem.CheckTaskCompletion();  
-        }
     }
 
     private void EndDialogue()
     {
         isTalking = false;
-        currentLineIndex = 0;
-        currentDialogue = startingDialogue;
-        dialogueText.text = "";
+        ConversationManager.Instance.EndConversation();
 
-        HideChoices();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
-        ResetDialogueUI();
+        if (taskSystem != null)
+        {
+            taskSystem.CheckTaskCompletion();
+        }
+    }
+
+    private void ShowMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void HideMouse()
+    {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void ResetDialogueUI()
+    private bool IsShowingOptions()
     {
-        dialogueUI.SetActive(false);
-        foreach (var button in choiceButtons)
-        {
-            Destroy(button.gameObject);
-        }
-        choiceButtons.Clear();
+        return ConversationManager.Instance != null && ConversationManager.Instance.IsShowingOptions();
     }
 
     private void OnDrawGizmos()

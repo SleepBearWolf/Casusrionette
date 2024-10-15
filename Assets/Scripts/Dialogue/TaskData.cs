@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +7,8 @@ public class TaskData : ScriptableObject
 {
     public string taskName;           
     public string taskDescription;   
-    public ItemBaseData requiredItem; 
+    public ItemBaseData requiredItem;
     public int requiredAmount = 1;    
     public bool isCompleted = false;  
-    public ItemBaseData rewardItem;   
+    public ItemBaseData rewardItem;  
 }

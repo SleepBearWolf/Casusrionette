@@ -14,6 +14,8 @@ public class ItemPickupAndDraggable : MonoBehaviour
     private Vector3 dragOffset;
     public float dragSpeed = 5f;
 
+    public bool hasBeenInInventory = false;
+
     private void Start()
     {
         playerInventory = GameObject.FindObjectOfType<PlayerInventory>();
@@ -25,7 +27,7 @@ public class ItemPickupAndDraggable : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !isPickedUp && playerInventory != null)
+        if (Input.GetKeyDown(KeyCode.E) && !isPickedUp && playerInventory != null && hasBeenInInventory)
         {
             CheckForPlayerInRange();
         }
@@ -62,10 +64,10 @@ public class ItemPickupAndDraggable : MonoBehaviour
             return false;
         }
 
-        if (itemData.itemType == ItemType.KeyItem)
+        if (!hasBeenInInventory)
         {
-            Debug.Log("This is a key item, special conditions may be required.");
-            return true;
+            Debug.LogWarning("Cannot pick up item. This item has never been in the inventory.");
+            return false;
         }
 
         return true;
@@ -92,6 +94,7 @@ public class ItemPickupAndDraggable : MonoBehaviour
     {
         isPickedUp = true;
         isDraggable = true;
+        hasBeenInInventory = true; 
         gameObject.SetActive(true);
         transform.position = playerInventory.transform.position + new Vector3(1f, 0f, 0f);
         Debug.Log("Dropped and draggable: " + itemData.itemName);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4172838465991089606}
   - component: {fileID: 3214119813698042961}
   - component: {fileID: 6991765386719697651}
+  - component: {fileID: 395477985770012384}
   - component: {fileID: 221375388269685049}
   - component: {fileID: 7011138872212756068}
   m_Layer: 7
@@ -129,6 +130,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxSize: {x: 2, y: 2}
   captureDuration: 14
+--- !u!114 &395477985770012384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929123814041591605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4ccd314d072f54eadeb0f8aa08674f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 5790922318d2e1a4498ce0a758d919c8, type: 2}
+  isDraggable: 0
+  dragSpeed: 5
 --- !u!114 &221375388269685049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +160,7 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 5790922318d2e1a4498ce0a758d919c8, type: 2}
   isDraggable: 1
   dragSpeed: 5
+  hasBeenInInventory: 0
 --- !u!61 &7011138872212756068
 BoxCollider2D:
   m_ObjectHideFlags: 0

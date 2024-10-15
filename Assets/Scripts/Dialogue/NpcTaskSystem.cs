@@ -1,17 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class NpcTaskSystem : MonoBehaviour
 {
     public List<TaskData> npcTasks;
-    private TaskData currentTask;    
+    private TaskData currentTask;
 
-    public PlayerInventory playerInventory; 
+    public PlayerInventory playerInventory;
 
     private void Start()
     {
-        AssignNextTask(); 
+        AssignNextTask();
     }
 
     public void CheckTaskCompletion()
@@ -27,9 +27,9 @@ public class NpcTaskSystem : MonoBehaviour
             playerInventory.RemoveItem(currentTask.requiredItem, currentTask.requiredAmount);
             currentTask.isCompleted = true;
             Debug.Log("Task completed: " + currentTask.taskName);
-            RewardPlayer(currentTask.rewardItem);  
+            RewardPlayer(currentTask.rewardItem);
 
-            AssignNextTask();  
+            AssignNextTask();
         }
         else
         {

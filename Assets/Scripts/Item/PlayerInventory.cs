@@ -32,14 +32,12 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-
     private void OnSlotClicked(int slotIndex)
     {
         if (slotIndex < items.Count)
         {
             heldItemData = items[slotIndex];
             CreateItemForDrag(heldItemData);
-
             RemoveItem(heldItemData);
         }
     }
@@ -181,6 +179,27 @@ public class PlayerInventory : MonoBehaviour
         }
 
         Debug.LogWarning("Not enough items to remove.");
+    }
+
+    public void ScatterItems()
+    {
+        foreach (var item in items)
+        {
+            if (item != null)
+            {
+                GameObject itemObject = Instantiate(item.itemPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D itemRb = itemObject.GetComponent<Rigidbody2D>();
+
+                if (itemRb != null)
+                {
+                    Vector2 scatterDirection = Random.insideUnitCircle.normalized; 
+                    itemRb.AddForce(scatterDirection * 5f, ForceMode2D.Impulse); 
+                }
+            }
+        }
+
+        items.Clear();
+        UpdateInventoryUI(); 
     }
 
     private void UpdateInventoryUI()

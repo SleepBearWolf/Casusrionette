@@ -29,11 +29,11 @@ public class ChickenAI : MonoBehaviour
 
     public Vector2 overlapBoxSize = new Vector2(1f, 1f);
     public float overlapBoxOffsetY = -0.5f;
-    private bool facingRight = true;
+    private bool facingRight = false;
 
     private Vector2 initialPosition;
     private Vector2 currentPatrolCenter;
-    private bool movingRight = true;
+    private bool movingRight = false;
     private bool isGrounded = true;
     private Rigidbody2D rb2d;
 

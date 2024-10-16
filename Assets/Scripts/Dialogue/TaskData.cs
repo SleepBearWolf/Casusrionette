@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Task", menuName = "Task/TaskData")]
+[CreateAssetMenu(fileName = "NewTask", menuName = "TaskSystem/TaskData")]
 public class TaskData : ScriptableObject
 {
-    public string taskName;           
-    public string taskDescription;   
-    public ItemBaseData requiredItem;
-    public int requiredAmount = 1;    
-    public bool isCompleted = false;  
+    public string taskName;
+    public string description;
+    public bool isCompleted;
+    public int requiredItemCount;
+    public int currentItemCount;
+    public string targetNpcName;
+
     public ItemBaseData rewardItem;  
 }

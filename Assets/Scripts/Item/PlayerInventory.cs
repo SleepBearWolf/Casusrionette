@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
 {
     public List<ItemBaseData> items = new List<ItemBaseData>();
-    public Transform inventoryUIParent;  
-    public GameObject inventorySlotPrefab; 
+    public Transform inventoryUIParent;
+    public GameObject inventorySlotPrefab;
     public Vector2 overlapBoxSize = new Vector2(2f, 2f);
     public KeyCode pickupKey = KeyCode.E;
 
@@ -31,6 +31,7 @@ public class PlayerInventory : MonoBehaviour
             button.onClick.AddListener(() => OnSlotClicked(slotIndex));
         }
     }
+
 
     private void OnSlotClicked(int slotIndex)
     {

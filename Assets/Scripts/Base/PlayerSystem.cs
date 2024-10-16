@@ -121,15 +121,24 @@ public class PlayerSystem : MonoBehaviour
 
         if (isGrounded && moveInput > 0)
         {
-            PlayAnimation(runAnimationClip); 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(runAnimationClip.name) == false)
+            {
+                PlayAnimation(runAnimationClip);
+            }
         }
         else if (isGrounded && moveInput == 0)
         {
-            PlayAnimation(idleAnimationClip); 
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(idleAnimationClip.name) == false)
+            {
+                PlayAnimation(idleAnimationClip);
+            }
         }
         else if (!isGrounded)
         {
-            PlayAnimation(jumpAnimationClip);  
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName(jumpAnimationClip.name) == false)
+            {
+                PlayAnimation(jumpAnimationClip);
+            }
         }
     }
 

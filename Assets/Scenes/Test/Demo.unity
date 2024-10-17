@@ -48528,6 +48528,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1313612843}
+    - target: {fileID: 6477265621696879309, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: jumpForce
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6477265621696879309, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: escapeSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6874785417354778526, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 128
@@ -48618,6 +48626,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
+      propertyPath: patrolRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: attackRadius
       value: 5
       objectReference: {fileID: 0}
@@ -48628,6 +48640,10 @@ PrefabInstance:
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: detectionRange
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

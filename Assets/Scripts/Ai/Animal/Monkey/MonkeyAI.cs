@@ -13,7 +13,7 @@ public class MonkeyAI : MonoBehaviour
     public float attackRange = 1.5f;
     public float escapeSpeed = 4f;
     public float swingForce = 8f;
-    public float swingInterval = 2f; // ระยะเวลาการโหนเชือกเป็นระยะ
+    public float swingInterval = 2f; 
     public float stunDuration = 1f;
 
     public float attackRadius = 0.5f;
@@ -32,11 +32,11 @@ public class MonkeyAI : MonoBehaviour
     private Animator animator;
     private PlayerInventory playerInventory;
 
-    private bool isSwinging = false; // ตรวจสอบว่ากำลังโหนอยู่หรือไม่
-    private bool isExploring = false; // สถานะการสำรวจ
+    private bool isSwinging = false; 
+    private bool isExploring = false; 
 
-    private float explorationTimer = 0f; // ตั้งเวลาสำหรับการสำรวจ
-    private float explorationDuration = 5f; // ระยะเวลาที่ลิงจะสำรวจก่อนเปลี่ยนพฤติกรรม
+    private float explorationTimer = 0f; 
+    private float explorationDuration = 5f; 
 
     private void Start()
     {
@@ -51,9 +51,8 @@ public class MonkeyAI : MonoBehaviour
             player = GameObject.FindWithTag("Player").transform;
         }
 
-        playerInventory = player.GetComponent<PlayerInventory>(); // เชื่อมต่อกับ PlayerInventory
+        playerInventory = player.GetComponent<PlayerInventory>(); 
 
-        // เริ่มการโหนเป็นระยะ
         StartCoroutine(SwingAtIntervals());
     }
 
@@ -64,7 +63,7 @@ public class MonkeyAI : MonoBehaviour
         switch (currentState)
         {
             case MonkeyState.Patrol:
-                Explore(); // เพิ่มการสำรวจ
+                Explore(); 
                 DetectPlayer();
                 break;
             case MonkeyState.Flee:
@@ -90,32 +89,29 @@ public class MonkeyAI : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        // เพิ่มระบบการเล่น Animation ตาม state ของลิงได้ในฟังก์ชันนี้
+
     }
 
     private void Explore()
     {
-        // ลิงจะสำรวจด้วยการเดินและโหนเชือกไปมา
         explorationTimer += Time.deltaTime;
 
-        // สลับการเคลื่อนไหวระหว่างเดินและโหนเชือก
         if (explorationTimer >= explorationDuration)
         {
             if (!isSwinging)
             {
-                currentState = MonkeyState.Swing; // เปลี่ยนไปโหนเชือกเพื่อสำรวจ
+                currentState = MonkeyState.Swing; 
             }
             else
             {
-                movingRight = !movingRight; // สลับทิศทางเมื่อเดินสำรวจ
+                movingRight = !movingRight; 
                 Flip();
-                currentState = MonkeyState.Patrol; // กลับมาเดินสำรวจ
+                currentState = MonkeyState.Patrol;
             }
 
-            explorationTimer = 0f; // รีเซ็ตเวลาเพื่อทำให้สลับการสำรวจ
+            explorationTimer = 0f; 
         }
 
-        // เมื่อไม่โหนเชือก ให้ลิงเดินไปมาตามปกติ
         if (currentState == MonkeyState.Patrol && IsGroundInFront())
         {
             float moveDirection = movingRight ? 1f : -1f;
@@ -130,12 +126,10 @@ public class MonkeyAI : MonoBehaviour
 
     private bool IsGroundInFront()
     {
-        // ยิง Raycast ลงไปด้านหน้าเพื่อตรวจสอบว่ามีพื้นอยู่หรือไม่
         Vector2 rayOrigin = groundCheck.position;
         Vector2 rayDirection = Vector2.down;
         RaycastHit2D hit = Physics2D.Raycast(rayOrigin, rayDirection, groundCheckDistance, groundLayer);
 
-        // ถ้าพบพื้น (Raycast กระทบพื้น) จะ return true
         return hit.collider != null;
     }
 
@@ -143,7 +137,6 @@ public class MonkeyAI : MonoBehaviour
     {
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // โจมตีผู้เล่นเฉพาะเมื่อผู้เล่นมีไอเท็มในช่องเก็บของ
         if (playerInventory.items.Count > 0)
         {
             if (distanceToPlayer < attackRange)
@@ -152,22 +145,20 @@ public class MonkeyAI : MonoBehaviour
             }
             else if (distanceToPlayer < detectionRange)
             {
-                currentState = MonkeyState.Lure; // ล่อลวงก่อนโจมตี
+                currentState = MonkeyState.Lure; 
             }
         }
         else
         {
-            currentState = MonkeyState.Patrol; // ไม่มีไอเท็ม ลิงจะไม่เป็นภัยและสำรวจ
+            currentState = MonkeyState.Patrol; 
         }
     }
 
     private void LurePlayer()
     {
-        // พฤติกรรมล่อลวง: เดินเข้าหรือออกห่างจากผู้เล่น
         float moveDirection = movingRight ? 1f : -1f;
-        rb2d.velocity = new Vector2(moveDirection * (moveSpeed * 0.5f), rb2d.velocity.y); // เดินช้าๆ เพื่อให้ผู้เล่นรู้สึกว่าลิงไม่มีภัย
+        rb2d.velocity = new Vector2(moveDirection * (moveSpeed * 0.5f), rb2d.velocity.y); 
 
-        // สลับทิศทางแบบสุ่มเมื่อหมดเวลา
         explorationTimer += Time.deltaTime;
         if (explorationTimer >= explorationDuration)
         {
@@ -179,7 +170,7 @@ public class MonkeyAI : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
         if (distanceToPlayer < attackRange)
         {
-            currentState = MonkeyState.Attack; // เมื่อเข้าระยะโจมตี
+            currentState = MonkeyState.Attack; 
         }
     }
 
@@ -197,53 +188,50 @@ public class MonkeyAI : MonoBehaviour
             PlayerSystem playerSystem = hitPlayer.GetComponent<PlayerSystem>();
             if (playerSystem != null)
             {
-                playerSystem.Stun(stunDuration); // ทำให้ผู้เล่น Stun
+                playerSystem.Stun(stunDuration); 
                 playerSystem.PushBack((player.position - transform.position).normalized, 10f);
 
                 if (playerInventory != null)
                 {
-                    playerInventory.ScatterItems(); // ทำให้ไอเท็มกระเด็นออกจากช่องเก็บของ
+                    playerInventory.ScatterItems(); 
                 }
             }
         }
 
-        currentState = MonkeyState.Flee; // หลังจากโจมตีจะหนีทันที
+        currentState = MonkeyState.Flee; 
     }
 
-    // ระบบการโหนเชือกแบบ Spider-Man แต่ทำเป็นระยะๆ
     private void SwingLikeSpiderMan()
     {
         if (!isSwinging)
         {
-            rb2d.velocity = new Vector2(rb2d.velocity.x, swingForce); // โหนขึ้นไป
+            rb2d.velocity = new Vector2(rb2d.velocity.x, swingForce);
             isSwinging = true;
         }
     }
 
-    // ฟังก์ชันควบคุมการโหนเป็นระยะ
     private IEnumerator SwingAtIntervals()
     {
-        while (true) // ให้ทำงานตลอดเวลาในเกม
+        while (true) 
         {
             if (currentState == MonkeyState.Patrol || currentState == MonkeyState.Flee || currentState == MonkeyState.Lure)
             {
-                SwingLikeSpiderMan(); // เรียกโหน
-                yield return new WaitForSeconds(swingInterval); // รอเป็นระยะ (เช่น 2 วินาที)
-                isSwinging = false; // หลังจากโหนเสร็จตั้งค่าให้ไม่โหน
+                SwingLikeSpiderMan(); 
+                yield return new WaitForSeconds(swingInterval); 
+                isSwinging = false;
             }
-            yield return null; // รอ 1 frame ก่อนวนลูปต่อไป
+            yield return null; 
         }
     }
 
     private void JumpEvade()
     {
-        rb2d.velocity = new Vector2(rb2d.velocity.x, swingForce / 2); // กระโดดเล็กน้อย
+        rb2d.velocity = new Vector2(rb2d.velocity.x, swingForce / 2);
         currentState = MonkeyState.Flee;
     }
 
     private void FleeFromPlayer()
     {
-        // ลิงหนีจากผู้เล่น
         if (IsGroundInFront())
         {
             Vector2 fleeDirection = (transform.position - player.position).normalized;
@@ -251,7 +239,6 @@ public class MonkeyAI : MonoBehaviour
         }
         else
         {
-            // ถ้าไม่มีพื้นให้เปลี่ยนทิศทาง
             movingRight = !movingRight;
             Flip();
         }
@@ -259,7 +246,6 @@ public class MonkeyAI : MonoBehaviour
 
     private void ReturnToInitialPosition()
     {
-        // กลับไปที่ตำแหน่งเริ่มต้น
         if (Vector2.Distance(transform.position, initialPosition) > 0.1f)
         {
             rb2d.velocity = (initialPosition - (Vector2)transform.position).normalized * moveSpeed;
@@ -280,7 +266,6 @@ public class MonkeyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // วาด Gizmos เพื่อดู Raycast ที่ใช้ตรวจสอบพื้นที่เดิน
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * groundCheckDistance);
     }

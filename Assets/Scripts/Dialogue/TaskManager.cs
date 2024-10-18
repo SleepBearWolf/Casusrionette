@@ -6,7 +6,6 @@ public class TaskManager : MonoBehaviour
     public List<TaskData> taskList = new List<TaskData>();
     public PlayerInventory playerInventory;
 
-    // ตรวจสอบและให้รางวัลเมื่อภารกิจสำเร็จ
     public void CheckTaskCompletion(string taskName)
     {
         foreach (TaskData task in taskList)
@@ -20,7 +19,6 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    // ให้รางวัลแก่ผู้เล่น
     private void RewardPlayer(TaskData task)
     {
         if (task.rewardItem != null)
@@ -30,7 +28,6 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    // อัปเดตความคืบหน้าของภารกิจ
     public void UpdateTaskProgress(string taskName, int itemCount)
     {
         foreach (TaskData task in taskList)
@@ -43,7 +40,6 @@ public class TaskManager : MonoBehaviour
         }
     }
 
-    // ตรวจสอบว่ามีภารกิจที่ยังไม่เสร็จหรือไม่
     public bool HasTask(string taskName)
     {
         foreach (TaskData task in taskList)

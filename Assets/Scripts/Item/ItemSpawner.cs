@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public KeyCode spawnWithoutExchangeKey = KeyCode.F; 
-    public KeyCode spawnWithExchangeKey = KeyCode.G;   
-    public ItemBaseData itemToSpawn;     
-    public ItemBaseData requiredItem;     
-    public Transform spawnPoint;          
-    public float spawnForce = 5f;         
-    public float cooldownTime = 2f;       
-    public Vector2 overlapBoxSize = new Vector2(1f, 1f); 
-    public LayerMask playerLayer;        
+    public KeyCode spawnWithoutExchangeKey = KeyCode.F;
+    public KeyCode spawnWithExchangeKey = KeyCode.G;
 
-    private bool canSpawn = true;         
+    [Header("Item Settings")]
+    public List<ItemBaseData> itemsToSpawn;     
+    public List<ItemBaseData> requiredItems;    
+
+    public Transform spawnPoint;               
+    public float spawnForce = 5f;               
+    public float cooldownTime = 2f;             
+    public Vector2 overlapBoxSize = new Vector2(1f, 1f);
+    public LayerMask playerLayer;               
+
+    [Header("Drop Settings")]
+    public bool unlimitedDrops = false;         
+    public int maxDropCount = 1;                
+    private int currentDropCount = 0;          
+
+    private bool canSpawn = true;               
     private PlayerInventory playerInventory;
 
     private void Start()
@@ -30,14 +38,14 @@ public class ItemSpawner : MonoBehaviour
     {
         bool isPlayerInZone = Physics2D.OverlapBox(spawnPoint.position, overlapBoxSize, 0f, playerLayer);
 
-        if (isPlayerInZone && Input.GetKeyDown(spawnWithoutExchangeKey) && canSpawn)
+        if (isPlayerInZone && Input.GetKeyDown(spawnWithoutExchangeKey) && canSpawn && CheckDropLimit())
         {
-            SpawnItem(false); 
+            SpawnItem(false);
         }
 
-        if (isPlayerInZone && Input.GetKeyDown(spawnWithExchangeKey) && canSpawn)
+        if (isPlayerInZone && Input.GetKeyDown(spawnWithExchangeKey) && canSpawn && CheckDropLimit())
         {
-            SpawnItem(true); 
+            SpawnItem(true);
         }
     }
 
@@ -45,18 +53,22 @@ public class ItemSpawner : MonoBehaviour
     {
         if (!canSpawn) return;
 
+        ItemBaseData selectedItem = itemsToSpawn[Random.Range(0, itemsToSpawn.Count)];
+
         if (requiresItem)
         {
-            if (!playerInventory.items.Contains(requiredItem))
+            ItemBaseData selectedRequiredItem = requiredItems[Random.Range(0, requiredItems.Count)];
+
+            if (!playerInventory.items.Contains(selectedRequiredItem))
             {
                 Debug.Log("You don't have the required item to spawn this item.");
                 return;
             }
 
-            playerInventory.RemoveItem(requiredItem);
+            playerInventory.RemoveItem(selectedRequiredItem); 
         }
 
-        GameObject spawnedItem = Instantiate(itemToSpawn.itemPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject spawnedItem = Instantiate(selectedItem.itemPrefab, spawnPoint.position, Quaternion.identity);
 
         Rigidbody2D rb = spawnedItem.GetComponent<Rigidbody2D>();
         if (rb != null)
@@ -64,15 +76,27 @@ public class ItemSpawner : MonoBehaviour
             rb.AddForce(Vector2.up * spawnForce, ForceMode2D.Impulse);
         }
 
-        Debug.Log("Spawned item: " + itemToSpawn.itemName);
+        Debug.Log("Spawned item: " + selectedItem.itemName);
 
-        StartCoroutine(Cooldown());
+        if (!unlimitedDrops) 
+        {
+            currentDropCount++;
+        }
+
+        StartCoroutine(Cooldown()); 
+    }
+
+    private bool CheckDropLimit()
+    {
+        if (unlimitedDrops) return true;
+
+        return currentDropCount < maxDropCount;
     }
 
     private IEnumerator Cooldown()
     {
         canSpawn = false;
-        yield return new WaitForSeconds(cooldownTime);
+        yield return new WaitForSeconds(cooldownTime);  
         canSpawn = true;
     }
 
@@ -81,7 +105,7 @@ public class ItemSpawner : MonoBehaviour
         if (spawnPoint != null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireCube(spawnPoint.position, overlapBoxSize); 
+            Gizmos.DrawWireCube(spawnPoint.position, overlapBoxSize);
         }
     }
 }

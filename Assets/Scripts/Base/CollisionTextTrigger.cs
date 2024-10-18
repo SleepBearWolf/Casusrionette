@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using DialogueEditor;
 
-public class NpcDialogueSystem : MonoBehaviour
+public class CollisionTextTrigger : MonoBehaviour
 {
-    public Transform player;
-    public Vector2 overlapBoxSize = new Vector2(2f, 2f);
-    public KeyCode interactKey = KeyCode.E;
-
-    [Header("Task System")]
-    public TaskManager taskManager;  
+    public Transform player;  
+    public Vector2 overlapBoxSize = new Vector2(2f, 2f); 
 
     [Header("Dialogue System")]
-    public NPCConversation npcConversation;
-    public string taskName;  
-    public ItemBaseData requiredItem;  
+    public NPCConversation npcConversation;  
 
-    private bool isTalking = false;
-    private bool playerInRange = false;
+    private bool isTalking = false;  
+    private bool playerInRange = false;  
 
     private void Update()
     {
@@ -27,21 +21,21 @@ public class NpcDialogueSystem : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            if (hit.transform == player)
+            if (hit.transform == player)  
             {
                 playerInRange = true;
                 break;
             }
         }
 
-        if (playerInRange && Input.GetKeyDown(interactKey) && !isTalking)
+        if (playerInRange && !isTalking)
         {
-            StartDialogue();
+            StartDialogue(); 
         }
 
         if (!playerInRange && isTalking)
         {
-            EndDialogue();
+            EndDialogue(); 
         }
 
         if (isTalking && IsShowingOptions())
@@ -57,6 +51,7 @@ public class NpcDialogueSystem : MonoBehaviour
     private void StartDialogue()
     {
         isTalking = true;
+
         if (npcConversation != null)
         {
             ConversationManager.Instance.StartConversation(npcConversation);
@@ -64,29 +59,16 @@ public class NpcDialogueSystem : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        if (taskManager != null && requiredItem != null)
-        {
-            if (taskManager.HasTask(taskName) && player.GetComponent<PlayerInventory>().HasItem(requiredItem, 1))
-            {
-                taskManager.UpdateTaskProgress(taskName, 1);
-                Debug.Log("Task progress updated for: " + taskName);
-            }
-        }
     }
 
     private void EndDialogue()
     {
         isTalking = false;
+
         ConversationManager.Instance.EndConversation();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        if (taskManager != null)
-        {
-            taskManager.CheckTaskCompletion(taskName); 
-        }
     }
 
     private void ShowMouse()

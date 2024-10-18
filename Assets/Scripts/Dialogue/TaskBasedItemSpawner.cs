@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class TaskBasedItemSpawner : MonoBehaviour
 {
-    public List<ItemBaseData> itemsToSpawn;  // รายการไอเทมที่จะได้รับ
-    public List<ItemBaseData> requiredItems; // รายการไอเทมที่ต้องใช้ในการแลกเปลี่ยน
-    public Transform spawnPoint;             // ตำแหน่งที่ไอเทมจะปรากฏ
-    public float spawnForce = 5f;            // ความแรงที่ใช้ในการปล่อยไอเทม
-    public bool isExchangeRequired;          // ตรวจสอบว่าต้องแลกเปลี่ยนไอเทมหรือไม่
+    public List<ItemBaseData> itemsToSpawn;  
+    public List<ItemBaseData> requiredItems; 
+    public Transform spawnPoint;            
+    public float spawnForce = 5f;           
+    public bool isExchangeRequired;          
 
     private PlayerInventory playerInventory;
-    private bool taskCompleted = false;      // ตรวจสอบว่าภารกิจเสร็จหรือยัง
+    private bool taskCompleted = false;      
 
     private void Start()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();  // หา PlayerInventory ในฉาก
+        playerInventory = FindObjectOfType<PlayerInventory>();  
         if (playerInventory == null)
         {
             Debug.LogError("PlayerInventory not found in the scene!");
         }
     }
 
-    // ฟังก์ชันเรียกจาก DE เมื่อผู้เล่นเลือกคำตอบในระบบสนทนา
     public void AttemptTask()
     {
         if (taskCompleted)
@@ -35,9 +34,9 @@ public class TaskBasedItemSpawner : MonoBehaviour
         {
             if (HasRequiredItems())
             {
-                RemoveRequiredItems();  // ลบไอเทมที่ใช้จาก Inventory
-                SpawnItems();           // Spawn ไอเทมรางวัล
-                taskCompleted = true;   // ภารกิจเสร็จแล้ว
+                RemoveRequiredItems();  
+                SpawnItems();           
+                taskCompleted = true;  
             }
             else
             {
@@ -46,12 +45,11 @@ public class TaskBasedItemSpawner : MonoBehaviour
         }
         else
         {
-            SpawnItems();  // หากไม่ต้องใช้การแลกเปลี่ยนก็ให้รางวัลเลย
+            SpawnItems(); 
             taskCompleted = true;
         }
     }
 
-    // ฟังก์ชันตรวจสอบว่าใน Inventory มีไอเทมที่ต้องการหรือไม่
     private bool HasRequiredItems()
     {
         foreach (ItemBaseData requiredItem in requiredItems)
@@ -64,7 +62,6 @@ public class TaskBasedItemSpawner : MonoBehaviour
         return true;
     }
 
-    // ฟังก์ชันลบไอเทมที่ต้องการออกจาก Inventory
     private void RemoveRequiredItems()
     {
         foreach (ItemBaseData requiredItem in requiredItems)
@@ -73,7 +70,6 @@ public class TaskBasedItemSpawner : MonoBehaviour
         }
     }
 
-    // ฟังก์ชันสำหรับการ Spawn ไอเทม
     private void SpawnItems()
     {
         foreach (ItemBaseData item in itemsToSpawn)
@@ -89,7 +85,6 @@ public class TaskBasedItemSpawner : MonoBehaviour
         }
     }
 
-    // วาด Gizmos ใน Scene View เพื่อช่วยแสดงตำแหน่ง Spawn
     private void OnDrawGizmos()
     {
         if (spawnPoint != null)

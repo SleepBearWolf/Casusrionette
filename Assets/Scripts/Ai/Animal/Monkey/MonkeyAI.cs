@@ -8,15 +8,16 @@ public class MonkeyAI : MonoBehaviour
     private MonkeyState currentState;
 
     public float moveSpeed = 2f;
-    public float patrolRange = 5f;
-    public float detectionRange = 7f;
-    public float attackRange = 1.5f;
+    public Vector2 patrolBoxSize = new Vector2(10f, 5f);  // ขนาดของกรอบ Patrol
+    public Vector2 detectionBoxSize = new Vector2(14f, 7f);  // ขนาดของกรอบ Detection
+    public Vector2 attackBoxSize = new Vector2(2f, 2f);  // ขนาดของกรอบ Attack
+    public Vector2 fleeBoundary = new Vector2(20f, 10f);  // ขนาดของขอบเขตหนี
+
     public float escapeSpeed = 4f;
     public float swingForce = 8f;
-    public float swingInterval = 2f; 
+    public float swingInterval = 2f;
     public float stunDuration = 1f;
 
-    public float attackRadius = 0.5f;
     public LayerMask playerLayer;
     public LayerMask groundLayer;
     public Transform groundCheck;
@@ -32,11 +33,11 @@ public class MonkeyAI : MonoBehaviour
     private Animator animator;
     private PlayerInventory playerInventory;
 
-    private bool isSwinging = false; 
-    private bool isExploring = false; 
+    private bool isSwinging = false;
+    private bool isExploring = false;
 
-    private float explorationTimer = 0f; 
-    private float explorationDuration = 5f; 
+    private float explorationTimer = 0f;
+    private float explorationDuration = 5f;
 
     private void Start()
     {
@@ -51,7 +52,7 @@ public class MonkeyAI : MonoBehaviour
             player = GameObject.FindWithTag("Player").transform;
         }
 
-        playerInventory = player.GetComponent<PlayerInventory>(); 
+        playerInventory = player.GetComponent<PlayerInventory>();
 
         StartCoroutine(SwingAtIntervals());
     }
@@ -63,7 +64,7 @@ public class MonkeyAI : MonoBehaviour
         switch (currentState)
         {
             case MonkeyState.Patrol:
-                Explore(); 
+                Explore();
                 DetectPlayer();
                 break;
             case MonkeyState.Flee:
@@ -89,7 +90,7 @@ public class MonkeyAI : MonoBehaviour
 
     private void UpdateAnimation()
     {
-
+        // อัปเดต Animation ตามสถานะต่างๆ
     }
 
     private void Explore()
@@ -100,16 +101,16 @@ public class MonkeyAI : MonoBehaviour
         {
             if (!isSwinging)
             {
-                currentState = MonkeyState.Swing; 
+                currentState = MonkeyState.Swing;
             }
             else
             {
-                movingRight = !movingRight; 
+                movingRight = !movingRight;
                 Flip();
                 currentState = MonkeyState.Patrol;
             }
 
-            explorationTimer = 0f; 
+            explorationTimer = 0f;
         }
 
         if (currentState == MonkeyState.Patrol && IsGroundInFront())
@@ -139,25 +140,25 @@ public class MonkeyAI : MonoBehaviour
 
         if (playerInventory.items.Count > 0)
         {
-            if (distanceToPlayer < attackRange)
+            if (distanceToPlayer < attackBoxSize.x / 2)
             {
                 currentState = MonkeyState.Attack;
             }
-            else if (distanceToPlayer < detectionRange)
+            else if (distanceToPlayer < detectionBoxSize.x / 2)
             {
-                currentState = MonkeyState.Lure; 
+                currentState = MonkeyState.Lure;
             }
         }
         else
         {
-            currentState = MonkeyState.Patrol; 
+            currentState = MonkeyState.Patrol;
         }
     }
 
     private void LurePlayer()
     {
         float moveDirection = movingRight ? 1f : -1f;
-        rb2d.velocity = new Vector2(moveDirection * (moveSpeed * 0.5f), rb2d.velocity.y); 
+        rb2d.velocity = new Vector2(moveDirection * (moveSpeed * 0.5f), rb2d.velocity.y);
 
         explorationTimer += Time.deltaTime;
         if (explorationTimer >= explorationDuration)
@@ -168,9 +169,9 @@ public class MonkeyAI : MonoBehaviour
         }
 
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        if (distanceToPlayer < attackRange)
+        if (distanceToPlayer < attackBoxSize.x / 2)
         {
-            currentState = MonkeyState.Attack; 
+            currentState = MonkeyState.Attack;
         }
     }
 
@@ -181,24 +182,24 @@ public class MonkeyAI : MonoBehaviour
         Vector2 attackDirection = (player.position - transform.position).normalized;
         rb2d.velocity = attackDirection * moveSpeed;
 
-        Collider2D[] hitPlayers = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(attackRadius, attackRadius), 0f, playerLayer);
+        Collider2D[] hitPlayers = Physics2D.OverlapBoxAll(attackPoint.position, attackBoxSize, 0f, playerLayer);
 
         foreach (Collider2D hitPlayer in hitPlayers)
         {
             PlayerSystem playerSystem = hitPlayer.GetComponent<PlayerSystem>();
             if (playerSystem != null)
             {
-                playerSystem.Stun(stunDuration); 
+                playerSystem.Stun(stunDuration);
                 playerSystem.PushBack((player.position - transform.position).normalized, 10f);
 
                 if (playerInventory != null)
                 {
-                    playerInventory.ScatterItems(); 
+                    playerInventory.ScatterItems();
                 }
             }
         }
 
-        currentState = MonkeyState.Flee; 
+        currentState = MonkeyState.Flee; // หลังโจมตีเสร็จ หนีออกจากแผนที่
     }
 
     private void SwingLikeSpiderMan()
@@ -212,15 +213,15 @@ public class MonkeyAI : MonoBehaviour
 
     private IEnumerator SwingAtIntervals()
     {
-        while (true) 
+        while (true)
         {
             if (currentState == MonkeyState.Patrol || currentState == MonkeyState.Flee || currentState == MonkeyState.Lure)
             {
-                SwingLikeSpiderMan(); 
-                yield return new WaitForSeconds(swingInterval); 
+                SwingLikeSpiderMan();
+                yield return new WaitForSeconds(swingInterval);
                 isSwinging = false;
             }
-            yield return null; 
+            yield return null;
         }
     }
 
@@ -232,15 +233,13 @@ public class MonkeyAI : MonoBehaviour
 
     private void FleeFromPlayer()
     {
-        if (IsGroundInFront())
+        Vector2 fleeDirection = (transform.position - player.position).normalized;
+        rb2d.velocity = fleeDirection * escapeSpeed;
+
+        if (Mathf.Abs(transform.position.x) > fleeBoundary.x || Mathf.Abs(transform.position.y) > fleeBoundary.y)
         {
-            Vector2 fleeDirection = (transform.position - player.position).normalized;
-            rb2d.velocity = fleeDirection * escapeSpeed;
-        }
-        else
-        {
-            movingRight = !movingRight;
-            Flip();
+            // ถ้าลิงหนีออกไปไกลจากผู้เล่นจนถึงขอบเขตที่กำหนด (ยังคงอยู่ในเกม ไม่ถูกลบ)
+            currentState = MonkeyState.Patrol;  // ให้กลับมาเดินสำรวจใหม่
         }
     }
 
@@ -266,7 +265,15 @@ public class MonkeyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        // แสดงระยะการเดิน, การตรวจจับ, และการโจมตีผ่าน Gizmos แบบ Box
         Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, patrolBoxSize);  // ระยะเดินสำรวจเป็น box
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, detectionBoxSize);  // ระยะตรวจจับผู้เล่นเป็น box
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(attackPoint.position, attackBoxSize);  // ระยะโจมตีผู้เล่นเป็น box
+
+        Gizmos.color = Color.green;
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * groundCheckDistance);
     }
 }

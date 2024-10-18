@@ -57754,8 +57754,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 3
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":false,"xPos":338,"yPos":257},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"What?","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":463,"yPos":154},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Come
-    Back Boy!","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":442,"yPos":332},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":1}],"EditorInfo":{"isRoot":false,"xPos":309,"yPos":125},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"What?","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Come
+    Back Boy!","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":413,"yPos":200},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"You
     can''t go this way now.","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
@@ -68474,7 +68474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.304
+      value: 106.6
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.y
@@ -68547,6 +68547,10 @@ PrefabInstance:
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: detectionRange
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
+      propertyPath: patrolBoxSize.x
+      value: 87.6
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: groundLayer.m_Bits

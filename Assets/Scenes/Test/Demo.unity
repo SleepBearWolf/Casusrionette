@@ -5019,7 +5019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 186.43
+      value: 193.01
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5095,7 +5095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: patrolBoxSize.x
-      value: 87.6
+      value: 32.7
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -19777,7 +19777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 220.49
+      value: 229.52
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19853,7 +19853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: patrolBoxSize.x
-      value: 87.6
+      value: 49.7
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -29007,7 +29007,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 08782535abeff7d47afed987f57f1f13, type: 2}
   spawnPoint: {fileID: 810324496}
   spawnForce: 5
-  isExchangeRequired: 0
+  isExchangeRequired: 1
 --- !u!114 &810324498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29021,7 +29021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 25
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":321.5,"yPos":140},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"OK","parentUIDs":[0,24],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":557.5,"yPos":140},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"\rWhere
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":320.5,"yPos":140},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"OK","parentUIDs":[0,24],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":557.5,"yPos":140},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"\rWhere
     can I find cooked chicken?","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"I
     want one more thing.\r\nPlease help me find some cooked chicken.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":557,"yPos":205},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Try
     asking your uncle. He probably has it for you.","parentUIDs":[22],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
@@ -29038,7 +29038,67 @@ MonoBehaviour:
   EndConversationFont: {fileID: 0}
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 810324497}
+        m_TargetAssemblyTypeName: TaskBasedItemSpawner, Assembly-CSharp
+        m_MethodName: AttemptTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 810324500}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOffWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1323870393}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOnWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1323870396}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOnWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1323870395}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOffWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &810324499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34572,6 +34632,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1323870396}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOnWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1323870395}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOffWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   NodeID: 17
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -34609,31 +34693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1323870396}
-        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
-        m_MethodName: ToggleOnWithDelay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 810324500}
-        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
-        m_MethodName: ToggleOffWithDelay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   NodeID: 24
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
@@ -39386,7 +39446,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 701ad5054899d7d4d84fb97cc13ac4c6, type: 2}
   spawnPoint: {fileID: 1130038102}
   spawnForce: 5
-  isExchangeRequired: 0
+  isExchangeRequired: 1
 --- !u!114 &1130038104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39400,9 +39460,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 24
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":309.5,"yPos":136},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"\"This
-    is the fruit you asked me to find.\"","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":577.5,"yPos":146},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Not
-    yet. I still haven''t found any fruit.","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Have
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":252.5,"yPos":263},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"\"This
+    is the fruit you asked me to find.\"","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":520.5,"yPos":274},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Not
+    yet. I still haven''t found any fruit.","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":377,"yPos":150},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Have
     you found any fruit yet?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Kunkak
@@ -41455,6 +41515,10 @@ PrefabInstance:
     - target: {fileID: 4997442188106565903, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
       propertyPath: m_Name
       value: CitySodlier
+      objectReference: {fileID: 0}
+    - target: {fileID: 4997442188106565903, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5340939848192518082, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
       propertyPath: m_SortingOrder
@@ -68808,6 +68872,7 @@ GameObject:
   - component: {fileID: 2043156969}
   - component: {fileID: 2043156971}
   - component: {fileID: 2043156970}
+  - component: {fileID: 2043156972}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -68865,6 +68930,25 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
+  TMPFont: {fileID: 0}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &2043156972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043156968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 24
   TMPFont: {fileID: 0}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
@@ -71773,10 +71857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToSpawn:
   - {fileID: 0}
-  requiredItems:
-  - {fileID: 11400000, guid: 8acbb0feb4a8f2146b5d6e746fc814b0, type: 2}
-  - {fileID: 11400000, guid: 1dcec83eec81fd84caafcc79e4c4d0b8, type: 2}
-  - {fileID: 11400000, guid: 701ad5054899d7d4d84fb97cc13ac4c6, type: 2}
+  requiredItems: []
   spawnPoint: {fileID: 2123557882}
   spawnForce: 5
   isExchangeRequired: 0
@@ -71792,9 +71873,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 24
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
-    you.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":434.5,"yPos":152},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"After
+  CurrentIDCounter: 25
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":true,"xPos":397,"yPos":187},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
+    you.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":397.5,"yPos":317},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"After
     this, a ritual will be performed, in which a firecracker will be lit to perform
     the ritual and fruits will be offered as offerings.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -71804,6 +71885,7 @@ MonoBehaviour:
   NodeSerializedDataList:
   - {fileID: 2043156971}
   - {fileID: 2043156970}
+  - {fileID: 2043156972}
   ContinueFont: {fileID: 0}
   EndConversationFont: {fileID: 0}
   Event:
@@ -72776,7 +72858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 200.82
+      value: 210.96
       objectReference: {fileID: 0}
     - target: {fileID: 7645666417999991413, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: m_LocalPosition.y
@@ -72852,7 +72934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: patrolBoxSize.x
-      value: 87.6
+      value: 45.8
       objectReference: {fileID: 0}
     - target: {fileID: 8802861560236533945, guid: 00b3e26e02571b341b12b141311b7363, type: 3}
       propertyPath: groundLayer.m_Bits

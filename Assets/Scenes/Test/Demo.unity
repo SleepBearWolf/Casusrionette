@@ -1314,12 +1314,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 23
-  json: '{"Options":[],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":403.5,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Go
+  json: '{"Options":[],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":408,"yPos":181},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Go
     to town and find a way to solve this problem.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Uncle
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 798674829}
   - {fileID: 798674825}
@@ -1327,8 +1327,8 @@ MonoBehaviour:
   - {fileID: 798674823}
   - {fileID: 798674822}
   - {fileID: 798674821}
-  ContinueFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  EndConversationFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -2016,7 +2016,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &62852035
@@ -2881,7 +2881,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2121576911486461595, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1612453251}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4997442188106565903, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2069876429}
   m_SourcePrefab: {fileID: 100100000, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
 --- !u!1 &82904233
 GameObject:
@@ -8737,7 +8740,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 17
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487177
@@ -8756,7 +8759,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 16
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487178
@@ -8775,7 +8778,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 15
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487179
@@ -8794,7 +8797,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 14
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487180
@@ -8813,7 +8816,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 13
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487181
@@ -8832,7 +8835,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 12
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487182
@@ -8851,7 +8854,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 10
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487183
@@ -8870,7 +8873,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 9
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487184
@@ -8889,7 +8892,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 8
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487185
@@ -8908,7 +8911,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 7
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487186
@@ -8927,7 +8930,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 6
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487187
@@ -8946,7 +8949,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 5
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487188
@@ -8965,7 +8968,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 4
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487189
@@ -8984,7 +8987,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 3
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487190
@@ -9003,7 +9006,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 2
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487191
@@ -9022,7 +9025,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 1
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487192
@@ -9041,7 +9044,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487193
@@ -9060,7 +9063,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 18
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &116487194
@@ -9139,7 +9142,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 22
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &117980012
@@ -10808,20 +10811,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 12
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":239.5,"yPos":195},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"\"Hi,
-    have you seen Prince Kunkak?\"","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":642.5,"yPos":196},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Bye","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":443,"yPos":67},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villager","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":240.5,"yPos":300},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"\"He
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":11}],"EditorInfo":{"isRoot":false,"xPos":193.5,"yPos":232},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"\"Hi,
+    have you seen Prince Kunkak?\"","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":596.5,"yPos":233},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Bye","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":397,"yPos":104},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villager","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":192.5,"yPos":340},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"\"He
     is near the city wall, by the path to the forest, on the right.\"","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villager","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Villager
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 1758078291}
   - {fileID: 1758078290}
   - {fileID: 1758078289}
   - {fileID: 1758078292}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls:
@@ -15776,7 +15779,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733407
@@ -15795,7 +15798,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 3
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733408
@@ -15814,7 +15817,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 2
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733409
@@ -15833,7 +15836,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 1
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733410
@@ -15947,7 +15950,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 13
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733416
@@ -15966,7 +15969,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 12
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733417
@@ -15985,7 +15988,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 11
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733418
@@ -16004,7 +16007,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 10
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733420
@@ -16059,7 +16062,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 16
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733421
@@ -16078,7 +16081,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 15
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733422
@@ -16097,7 +16100,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 14
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &283733423
@@ -16116,7 +16119,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 18
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &287127795
@@ -17806,6 +17809,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900108755397112059, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401300952761510845, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401300952761510845, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401300952761510845, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401300952761510845, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401300952761510845, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401300952761510845, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490930213922077964, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490930213922077964, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490930213922077964, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490930213922077964, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490930213922077964, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490930213922077964, guid: d9fa78e8c3c4f2b4b8f7f77ca8426cca, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23367,11 +23418,11 @@ MonoBehaviour:
   saveVersion: 110
   DefaultName: Sodlies
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 1785559177}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -25992,6 +26043,7 @@ GameObject:
   - component: {fileID: 590751106}
   - component: {fileID: 590751105}
   - component: {fileID: 590751104}
+  - component: {fileID: 590751108}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -26029,20 +26081,20 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1767179334}
-        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
-        m_MethodName: ToggleOffWithDelay
+      - m_Target: {fileID: 1767179336}
+        m_TargetAssemblyTypeName: TaskBasedItemSpawner, Assembly-CSharp
+        m_MethodName: AttemptTask
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 10
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &590751105
@@ -26061,7 +26113,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 9
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &590751106
@@ -26079,18 +26131,6 @@ MonoBehaviour:
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1767179334}
-        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
-        m_MethodName: ToggleOffWithDelay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1767179336}
         m_TargetAssemblyTypeName: TaskBasedItemSpawner, Assembly-CSharp
         m_MethodName: AttemptTask
@@ -26104,7 +26144,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 8
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &590751107
@@ -26135,7 +26175,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &590751108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590751102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 11
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1001 &591444953
@@ -26772,15 +26831,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 28
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":26}],"EditorInfo":{"isRoot":false,"xPos":290.5,"yPos":148},"ID":23,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    need some chicken, Uncle.","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":531.5,"yPos":147},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Notting","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":23},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":true,"xPos":403.5,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"What
-    is going on, boy?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":27}],"EditorInfo":{"isRoot":false,"xPos":274.5,"yPos":227},"ID":26,"ParamActions":[],"TMPFontGUID":null,"Text":"OK,
-    boy, here is your chicken.","parentUIDs":[23],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":270.5,"yPos":327},"ID":27,"ParamActions":[],"TMPFontGUID":null,"Text":"And
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":26}],"EditorInfo":{"isRoot":false,"xPos":322,"yPos":235},"ID":23,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    need some chicken, Uncle.","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":564,"yPos":234},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Notting","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":23},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":true,"xPos":435,"yPos":109},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"What
+    is going on, boy?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":27}],"EditorInfo":{"isRoot":false,"xPos":306,"yPos":315},"ID":26,"ParamActions":[],"TMPFontGUID":null,"Text":"OK,
+    boy, here is your chicken.","parentUIDs":[23],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":302,"yPos":414},"ID":27,"ParamActions":[],"TMPFontGUID":null,"Text":"And
     here is your cage to catch chickens.","parentUIDs":[26],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Uncle
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 1278210862}
   - {fileID: 1278210861}
@@ -26794,11 +26853,47 @@ MonoBehaviour:
   - {fileID: 1278210853}
   - {fileID: 1278210863}
   - {fileID: 1278210864}
-  ContinueFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  EndConversationFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 597084053}
+        m_TargetAssemblyTypeName: TaskBasedItemSpawner, Assembly-CSharp
+        m_MethodName: AttemptTask
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1578012884}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOffWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1578012883}
+        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
+        m_MethodName: ToggleOnWithDelay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &597084055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29243,7 +29338,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &674129743
@@ -29741,7 +29836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.00009021363, y: -445}
+  m_AnchoredPosition: {x: 0.00009021363, y: -426}
   m_SizeDelta: {x: 4856.2686, y: 803.4838}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!225 &679096825
@@ -30718,14 +30813,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &714299482
-Transform:
+--- !u!224 &714299482
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714299481}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -30736,6 +30830,11 @@ Transform:
   - {fileID: 1469354354}
   m_Father: {fileID: 137051728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &721283877
 GameObject:
   m_ObjectHideFlags: 0
@@ -31806,21 +31905,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 22
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":1}],"EditorInfo":{"isRoot":false,"xPos":314.5,"yPos":170},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"What?","parentUIDs":[10],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":549.5,"yPos":161},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Who
-    is Boy?","parentUIDs":[10],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":148.5,"yPos":344},"ID":11,"ParamActions":[],"TMPFontGUID":null,"Text":"What
-    Problem?","parentUIDs":[1],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":16}],"EditorInfo":{"isRoot":false,"xPos":363.5,"yPos":353},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"What
-    How go to town?","parentUIDs":[1,13],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":644.5,"yPos":350},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok!?","parentUIDs":[13],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":10}],"EditorInfo":{"isRoot":true,"xPos":792.5,"yPos":2},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Good
-    Morning Boy.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":11},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":239.5,"yPos":240},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Go
-    to town and find a solution to this problem.","parentUIDs":[2],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":438.5,"yPos":60},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Wake
-    up, I need your help.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":12},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":564.5,"yPos":228},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"You
-    is Boy.","parentUIDs":[3],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":110.5,"yPos":410},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"The
-    weather is very hot now, and it''s drying up the rice fields.","parentUIDs":[11],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[{"__type":"EditableBoolCondition:#DialogueEditor","ParameterName":"HasTalkedBefore","CheckType":0,"RequiredValue":false}],"NodeUID":16}],"EditorInfo":{"isRoot":false,"xPos":95.5,"yPos":518},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"The
-    animals in this area have become more aggressive because of the heat.","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":360.5,"yPos":516},"ID":16,"ParamActions":[],"TMPFontGUID":null,"Text":"Walk
-    to the right to enter the town.","parentUIDs":[15,12],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
+  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":1}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":464,\"yPos\":117},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"What?\",\"parentUIDs\":[10],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":13}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":698,\"yPos\":107},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Who
+    is Boy?\",\"parentUIDs\":[10],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":14}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":299,\"yPos\":291},\"ID\":11,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"What
+    Problem?\",\"parentUIDs\":[1],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":16}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":513,\"yPos\":301},\"ID\":12,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"What
+    How go to town?\",\"parentUIDs\":[1,13],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":794,\"yPos\":298},\"ID\":18,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Ok!?\",\"parentUIDs\":[13],\"SpeechUID\":-1}],\"Parameters\":[{\"__type\":\"EditableBoolParameter:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"BoolValue\":false}],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":10}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":935,\"yPos\":-37},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35
+    \u0E1A\u0E2D\u0E22\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":11},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":12}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":388,\"yPos\":187},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Go
+    to town and find a solution to this problem.\",\"parentUIDs\":[2],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":2},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":588,\"yPos\":5},\"ID\":10,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Wake
+    up, I need your help.\",\"parentUIDs\":[0],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":12},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":18}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":716,\"yPos\":174},\"ID\":13,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"You
+    is Boy.\",\"parentUIDs\":[3],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":15}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":256,\"yPos\":357},\"ID\":14,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"The
+    weather is very hot now, and it's drying up the rice fields.\",\"parentUIDs\":[11],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableBoolCondition:#DialogueEditor\",\"ParameterName\":\"HasTalkedBefore\",\"CheckType\":0,\"RequiredValue\":false}],\"NodeUID\":16}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":244,\"yPos\":464},\"ID\":15,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"The
+    animals in this area have become more aggressive because of the heat.\",\"parentUIDs\":[14],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":510,\"yPos\":465},\"ID\":16,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Walk
+    to the right to enter the town.\",\"parentUIDs\":[15,12],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Uncle\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 283733406}
   - {fileID: 283733409}
@@ -31839,8 +31938,8 @@ MonoBehaviour:
   - {fileID: 283733421}
   - {fileID: 283733420}
   - {fileID: 283733423}
-  ContinueFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  EndConversationFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -33283,7 +33382,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &801399972
@@ -34016,21 +34115,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 25
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":288.5,"yPos":140},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"OK","parentUIDs":[0,24],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":525.5,"yPos":140},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"\rWhere
-    can I find cooked chicken?","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":402,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    need one more thing. Please help me find some cooked chicken.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":525,"yPos":205},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Try
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":320.5,"yPos":144},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"OK","parentUIDs":[0,24],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":false,"xPos":557.5,"yPos":143},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"\rWhere
+    can I find cooked chicken?","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":25},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    need one more thing. Please help me find some cooked chicken.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":false,"xPos":557,"yPos":209},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Try
     asking your uncle. He probably has it for you.","parentUIDs":[22],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Kunkak
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 1005203682}
   - {fileID: 1005203681}
   - {fileID: 1005203678}
   - {fileID: 1005203683}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -36518,22 +36617,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 16
-  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":605.5,\"yPos\":-452},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Hi\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":1008.5,\"yPos\":-452},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Noting\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":407.5,\"yPos\":-207},\"ID\":4,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Yes,
-    I want to know why this country is so dry. Do you know?\",\"parentUIDs\":[3],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":807.5,\"yPos\":-205},\"ID\":5,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"I'm
-    hungry. Do you have any food to eat?\",\"parentUIDs\":[3],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":9}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":204.5,\"yPos\":96},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"What
-    can I do?\",\"parentUIDs\":[7],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":209.5,\"yPos\":450},\"ID\":10,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Ok\",\"parentUIDs\":[9],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":810,\"yPos\":-582},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"The
+  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":3}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":507.5,\"yPos\":-25},\"ID\":1,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Hi\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":910.5,\"yPos\":-25},\"ID\":2,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Noting\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":7}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":308.5,\"yPos\":221},\"ID\":4,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Yes,
+    I want to know why this country is so dry. Do you know?\",\"parentUIDs\":[3],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":6}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":710.5,\"yPos\":222},\"ID\":5,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"I'm
+    hungry. Do you have any food to eat?\",\"parentUIDs\":[3],\"SpeechUID\":-1},{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":9}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":106.5,\"yPos\":524},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"What
+    can I do?\",\"parentUIDs\":[7],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":111.5,\"yPos\":877},\"ID\":10,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Ok\",\"parentUIDs\":[9],\"SpeechUID\":-1}],\"Parameters\":[],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":1},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":2}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":713,\"yPos\":-155},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"The
     weather has been very hot these days, and as a result, my rice fields have completely
-    dried up and become damaged.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":4},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":5}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":606.5,\"yPos\":-351},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Hi,
-    do you have any questions?\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":808.5,\"yPos\":-56},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"This
-    is not a charity kitchen, you know!\",\"parentUIDs\":[5],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":403.5,\"yPos\":-54},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"The
+    dried up and become damaged.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":4},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":5}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":510.5,\"yPos\":79},\"ID\":3,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Hi,
+    do you have any questions?\",\"parentUIDs\":[1],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":710.5,\"yPos\":371},\"ID\":6,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"This
+    is not a charity kitchen, you know!\",\"parentUIDs\":[5],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":300.5,\"yPos\":374},\"ID\":7,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"The
     reason the city is so dry is that the god of the sky city became angry, and as
-    a result, the rain didn\u2019t come in its season.\",\"parentUIDs\":[4],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":10}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":209.5,\"yPos\":268},\"ID\":9,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"According
+    a result, the rain didn\u2019t come in its season.\",\"parentUIDs\":[4],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":10}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":111.5,\"yPos\":695},\"ID\":9,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"According
     to legend, a rocket can be used as a passage to the sky city. If you catch a
     chicken and bring it to me, I will make a rocket for you.\",\"parentUIDs\":[8],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Villager\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
   DefaultName: Villager
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 1695206914}
   - {fileID: 1695206913}
@@ -36551,8 +36650,8 @@ MonoBehaviour:
   - {fileID: 1695206920}
   - {fileID: 1695206919}
   - {fileID: 1695206927}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -39016,7 +39115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionUI: {fileID: 1045286430}
-  interactionDistance: 1
+  interactionDistance: 2
 --- !u!1001 &986404323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39533,7 +39632,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 22
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1005203681
@@ -39612,7 +39711,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 17
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1005203682
@@ -39631,7 +39730,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1005203683
@@ -39650,7 +39749,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 24
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &1008973431
@@ -43330,32 +43429,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 23
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":483,"yPos":-662},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"
-    Hi, Prince.","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":906,"yPos":-662},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Bye
-    prince","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":300,"yPos":-485},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes.\n","parentUIDs":[3],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":626,"yPos":-460},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"No","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":281,"yPos":-262},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Can
-    I help you?","parentUIDs":[6],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":693,"yPos":-255},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"How
-    will you help the city overcome its difficulties?\n","parentUIDs":[6],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":142,"yPos":84},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes,
-    but where can I find these fruits?\n","parentUIDs":[12],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":16}],"EditorInfo":{"isRoot":false,"xPos":407,"yPos":119},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Sure,
-    but can I get the $100 pod duang reward first?","parentUIDs":[12],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1027,"yPos":-810},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"\"This
-    is the fruit you asked me to find.\"","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":697.5,"yPos":-798},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi,
-    I am Prince Kunkak.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":480,"yPos":-572},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"What
-    do you want to complain about?","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":7},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":541,"yPos":-384},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":732.5,"yPos":-687},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"
+    Hi, Prince.","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1153.5,"yPos":-687},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Bye
+    prince","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":18}],"EditorInfo":{"isRoot":false,"xPos":547.5,"yPos":-510},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes.\n","parentUIDs":[3],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":873.5,"yPos":-485},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"No","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":527.5,"yPos":-288},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Can
+    I help you?","parentUIDs":[6],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":939.5,"yPos":-277},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"How
+    will you help the city overcome its difficulties?\n","parentUIDs":[6],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":15}],"EditorInfo":{"isRoot":false,"xPos":388.5,"yPos":60},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes,
+    but where can I find these fruits?\n","parentUIDs":[12],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":16}],"EditorInfo":{"isRoot":false,"xPos":654.5,"yPos":94},"ID":14,"ParamActions":[],"TMPFontGUID":null,"Text":"Sure,
+    but can I get the $100 pod duang reward first?","parentUIDs":[12],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":1274.5,"yPos":-835},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"\"This
+    is the fruit you asked me to find.\"","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":945,"yPos":-823},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi,
+    I am Prince Kunkak.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":727.5,"yPos":-597},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"What
+    do you want to complain about?","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":7},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":788.5,"yPos":-409},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"
     I would like to say that right now our city is angering the gods because we have
-    neglected to perform the forgiveness ceremony for a long time.","parentUIDs":[18],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":670,"yPos":-169},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    need you to help me.\r\n","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":283,"yPos":-167},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Sure,
-    I just need some help.","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":13},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":526,"yPos":-22},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    would like you to help me find some offerings, such as apples, bananas, and oranges.","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":22}],"EditorInfo":{"isRoot":false,"xPos":119,"yPos":192},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+    neglected to perform the forgiveness ceremony for a long time.","parentUIDs":[18],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":917.5,"yPos":-193},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    need you to help me.\r\n","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":12}],"EditorInfo":{"isRoot":false,"xPos":530.5,"yPos":-192},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Sure,
+    I just need some help.","parentUIDs":[7],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":13},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":14}],"EditorInfo":{"isRoot":false,"xPos":773.5,"yPos":-48},"ID":12,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    would like you to help me find some offerings, such as apples, bananas, and oranges.","parentUIDs":[10],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":22}],"EditorInfo":{"isRoot":false,"xPos":368.5,"yPos":167},"ID":15,"ParamActions":[],"TMPFontGUID":null,"Text":"You
     can find fruits in the forest, but you must be careful because there are many
-    mischievous animals there.","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":22}],"EditorInfo":{"isRoot":false,"xPos":425,"yPos":189},"ID":16,"ParamActions":[],"TMPFontGUID":null,"Text":"At
+    mischievous animals there.","parentUIDs":[13],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":22}],"EditorInfo":{"isRoot":false,"xPos":669.5,"yPos":164},"ID":16,"ParamActions":[],"TMPFontGUID":null,"Text":"At
     this time, I can''t give you the money, but I promise that if you bring me something,
-    I will definitely give you the money.\n","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":260.5,"yPos":-400},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"I
+    I will definitely give you the money.\n","parentUIDs":[14],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":510,"yPos":-421},"ID":18,"ParamActions":[],"TMPFontGUID":null,"Text":"I
     have a complaint about the city being dry, the crops not being fertile, and the
-    villagers suffering.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Boy","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":237,"yPos":358},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"After
+    villagers suffering.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Boy","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":484.5,"yPos":334},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"After
     you find it, take it to the back of the farm.","parentUIDs":[15,16],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Kunkak
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 116487192}
   - {fileID: 116487191}
@@ -43376,8 +43475,8 @@ MonoBehaviour:
   - {fileID: 116487176}
   - {fileID: 116487193}
   - {fileID: 116487194}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls:
@@ -44507,21 +44606,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 24
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":277.5,"yPos":135},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"\"This
-    is the fruit you asked me to find.\"","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":545.5,"yPos":146},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Not
-    yet. I still haven''t found any fruit.","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":402,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Have
-    you found any fruit yet?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
+  CurrentIDCounter: 26
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":24},{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":25}],"EditorInfo":{"isRoot":false,"xPos":372.5,"yPos":240},"ID":17,"ParamActions":[],"TMPFontGUID":null,"Text":"\"This
+    is the fruit you asked me to find.\"","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":642.5,"yPos":251},"ID":22,"ParamActions":[],"TMPFontGUID":null,"Text":"Not
+    yet. I still haven''t found any fruit.","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":22},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":17}],"EditorInfo":{"isRoot":true,"xPos":501,"yPos":127},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Have
+    you found any fruit yet?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":230,"yPos":310},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
+    you","parentUIDs":[17],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":459,"yPos":309},"ID":25,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+    don t have it","parentUIDs":[17],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Kunkak
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 2041184783}
   - {fileID: 2041184782}
   - {fileID: 2041184781}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  - {fileID: 2041184785}
+  - {fileID: 2041184784}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -49176,7 +49279,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 24
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1278210855
@@ -49195,7 +49298,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 23
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1278210856
@@ -49328,7 +49431,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1278210863
@@ -49359,7 +49462,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 26
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1278210864
@@ -49414,7 +49517,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 27
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &1281258401
@@ -56233,6 +56336,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1323870395}
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1323870397}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
 --- !u!4 &1323870391 stripped
 Transform:
@@ -56304,6 +56410,20 @@ MonoBehaviour:
   objectToToggle: {fileID: 597084051}
   delayBeforeToggle: 1
   useSelf: 0
+--- !u!114 &1323870397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323870392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc1228d9c8abcb439155be95237a49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 1045286430}
+  interactionDistance: 2
 --- !u!1 &1324015450
 GameObject:
   m_ObjectHideFlags: 0
@@ -64479,13 +64599,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -7552582706839291426, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1109309304}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -8653719598885068355, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1431008782}
   m_SourcePrefab: {fileID: 4843985084834002234, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
 --- !u!1 &1431008781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: fd61117ef1056e545b231c546bde7fc6, type: 3}
   m_PrefabInstance: {fileID: 1431008780}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1431008782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431008781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc1228d9c8abcb439155be95237a49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 1045286430}
+  interactionDistance: 2
 --- !u!1 &1431024354
 GameObject:
   m_ObjectHideFlags: 0
@@ -65335,7 +65472,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &1461177311
@@ -65783,6 +65920,7 @@ GameObject:
   - component: {fileID: 1469354357}
   - component: {fileID: 1469354356}
   - component: {fileID: 1469354355}
+  - component: {fileID: 1469354358}
   m_Layer: 0
   m_Name: DoorSodlier
   m_TagString: Untagged
@@ -65841,12 +65979,12 @@ MonoBehaviour:
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 60598250}
   - {fileID: 60598249}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -65869,6 +66007,20 @@ MonoBehaviour:
   npcConversation: {fileID: 1469354356}
   taskName: 
   requiredItem: {fileID: 0}
+--- !u!114 &1469354358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469354353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc1228d9c8abcb439155be95237a49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 1045286430}
+  interactionDistance: 2
 --- !u!1 &1469868447
 GameObject:
   m_ObjectHideFlags: 0
@@ -67464,7 +67616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4387602638643622543, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4566304429888025036, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_IsActive
@@ -67486,6 +67638,10 @@ PrefabInstance:
       propertyPath: toolUI
       value: 
       objectReference: {fileID: 679096823}
+    - target: {fileID: 4699950189906128064, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4841363864268513667, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -67514,6 +67670,22 @@ PrefabInstance:
       propertyPath: pushBackAnimationClip
       value: 
       objectReference: {fileID: 7400000, guid: 060972711063a664d9e6a14985a4e627, type: 2}
+    - target: {fileID: 5683857577140592115, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.209
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683857577140592115, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8460062
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683857577140592115, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.201
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683857577140592115, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.077
+      objectReference: {fileID: 0}
     - target: {fileID: 5808710828236443422, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 128
@@ -67564,7 +67736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849066810808150322, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7937065736677610953, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
       propertyPath: m_SortingOrder
@@ -68013,7 +68185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionUI: {fileID: 1045286430}
-  interactionDistance: 1
+  interactionDistance: 2
 --- !u!1 &1547265949
 GameObject:
   m_ObjectHideFlags: 0
@@ -69321,14 +69493,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 11
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":415,"yPos":-108},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":818,"yPos":-107},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Bye","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":214,"yPos":140},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes,
-    I want to know why this country is so dry, do you know?","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":617,"yPos":139},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"I''m
-    hungry, do you have food to eat?","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":14,"yPos":440},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"What
-    can I do?","parentUIDs":[7],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":19,"yPos":794},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok","parentUIDs":[9],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":618.5,"yPos":-236},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Vilager","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":416,"yPos":-7},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Do
-    you have any questions?","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":618,"yPos":288},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"This
-    is not a charity kitchen, you know!!!","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":213,"yPos":290},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"The
+  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":false,"xPos":557.5,"yPos":-314},"ID":1,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":960.5,"yPos":-313},"ID":2,"ParamActions":[],"TMPFontGUID":null,"Text":"Bye","parentUIDs":[0],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":356.5,"yPos":-66},"ID":4,"ParamActions":[],"TMPFontGUID":null,"Text":"Yes,
+    I want to know why this country is so dry, do you know?","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":759.5,"yPos":-67},"ID":5,"ParamActions":[],"TMPFontGUID":null,"Text":"I''m
+    hungry, do you have food to eat?","parentUIDs":[3],"SpeechUID":-1},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":156.5,"yPos":234},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"What
+    can I do?","parentUIDs":[7],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":161.5,"yPos":588},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Ok","parentUIDs":[9],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":1},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":2}],"EditorInfo":{"isRoot":true,"xPos":761,"yPos":-442},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Hi","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Vilager","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":4},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":5}],"EditorInfo":{"isRoot":false,"xPos":558.5,"yPos":-213},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Do
+    you have any questions?","parentUIDs":[1],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":760.5,"yPos":82},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"This
+    is not a charity kitchen, you know!!!","parentUIDs":[5],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":355.5,"yPos":84},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"The
     reason why the city is dry is because the god of the sky city got angry, so the
-    rain didn''t fall in season.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":19,"yPos":612},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"According
+    rain didn''t fall in season.","parentUIDs":[4],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":161.5,"yPos":406},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"According
     to legend, the rocket can be used as a passage to the sky city. If you catch
     a chicken and bring it to me, I will make a rocket for you.","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Villagers","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
@@ -69943,17 +70115,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 1
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":425.5,"yPos":123},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
     cannot enter the palace.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sodlier","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 674002381}
   - {fileID: 674002380}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -70756,16 +70928,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 1
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Hi
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":353,"yPos":217},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":null,"parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Hi
     am King","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 1460142901}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -77302,7 +77474,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 2
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206913
@@ -77321,7 +77493,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 1
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206914
@@ -77340,7 +77512,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206915
@@ -77435,7 +77607,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 10
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206920
@@ -77454,7 +77626,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 8
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206921
@@ -77473,7 +77645,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 5
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206922
@@ -77492,7 +77664,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 4
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206923
@@ -77511,7 +77683,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 9
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206924
@@ -77530,7 +77702,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 7
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206925
@@ -77549,7 +77721,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 6
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206926
@@ -77568,7 +77740,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 3
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1695206927
@@ -79419,7 +79591,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 2
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1758078290
@@ -79438,7 +79610,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 1
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1758078291
@@ -79457,7 +79629,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &1758078292
@@ -79488,7 +79660,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 11
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &1762126651
@@ -84767,37 +84939,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 11
-  json: '{"Options":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":348,"yPos":132},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"I
-    have this paper","parentUIDs":[0],"SpeechUID":-1},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":569,"yPos":133},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"Notting","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":8},{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":true,"xPos":434,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"You
-    cannot enter the Forest Now.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sodlies","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":340,"yPos":202},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"This
-    is an order from the prince. You can pass through.","parentUIDs":[8],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sodlies","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
+  CurrentIDCounter: 12
+  json: "{\"Options\":[{\"Connections\":[{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableIntCondition:#DialogueEditor\",\"ParameterName\":\"Has
+    item\",\"CheckType\":0,\"RequiredValue\":1}],\"NodeUID\":10},{\"__type\":\"EditableSpeechConnection:#DialogueEditor\",\"Conditions\":[{\"__type\":\"EditableIntCondition:#DialogueEditor\",\"ParameterName\":\"No
+    item\",\"CheckType\":0,\"RequiredValue\":0}],\"NodeUID\":11}],\"EditorInfo\":{\"isRoot\":false,\"xPos\":327,\"yPos\":208},\"ID\":8,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"I
+    have this paper\",\"parentUIDs\":[0],\"SpeechUID\":-1},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":547,\"yPos\":211},\"ID\":9,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"Notting\",\"parentUIDs\":[0],\"SpeechUID\":-1}],\"Parameters\":[{\"__type\":\"EditableIntParameter:#DialogueEditor\",\"ParameterName\":\"No
+    item\",\"IntValue\":0},{\"__type\":\"EditableIntParameter:#DialogueEditor\",\"ParameterName\":\"Has
+    item\",\"IntValue\":1}],\"SpeechNodes\":[{\"Connections\":[{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":8},{\"__type\":\"EditableOptionConnection:#DialogueEditor\",\"Conditions\":[],\"NodeUID\":9}],\"EditorInfo\":{\"isRoot\":true,\"xPos\":412,\"yPos\":100},\"ID\":0,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"You
+    cannot enter the Forest Now.\",\"parentUIDs\":[],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Sodlies\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":197,\"yPos\":294},\"ID\":10,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"This
+    is an order from the prince. You can pass through.\",\"parentUIDs\":[8],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Sodlies\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0},{\"Connections\":[],\"EditorInfo\":{\"isRoot\":false,\"xPos\":412,\"yPos\":293},\"ID\":11,\"ParamActions\":[],\"TMPFontGUID\":null,\"Text\":\"\u0E44\u0E2B\u0E19\u0E25\u0E30\u0E01\u0E23\u0E30\u0E14\u0E32\u0E29\u0E17\u0E35\u0E48\u0E27\u0E48\u0E32\",\"parentUIDs\":[8],\"AdvanceDialogueAutomatically\":false,\"AudioGUID\":null,\"AutoAdvanceShouldDisplayOption\":false,\"IconGUID\":null,\"Name\":\"Sodlies\",\"OptionUIDs\":null,\"SpeechUID\":0,\"TimeUntilAdvance\":0,\"Volume\":0}]}"
   saveVersion: 110
   DefaultName: Sodlies
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 590751107}
   - {fileID: 590751106}
   - {fileID: 590751105}
   - {fileID: 590751104}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  - {fileID: 590751108}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1767179334}
-        m_TargetAssemblyTypeName: ToggleSelfOrOtherObject, Assembly-CSharp
-        m_MethodName: ToggleOffWithDelay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1767179336}
         m_TargetAssemblyTypeName: TaskBasedItemSpawner, Assembly-CSharp
         m_MethodName: AttemptTask
@@ -85485,7 +85650,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &1785609163
@@ -96914,12 +97079,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 30
-  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":403.5,"yPos":139},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Notting","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":true,"xPos":403.5,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"What
+  json: '{"Options":[{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":430,"yPos":144},"ID":24,"ParamActions":[],"TMPFontGUID":null,"Text":"Notting","parentUIDs":[0],"SpeechUID":-1}],"Parameters":[{"__type":"EditableBoolParameter:#DialogueEditor","ParameterName":"HasTalkedBefore","BoolValue":false}],"SpeechNodes":[{"Connections":[{"__type":"EditableOptionConnection:#DialogueEditor","Conditions":[],"NodeUID":24}],"EditorInfo":{"isRoot":true,"xPos":430,"yPos":26},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"What
     is going on, boy?","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Uncle","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Uncle
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 2134267319}
   - {fileID: 2134267318}
@@ -96932,8 +97097,8 @@ MonoBehaviour:
   - {fileID: 2134267311}
   - {fileID: 2134267321}
   - {fileID: 2134267320}
-  ContinueFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
-  EndConversationFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -98612,6 +98777,8 @@ GameObject:
   - component: {fileID: 2041184783}
   - component: {fileID: 2041184782}
   - component: {fileID: 2041184781}
+  - component: {fileID: 2041184785}
+  - component: {fileID: 2041184784}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -98650,7 +98817,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 22
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &2041184782
@@ -98705,7 +98872,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   NodeID: 17
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &2041184783
@@ -98724,7 +98891,57 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &2041184784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041184779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  NodeID: 25
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &2041184785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041184779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 24
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!1 &2043156968
@@ -98777,7 +98994,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 20
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &2043156971
@@ -98796,7 +99013,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &2043156972
@@ -100037,6 +100254,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2069876427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4997442188106565903, guid: 57ca6aae534d5874fbfa28e9a629cfce, type: 3}
+  m_PrefabInstance: {fileID: 77262213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2069876429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069876427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc1228d9c8abcb439155be95237a49a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionUI: {fileID: 1045286430}
+  interactionDistance: 2
 --- !u!1 &2070482867
 GameObject:
   m_ObjectHideFlags: 0
@@ -101740,20 +101976,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 25
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":true,"xPos":402,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
-    you.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":402.5,"yPos":152},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"After
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":20}],"EditorInfo":{"isRoot":true,"xPos":435,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Thank
+    you.","parentUIDs":[],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":435.5,"yPos":152},"ID":20,"ParamActions":[],"TMPFontGUID":null,"Text":"After
     this, a ritual will be performed, during which a firecracker will be lit and
     fruits will be offered as part of the ceremony.","parentUIDs":[0],"AdvanceDialogueAutomatically":false,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Kunkak","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0,"Volume":0}]}'
   saveVersion: 110
   DefaultName: Kunkak
   DefaultSprite: {fileID: 0}
-  DefaultFont: {fileID: 0}
+  DefaultFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   NodeSerializedDataList:
   - {fileID: 2043156971}
   - {fileID: 2043156970}
   - {fileID: 2043156972}
-  ContinueFont: {fileID: 0}
-  EndConversationFont: {fileID: 0}
+  ContinueFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  EndConversationFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Event:
     m_PersistentCalls:
       m_Calls: []
@@ -102194,7 +102430,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 24
-  TMPFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &2134267313
@@ -102327,7 +102563,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 0
-  TMPFont: {fileID: 0}
+  TMPFont: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
 --- !u!114 &2134267320

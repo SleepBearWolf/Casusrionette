@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class TaskBasedItemSpawner : MonoBehaviour
 {
-    public List<ItemBaseData> itemsToSpawn;  
-    public List<ItemBaseData> requiredItems; 
-    public Transform spawnPoint;            
-    public float spawnForce = 5f;           
-    public bool isExchangeRequired;          
+    public List<ItemBaseData> itemsToSpawn;
+    public List<ItemBaseData> requiredItems;
+    public Transform spawnPoint;
+    public float spawnForce = 5f;
+    public bool isExchangeRequired;
 
     private PlayerInventory playerInventory;
-    private bool taskCompleted = false;      
+    private bool taskCompleted = false;
 
     private void Start()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();  
+        playerInventory = FindObjectOfType<PlayerInventory>();
         if (playerInventory == null)
         {
             Debug.LogError("PlayerInventory not found in the scene!");
@@ -34,9 +34,9 @@ public class TaskBasedItemSpawner : MonoBehaviour
         {
             if (HasRequiredItems())
             {
-                RemoveRequiredItems();  
-                SpawnItems();           
-                taskCompleted = true;  
+                RemoveRequiredItems();
+                SpawnItems();
+                taskCompleted = true;
             }
             else
             {
@@ -45,7 +45,7 @@ public class TaskBasedItemSpawner : MonoBehaviour
         }
         else
         {
-            SpawnItems(); 
+            SpawnItems();
             taskCompleted = true;
         }
     }

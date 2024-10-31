@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-815958075313763311
+--- !u!114 &-5845602467584277934
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Sky
-  m_Shader: {fileID: -6465566751694194690, guid: f15798ba56df0c04e9fb96a330470c43, type: 3}
+  m_Name: Castle_02vfx
+  m_Shader: {fileID: -6465566751694194690, guid: 0081d72f7bb9fce42a388d0a35b22e30, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -36,6 +36,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Main_Texture:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,23 +58,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _LowerSky: 1.61
-    - _Sky: 0.464
-    - _SkyMiddle: 0.849
-    - _Sky_Lower: 2
-    - _Sky_Offset: 5
-    - _Sky_Scale: 30
-    - _Sky_Str: 0.8
-    - _Sky_Upper: 0.36
-    - _UpperSky: 0.6
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
+    - _DissolveNoise_Power: 2
+    - _DissolveNoise_Scale: 15
+    - _DissolveVoro_Power: 1
+    - _DissolveVoro_Scale: 0
+    - _Dissolve_Power: 2
+    - _Dissolve_Scale: 10
+    - _Distortion_Ctrl: 0.037
+    - _Distortion_Scale: 5
+    - _Float: 0.82
+    - _UseVoronoi: 1
     m_Colors:
-    - _Color1: {r: 0.5981082, g: 4.696256, b: 1.0001949, a: 1}
-    - _Color2: {r: 3.5125952, g: 17.876661, b: 22.363522, a: 1}
-    - _Color3: {r: 0.9529412, g: 0.5971768, b: 0.3568628, a: 1}
-    - _Color4: {r: 0.4339623, g: 0.2917201, b: 0.05117479, a: 1}
-    - _LowerColor: {r: 0.19189262, g: 2.7120826, b: 2.5712028, a: 1}
-    - _MiddleColor: {r: 0.6603774, g: 0.4498042, b: 0.13394447, a: 1}
-    - _SkyColor: {r: 0.6132076, g: 0.41016948, b: 0.10123709, a: 1}
-    - _Sky_Speed: {r: 0.04, g: 0, b: 0, a: 0}
-    - _UpperColor: {r: 0.16430609, g: 0.28886226, b: 1.2011338, a: 1}
+    - _Dissolve_Speed: {r: 0.1, g: 0, b: 0, a: 0}
+    - _Distortion_Speed: {r: 0, g: -0.5, b: 0, a: 0}
+    - _MainColor: {r: 8, g: 8, b: 8, a: 1}
   m_BuildTextureStacks: []

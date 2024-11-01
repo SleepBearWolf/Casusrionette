@@ -93,7 +93,6 @@ public class PlayerInventory : MonoBehaviour
     {
         if (heldItemObject != null && heldItemData != null)
         {
-            // คืนไอเท็มกลับสู่อินเวนทอรี่
             Destroy(heldItemObject);
             AddItem(heldItemData);
             heldItemObject = null;
@@ -101,7 +100,6 @@ public class PlayerInventory : MonoBehaviour
         }
         else
         {
-            // แค่ทำลายไอเท็มที่ถืออยู่
             Destroy(heldItemObject);
             heldItemObject = null;
             heldItemData = null;

@@ -60,7 +60,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (Input.GetKeyDown(pickupKey))
         {
-            AttemptPickupItem();
+            AttemptOrPickupItem();
         }
 
         if (Input.GetMouseButtonDown(0) && heldItemObject != null)
@@ -69,7 +69,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1) && heldItemObject != null)
         {
-            ReturnItemToInventory();
+            CancelOrReturnItemToInventory();
         }
     }
 
@@ -89,18 +89,26 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void ReturnItemToInventory()
+    private void CancelOrReturnItemToInventory()
     {
         if (heldItemObject != null && heldItemData != null)
         {
+            // คืนไอเท็มกลับสู่อินเวนทอรี่
             Destroy(heldItemObject);
             AddItem(heldItemData);
             heldItemObject = null;
             heldItemData = null;
         }
+        else
+        {
+            // แค่ทำลายไอเท็มที่ถืออยู่
+            Destroy(heldItemObject);
+            heldItemObject = null;
+            heldItemData = null;
+        }
     }
 
-    private void AttemptPickupItem()
+    private void AttemptOrPickupItem()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, overlapBoxSize, 0f);
         foreach (Collider2D collider in colliders)

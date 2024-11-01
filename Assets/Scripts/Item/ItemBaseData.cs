@@ -17,6 +17,7 @@ public class ItemBaseData : ScriptableObject
     public Sprite itemIcon;
     public GameObject itemPrefab;
 
+
     public void Use()
     {
         Debug.Log("Using item: " + itemName);

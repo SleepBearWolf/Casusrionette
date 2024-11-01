@@ -19,7 +19,6 @@ public class NetTrap : MonoBehaviour
     private void CheckOverlapBox()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f);
-
         bool chickenFound = false;
 
         foreach (Collider2D hit in hits)
@@ -31,15 +30,16 @@ public class NetTrap : MonoBehaviour
                 chickenFound = true;
                 isChickenCaptured = true;
                 capturedChicken = chicken;
-                captureTimer = captureDuration;
+                captureTimer = captureDuration; 
 
                 ItemPickupAndDraggable itemPickup = chicken.GetComponent<ItemPickupAndDraggable>();
                 if (itemPickup != null && itemPickup.RequiresNet)
                 {
-                    itemPickup.isInNet = true; 
+                    itemPickup.SetInNet(); 
                 }
 
                 Debug.Log("Chicken captured for " + captureDuration + " seconds.");
+                break; 
             }
         }
 
@@ -71,10 +71,7 @@ public class NetTrap : MonoBehaviour
             capturedChicken = null;
             isChickenCaptured = false;
 
-            Vector2 newPosition = new Vector2(transform.position.x + 2f, transform.position.y);
-            transform.position = newPosition;
-
-            Debug.Log("Chicken released after timer ended. Net moved.");
+            Debug.Log("Chicken released after timer ended.");
         }
     }
 

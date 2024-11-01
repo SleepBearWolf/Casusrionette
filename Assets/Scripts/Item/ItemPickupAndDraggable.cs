@@ -13,8 +13,17 @@ public class ItemPickupAndDraggable : MonoBehaviour
     private bool isPickedUp = false;
     private Vector3 dragOffset;
     public float dragSpeed = 5f;
-
     public bool hasBeenInInventory = false;
+
+    [Header("Net Settings")]
+    public bool isInNet = false;
+    public float timeInNet = 5f; 
+    private float netTimer;
+    public bool requiresNet = false; 
+
+    public bool IsInNet => isInNet; 
+    public bool RequiresNet => requiresNet; 
+    public bool IsTired { get; set; } 
 
     private void Start()
     {
@@ -27,6 +36,16 @@ public class ItemPickupAndDraggable : MonoBehaviour
 
     private void Update()
     {
+        if (isInNet)
+        {
+            netTimer -= Time.deltaTime;
+            if (netTimer <= 0f)
+            {
+                isInNet = false;
+                Debug.Log("Item is no longer in the net.");
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E) && !isPickedUp && playerInventory != null && hasBeenInInventory)
         {
             CheckForPlayerInRange();
@@ -35,6 +54,16 @@ public class ItemPickupAndDraggable : MonoBehaviour
         if (isDraggable && isPickedUp && isDragged)
         {
             DragItem();
+        }
+    }
+
+    public void SetInNet()
+    {
+        if (!isInNet)
+        {
+            isInNet = true;
+            netTimer = timeInNet;
+            Debug.Log("Item is now in the net for " + timeInNet + " seconds.");
         }
     }
 
@@ -70,6 +99,12 @@ public class ItemPickupAndDraggable : MonoBehaviour
             return false;
         }
 
+        if (requiresNet && !isInNet)
+        {
+            Debug.LogWarning("This item requires a Net to be picked up.");
+            return false;
+        }
+
         return true;
     }
 
@@ -82,7 +117,7 @@ public class ItemPickupAndDraggable : MonoBehaviour
         {
             Debug.Log("Picked up: " + itemData.itemName);
             isPickedUp = true;
-            gameObject.SetActive(false);
+            Destroy(gameObject); 
         }
         else
         {
@@ -94,7 +129,7 @@ public class ItemPickupAndDraggable : MonoBehaviour
     {
         isPickedUp = true;
         isDraggable = true;
-        hasBeenInInventory = true; 
+        hasBeenInInventory = true;
         gameObject.SetActive(true);
         transform.position = playerInventory.transform.position + new Vector3(1f, 0f, 0f);
         Debug.Log("Dropped and draggable: " + itemData.itemName);

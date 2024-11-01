@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class NetTrap : MonoBehaviour
 {
-    public Vector2 boxSize = new Vector2(2f, 2f);  
-    public float captureDuration = 5f;  
-    private bool isChickenCaptured = false;  
-    private ChickenAI capturedChicken = null; 
-    private float captureTimer = 0f; 
+    public Vector2 boxSize = new Vector2(2f, 2f);
+    public float captureDuration = 5f;
+    private bool isChickenCaptured = false;
+    private ChickenAI capturedChicken = null;
+    private float captureTimer = 0f;
 
     private void Update()
     {
         CheckOverlapBox();
-        HandleCaptureTimer();  
+        HandleCaptureTimer();
     }
 
     private void CheckOverlapBox()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f);
 
-        bool chickenFound = false;  
+        bool chickenFound = false;
 
         foreach (Collider2D hit in hits)
         {
-            ChickenAI chicken = hit.GetComponent<ChickenAI>();  
+            ChickenAI chicken = hit.GetComponent<ChickenAI>();
             if (chicken != null && chicken.CurrentState != ChickenAI.ChickenState.Captured)
             {
-                chicken.CaptureChicken(gameObject); 
-                chickenFound = true; 
+                chicken.CaptureChicken(gameObject);
+                chickenFound = true;
                 isChickenCaptured = true;
-                capturedChicken = chicken;  
-                captureTimer = captureDuration; 
+                capturedChicken = chicken;
+                captureTimer = captureDuration;
+
+                ItemPickupAndDraggable itemPickup = chicken.GetComponent<ItemPickupAndDraggable>();
+                if (itemPickup != null && itemPickup.RequiresNet)
+                {
+                    itemPickup.isInNet = true; 
+                }
+
                 Debug.Log("Chicken captured for " + captureDuration + " seconds.");
             }
         }
@@ -47,12 +54,12 @@ public class NetTrap : MonoBehaviour
     {
         if (isChickenCaptured && captureTimer > 0f)
         {
-            captureTimer -= Time.deltaTime;  
+            captureTimer -= Time.deltaTime;
         }
 
         if (captureTimer <= 0f && isChickenCaptured)
         {
-            ReleaseChicken();  
+            ReleaseChicken();
         }
     }
 
@@ -60,8 +67,8 @@ public class NetTrap : MonoBehaviour
     {
         if (capturedChicken != null)
         {
-            capturedChicken.ReleaseChicken();  
-            capturedChicken = null; 
+            capturedChicken.ReleaseChicken();
+            capturedChicken = null;
             isChickenCaptured = false;
 
             Vector2 newPosition = new Vector2(transform.position.x + 2f, transform.position.y);
@@ -80,10 +87,10 @@ public class NetTrap : MonoBehaviour
             ChickenAI chicken = hit.GetComponent<ChickenAI>();
             if (chicken != null && chicken.CurrentState == ChickenAI.ChickenState.Captured)
             {
-                chicken.ReleaseChicken();  
+                chicken.ReleaseChicken();
             }
         }
-        capturedChicken = null; 
+        capturedChicken = null;
     }
 
     private void OnDrawGizmos()

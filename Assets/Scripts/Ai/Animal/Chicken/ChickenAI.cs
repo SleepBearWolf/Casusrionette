@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChickenAI : MonoBehaviour
 {
-    public enum ChickenState { Patrol, Flee, Attack, Bait, JumpEvade, Return, Captured }
+    public enum ChickenState { Patrol, Flee, Attack, Bait, JumpEvade, Return, Captured, Tired }
     private ChickenState currentState;
 
     public float moveSpeed = 2f;
@@ -17,8 +17,12 @@ public class ChickenAI : MonoBehaviour
     public float pushBackForce = 5f;
     public float maxFleeDistance = 10f;
 
+    public float tiredDuration = 5f;
     public float attackRadius = 0.5f;
     public float baitDelay = 1f;
+    public float timeToEscapeNet = 5f;
+    public float escapeCooldown = 2f;
+
     public LayerMask groundLayer;
     public LayerMask playerLayer;
 
@@ -42,17 +46,29 @@ public class ChickenAI : MonoBehaviour
     private float walkDuration = 2f;
     private float stopDuration = 1.5f;
     private float timeToChangeDirection;
+    private float escapeTimer;
+    private bool isEscaping = false;
+    private bool isTired = false;
+    private float tiredTimer;
+
+    private static bool isNetOccupied = false;
 
     public ChickenState CurrentState
     {
         get { return currentState; }
+        set { currentState = value; }
     }
 
-    public AnimationClip walkAnimation;  
+    public AnimationClip walkAnimation;
     public AnimationClip idleAnimation;
     public AnimationClip fleeAnimation;
     public AnimationClip attackAnimation;
     public AnimationClip capturedAnimation;
+    public AnimationClip alertAnimation;
+
+    public AudioClip attackSound;
+    public AudioClip alertSound;
+    private AudioSource audioSource;
 
     private Animator animator;
 
@@ -65,6 +81,7 @@ public class ChickenAI : MonoBehaviour
         rb2d.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         if (player == null)
         {
@@ -85,6 +102,25 @@ public class ChickenAI : MonoBehaviour
         {
             rb2d.velocity = Vector2.zero;
             PlayAnimation(capturedAnimation);
+
+            escapeTimer -= Time.deltaTime;
+            if (escapeTimer <= 0f)
+            {
+                ReleaseChicken();
+            }
+
+            return;
+        }
+
+        if (currentState == ChickenState.Tired)
+        {
+            rb2d.velocity = Vector2.zero;
+            tiredTimer -= Time.deltaTime;
+            if (tiredTimer <= 0f)
+            {
+                currentState = ChickenState.Patrol;
+                Debug.Log("Chicken is no longer tired and resumes patrolling.");
+            }
             return;
         }
 
@@ -125,6 +161,8 @@ public class ChickenAI : MonoBehaviour
 
     private void CheckForNet()
     {
+        if (isEscaping || isNetOccupied) return;
+
         Vector2 boxCenter = new Vector2(transform.position.x, transform.position.y + overlapBoxOffsetY);
         Collider2D[] hits = Physics2D.OverlapBoxAll(boxCenter, overlapBoxSize, 0f);
 
@@ -135,9 +173,17 @@ public class ChickenAI : MonoBehaviour
                 if (currentState != ChickenState.Captured)
                 {
                     CaptureChicken(hit.gameObject);
+                    isNetOccupied = true;
                 }
             }
         }
+    }
+
+    public void SetTired(float duration)
+    {
+        currentState = ChickenState.Tired;
+        tiredTimer = duration;
+        Debug.Log("Chicken is tired for " + duration + " seconds.");
     }
 
     public void CaptureChicken(GameObject netObject)
@@ -145,14 +191,51 @@ public class ChickenAI : MonoBehaviour
         currentState = ChickenState.Captured;
         rb2d.velocity = Vector2.zero;
         net = netObject;
+        escapeTimer = timeToEscapeNet;
+        isEscaping = false;
 
         transform.position = new Vector2(net.transform.position.x, net.transform.position.y - 0.5f);
     }
 
     public void ReleaseChicken()
     {
-        currentState = ChickenState.Patrol;
-        net = null;
+        currentState = ChickenState.Tired;
+        tiredTimer = tiredDuration;
+
+        if (net != null)
+        {
+            StartCoroutine(DestroyNetAfterDelay());
+        }
+
+        rb2d.velocity = Vector2.zero;
+        currentPatrolCenter = transform.position;
+
+        isWalking = true;
+        movingRight = Random.Range(0, 2) == 0;
+
+        rb2d.velocity = new Vector2(rb2d.velocity.x, jumpForce);
+
+        isEscaping = true;
+        isNetOccupied = false;
+        StartCoroutine(ResetEscapeStatus());
+
+        Debug.Log("Chicken released at position: " + transform.position + ", patrol center updated to: " + currentPatrolCenter);
+    }
+
+    private IEnumerator DestroyNetAfterDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (net != null)
+        {
+            Destroy(net);
+            net = null;
+        }
+    }
+
+    private IEnumerator ResetEscapeStatus()
+    {
+        yield return new WaitForSeconds(escapeCooldown);
+        isEscaping = false;
     }
 
     private void Patrol()
@@ -197,10 +280,9 @@ public class ChickenAI : MonoBehaviour
 
         if ((moveDirection > 0 && !facingRight) || (moveDirection < 0 && facingRight))
         {
-            Flip(); 
+            Flip();
         }
     }
-
 
     private void UpdateAnimation()
     {
@@ -225,6 +307,7 @@ public class ChickenAI : MonoBehaviour
 
         if (distanceToPlayer < attackRange && !isBaiting)
         {
+            PlayAlert();
             currentState = ChickenState.Attack;
         }
         else if (distanceToPlayer < detectionRange && verticalDistance < 1f)
@@ -244,6 +327,15 @@ public class ChickenAI : MonoBehaviour
         }
     }
 
+    private void PlayAlert()
+    {
+        PlayAnimation(alertAnimation);
+        if (alertSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(alertSound);
+        }
+    }
+
     private void FleeFromPlayer()
     {
         Vector2 fleeDirection = (transform.position - player.position).normalized;
@@ -259,22 +351,121 @@ public class ChickenAI : MonoBehaviour
     {
         if (attackPoint == null) return;
 
-        Vector2 attackDirection = (player.position - transform.position).normalized;
-        rb2d.velocity = attackDirection * moveSpeed;
+        FacePlayer();
+
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (distanceToPlayer < attackRange)
+        {
+            StartCoroutine(JumpAttack());
+        }
+        else if (distanceToPlayer < detectionRange)
+        {
+            StartCoroutine(FlyAttack());
+        }
+    }
+
+    private void FacePlayer()
+    {
+        if (player.position.x > transform.position.x && !facingRight)
+        {
+            Flip();
+        }
+        else if (player.position.x < transform.position.x && facingRight)
+        {
+            Flip();
+        }
+    }
+
+    private IEnumerator JumpAttack()
+    {
+        if (currentState != ChickenState.Attack)
+            yield break;
+
+        PlayAnimation(attackAnimation);
+        yield return new WaitForSeconds(0.2f);
+
+        Vector2 targetPosition = player.position;
+        Vector2 jumpDirection = (targetPosition - (Vector2)transform.position).normalized;
+
+        float jumpHeight = 1f;
+        float gravity = Mathf.Abs(Physics2D.gravity.y * rb2d.gravityScale);
+        float velocityY = Mathf.Sqrt(2 * gravity * jumpHeight);
+        float distance = Vector2.Distance(transform.position, targetPosition);
+        float timeToReachTarget = distance / (moveSpeed * 1.5f);
+        float velocityX = distance / timeToReachTarget;
+
+        rb2d.velocity = new Vector2(jumpDirection.x * velocityX, velocityY);
+
+        yield return new WaitForSeconds(timeToReachTarget);
 
         Collider2D[] hitPlayers = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(attackRadius, attackRadius), 0f, playerLayer);
+        bool hitPlayer = false;
 
-        foreach (Collider2D hitPlayer in hitPlayers)
+        foreach (Collider2D hitPlayerCollider in hitPlayers)
         {
-            PlayerSystem playerSystem = hitPlayer.GetComponent<PlayerSystem>();
+            PlayerSystem playerSystem = hitPlayerCollider.GetComponent<PlayerSystem>();
             if (playerSystem != null)
             {
                 playerSystem.Stun(stunDuration);
-                playerSystem.PushBack((player.position - transform.position).normalized, 10f);
+                playerSystem.PushBack((player.position - transform.position).normalized, pushBackForce);
+                hitPlayer = true;
             }
         }
 
-        currentState = ChickenState.Flee;
+        rb2d.velocity = Vector2.zero;
+
+        if (hitPlayer)
+        {
+            Debug.Log("Hit player, fleeing...");
+            currentState = ChickenState.Flee;
+        }
+        else
+        {
+            Debug.Log("Missed player, returning to patrol...");
+            currentState = ChickenState.Patrol;
+        }
+    }
+
+    private IEnumerator FlyAttack()
+    {
+        if (currentState != ChickenState.Attack)
+            yield break;
+
+        PlayAnimation(attackAnimation);
+        yield return new WaitForSeconds(0.2f);
+
+        Vector2 flyDirection = (player.position - transform.position).normalized;
+        rb2d.velocity = flyDirection * (moveSpeed * 1.5f);
+
+        yield return new WaitForSeconds(0.5f);
+
+        Collider2D[] hitPlayers = Physics2D.OverlapBoxAll(attackPoint.position, new Vector2(attackRadius, attackRadius), 0f, playerLayer);
+        bool hitPlayer = false;
+
+        foreach (Collider2D hitPlayerCollider in hitPlayers)
+        {
+            PlayerSystem playerSystem = hitPlayerCollider.GetComponent<PlayerSystem>();
+            if (playerSystem != null)
+            {
+                playerSystem.Stun(stunDuration);
+                playerSystem.PushBack((player.position - transform.position).normalized, pushBackForce);
+                hitPlayer = true;
+            }
+        }
+
+        rb2d.velocity = Vector2.zero;
+
+        if (hitPlayer)
+        {
+            Debug.Log("Hit player, fleeing...");
+            currentState = ChickenState.Flee;
+        }
+        else
+        {
+            Debug.Log("Missed player, returning to patrol...");
+            currentState = ChickenState.Patrol;
+        }
     }
 
     private IEnumerator BaitPlayer()
@@ -314,10 +505,9 @@ public class ChickenAI : MonoBehaviour
         facingRight = !facingRight;
 
         Vector3 scale = transform.localScale;
-        scale.x *= -1; 
+        scale.x *= -1;
         transform.localScale = scale;
     }
-
 
     private void CheckIfGrounded()
     {

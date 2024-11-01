@@ -8,10 +8,10 @@ public class MonkeyAI : MonoBehaviour
     private MonkeyState currentState;
 
     public float moveSpeed = 2f;
-    public Vector2 patrolBoxSize = new Vector2(10f, 5f);  // ขนาดของกรอบ Patrol
-    public Vector2 detectionBoxSize = new Vector2(14f, 7f);  // ขนาดของกรอบ Detection
-    public Vector2 attackBoxSize = new Vector2(2f, 2f);  // ขนาดของกรอบ Attack
-    public Vector2 fleeBoundary = new Vector2(20f, 10f);  // ขนาดของขอบเขตหนี
+    public Vector2 patrolBoxSize = new Vector2(10f, 5f);  
+    public Vector2 detectionBoxSize = new Vector2(14f, 7f);  
+    public Vector2 attackBoxSize = new Vector2(2f, 2f);  
+    public Vector2 fleeBoundary = new Vector2(20f, 10f);  
 
     public float escapeSpeed = 4f;
     public float swingForce = 8f;
@@ -90,7 +90,7 @@ public class MonkeyAI : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        // อัปเดต Animation ตามสถานะต่างๆ
+       
     }
 
     private void Explore()
@@ -199,7 +199,7 @@ public class MonkeyAI : MonoBehaviour
             }
         }
 
-        currentState = MonkeyState.Flee; // หลังโจมตีเสร็จ หนีออกจากแผนที่
+        currentState = MonkeyState.Flee; 
     }
 
     private void SwingLikeSpiderMan()
@@ -238,8 +238,7 @@ public class MonkeyAI : MonoBehaviour
 
         if (Mathf.Abs(transform.position.x) > fleeBoundary.x || Mathf.Abs(transform.position.y) > fleeBoundary.y)
         {
-            // ถ้าลิงหนีออกไปไกลจากผู้เล่นจนถึงขอบเขตที่กำหนด (ยังคงอยู่ในเกม ไม่ถูกลบ)
-            currentState = MonkeyState.Patrol;  // ให้กลับมาเดินสำรวจใหม่
+            currentState = MonkeyState.Patrol;  
         }
     }
 
@@ -265,13 +264,12 @@ public class MonkeyAI : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        // แสดงระยะการเดิน, การตรวจจับ, และการโจมตีผ่าน Gizmos แบบ Box
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, patrolBoxSize);  // ระยะเดินสำรวจเป็น box
+        Gizmos.DrawWireCube(transform.position, patrolBoxSize); 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(transform.position, detectionBoxSize);  // ระยะตรวจจับผู้เล่นเป็น box
+        Gizmos.DrawWireCube(transform.position, detectionBoxSize);  
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(attackPoint.position, attackBoxSize);  // ระยะโจมตีผู้เล่นเป็น box
+        Gizmos.DrawWireCube(attackPoint.position, attackBoxSize);  
 
         Gizmos.color = Color.green;
         Gizmos.DrawLine(groundCheck.position, groundCheck.position + Vector3.down * groundCheckDistance);

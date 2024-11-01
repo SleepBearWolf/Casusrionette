@@ -60,7 +60,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (Input.GetKeyDown(pickupKey))
         {
-            PickupItem();
+            AttemptPickupItem();
         }
 
         if (Input.GetMouseButtonDown(0) && heldItemObject != null)
@@ -69,7 +69,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1) && heldItemObject != null)
         {
-            CancelItem();
+            ReturnItemToInventory();
         }
     }
 
@@ -89,14 +89,18 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void CancelItem()
+    private void ReturnItemToInventory()
     {
-        Destroy(heldItemObject);
-        heldItemObject = null;
-        heldItemData = null;
+        if (heldItemObject != null && heldItemData != null)
+        {
+            Destroy(heldItemObject);
+            AddItem(heldItemData);
+            heldItemObject = null;
+            heldItemData = null;
+        }
     }
 
-    private void PickupItem()
+    private void AttemptPickupItem()
     {
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, overlapBoxSize, 0f);
         foreach (Collider2D collider in colliders)
@@ -104,7 +108,21 @@ public class PlayerInventory : MonoBehaviour
             ItemPickupAndDraggable itemPickup = collider.GetComponent<ItemPickupAndDraggable>();
             if (itemPickup != null)
             {
-                itemPickup.PickupItem();
+                if (itemPickup.RequiresNet)
+                {
+                    if (itemPickup.IsInNet || itemPickup.IsTired)
+                    {
+                        itemPickup.PickupItem();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("You need to catch this item with a Net or wait until it's tired before picking it up!");
+                    }
+                }
+                else
+                {
+                    itemPickup.PickupItem();
+                }
             }
         }
     }
@@ -192,14 +210,14 @@ public class PlayerInventory : MonoBehaviour
 
                 if (itemRb != null)
                 {
-                    Vector2 scatterDirection = Random.insideUnitCircle.normalized; 
-                    itemRb.AddForce(scatterDirection * 5f, ForceMode2D.Impulse); 
+                    Vector2 scatterDirection = Random.insideUnitCircle.normalized;
+                    itemRb.AddForce(scatterDirection * 5f, ForceMode2D.Impulse);
                 }
             }
         }
 
         items.Clear();
-        UpdateInventoryUI(); 
+        UpdateInventoryUI();
     }
 
     private void UpdateInventoryUI()

@@ -817,6 +817,8 @@ MonoBehaviour:
   maxFleeDistance: 10
   attackRadius: 1.5
   baitDelay: 1
+  timeToEscapeNet: 5
+  escapeCooldown: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -834,6 +836,9 @@ MonoBehaviour:
   fleeAnimation: {fileID: 7400000, guid: 0eefe2efc26e5214b93dff111056fe84, type: 2}
   attackAnimation: {fileID: 7400000, guid: e7873b489646f0a419bbb1afb587ac24, type: 2}
   capturedAnimation: {fileID: 7400000, guid: d16a4af3de8b7974290b04365da436c0, type: 2}
+  alertAnimation: {fileID: 0}
+  attackSound: {fileID: 0}
+  alertSound: {fileID: 0}
 --- !u!61 &4070670263563862037
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -895,6 +900,7 @@ MonoBehaviour:
   isDraggable: 0
   dragSpeed: 5
   hasBeenInInventory: 0
+  chickenAI: {fileID: 6477265621696879309}
 --- !u!95 &7837405854800249468
 Animator:
   serializedVersion: 5

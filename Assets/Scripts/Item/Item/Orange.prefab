@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3547153548569057833}
   m_Layer: 7
   m_Name: Orange
-  m_TagString: PickUpObject
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,9 @@ MonoBehaviour:
   isDraggable: 0
   dragSpeed: 5
   hasBeenInInventory: 0
+  isInNet: 0
+  timeInNet: 5
+  requiresNet: 0
 --- !u!61 &3547153548569057833
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -730,7 +730,7 @@ GameObject:
   - component: {fileID: 7837405854800249468}
   m_Layer: 9
   m_Name: Chicken
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,6 +815,7 @@ MonoBehaviour:
   stunDuration: 5
   pushBackForce: 5
   maxFleeDistance: 10
+  tiredDuration: 5
   attackRadius: 1.5
   baitDelay: 1
   timeToEscapeNet: 5
@@ -900,7 +901,9 @@ MonoBehaviour:
   isDraggable: 0
   dragSpeed: 5
   hasBeenInInventory: 0
-  chickenAI: {fileID: 6477265621696879309}
+  isInNet: 0
+  timeInNet: 5
+  requiresNet: 0
 --- !u!95 &7837405854800249468
 Animator:
   serializedVersion: 5

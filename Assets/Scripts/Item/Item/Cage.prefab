@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7011138872212756068}
   m_Layer: 7
   m_Name: Cage
-  m_TagString: PickUpObject
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +145,9 @@ MonoBehaviour:
   isDraggable: 1
   dragSpeed: 5
   hasBeenInInventory: 0
+  isInNet: 0
+  timeInNet: 5
+  requiresNet: 0
 --- !u!61 &7011138872212756068
 BoxCollider2D:
   m_ObjectHideFlags: 0

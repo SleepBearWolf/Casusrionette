@@ -7,7 +7,9 @@ public class NetTrap : MonoBehaviour
     public Vector2 boxSize = new Vector2(2f, 2f);
     public float captureDuration = 5f;
     private bool isChickenCaptured = false;
+    private bool isMonkeyCaptured = false;
     private ChickenAI capturedChicken = null;
+    private MonkeyAI capturedMonkey = null;
     private float captureTimer = 0f;
 
     private void Update()
@@ -19,7 +21,7 @@ public class NetTrap : MonoBehaviour
     private void CheckOverlapBox()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f);
-        bool chickenFound = false;
+        bool entityFound = false;
 
         foreach (Collider2D hit in hits)
         {
@@ -27,55 +29,77 @@ public class NetTrap : MonoBehaviour
             if (chicken != null && chicken.CurrentState != ChickenAI.ChickenState.Captured)
             {
                 chicken.CaptureChicken(gameObject);
-                chickenFound = true;
+                entityFound = true;
                 isChickenCaptured = true;
                 capturedChicken = chicken;
-                captureTimer = captureDuration; 
+                captureTimer = captureDuration;
 
                 ItemPickupAndDraggable itemPickup = chicken.GetComponent<ItemPickupAndDraggable>();
                 if (itemPickup != null && itemPickup.RequiresNet)
                 {
-                    itemPickup.SetInNet(); 
+                    itemPickup.SetInNet();
                 }
 
                 Debug.Log("Chicken captured for " + captureDuration + " seconds.");
-                break; 
+                break;
+            }
+
+            MonkeyAI monkey = hit.GetComponent<MonkeyAI>();
+            if (monkey != null && monkey.CurrentState != MonkeyAI.MonkeyState.Captured)
+            {
+                monkey.CaptureMonkey(gameObject);
+                entityFound = true;
+                isMonkeyCaptured = true;
+                capturedMonkey = monkey;
+                captureTimer = captureDuration;
+
+                monkey.transform.SetParent(transform); 
+                Debug.Log("Monkey captured for " + captureDuration + " seconds.");
+                break;
             }
         }
 
-        if (!chickenFound && isChickenCaptured)
+        if (!entityFound && (isChickenCaptured || isMonkeyCaptured))
         {
-            ReleaseChickenFromAll();
-            isChickenCaptured = false;
+            ReleaseEntitiesFromAll();
         }
     }
 
     private void HandleCaptureTimer()
     {
-        if (isChickenCaptured && captureTimer > 0f)
+        if ((isChickenCaptured || isMonkeyCaptured) && captureTimer > 0f)
         {
             captureTimer -= Time.deltaTime;
         }
 
-        if (captureTimer <= 0f && isChickenCaptured)
+        if (captureTimer <= 0f)
         {
-            ReleaseChicken();
+            DestroyNet();
         }
     }
 
-    private void ReleaseChicken()
+    private void DestroyNet()
     {
-        if (capturedChicken != null)
+        if (isChickenCaptured && capturedChicken != null)
         {
             capturedChicken.ReleaseChicken();
             capturedChicken = null;
-            isChickenCaptured = false;
-
-            Debug.Log("Chicken released after timer ended.");
         }
+
+        if (isMonkeyCaptured && capturedMonkey != null)
+        {
+            capturedMonkey.ReleaseMonkey();
+            capturedMonkey.transform.SetParent(null); 
+            capturedMonkey = null;
+        }
+
+        isChickenCaptured = false;
+        isMonkeyCaptured = false;
+        Destroy(gameObject); 
+        Debug.Log("Net destroyed, entities released.");
     }
 
-    private void ReleaseChickenFromAll()
+    private void ReleaseEntitiesFromAll()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f);
 
@@ -86,8 +110,19 @@ public class NetTrap : MonoBehaviour
             {
                 chicken.ReleaseChicken();
             }
+
+            MonkeyAI monkey = hit.GetComponent<MonkeyAI>();
+            if (monkey != null && monkey.CurrentState == MonkeyAI.MonkeyState.Captured)
+            {
+                monkey.ReleaseMonkey();
+                monkey.transform.SetParent(null); 
+            }
         }
+
         capturedChicken = null;
+        capturedMonkey = null;
+        isChickenCaptured = false;
+        isMonkeyCaptured = false;
     }
 
     private void OnDrawGizmos()

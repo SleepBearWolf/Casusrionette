@@ -226,7 +226,7 @@ public class PlayerInventory : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    private void UpdateInventoryUI()
+    public void UpdateInventoryUI()
     {
         for (int i = 0; i < inventoryUIParent.childCount; i++)
         {

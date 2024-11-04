@@ -234,6 +234,7 @@ Transform:
   m_Children:
   - {fileID: 934658441723643264}
   - {fileID: 1020256482643658653}
+  - {fileID: 4245366042938600193}
   - {fileID: 52744846608282509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -277,14 +278,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  patrolRange: 5
-  detectionRange: 7
-  attackRange: 3
+  patrolBoxSize: {x: 10, y: 5}
+  detectionBoxSize: {x: 14, y: 7}
+  attackBoxSize: {x: 2, y: 2}
+  fleeBoundary: {x: 20, y: 10}
   escapeSpeed: 4
   swingForce: 4
   swingInterval: 2
   stunDuration: 1
-  attackRadius: 0.5
+  stealingCooldown: 3
+  captureDuration: 5
+  explorationDuration: 5
+  explorationTimer: 0
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -295,6 +300,15 @@ MonoBehaviour:
   groundCheckDistance: 1
   player: {fileID: 0}
   attackPoint: {fileID: 1020256482643658653}
+  itemHolder: {fileID: 4245366042938600193}
+  itemsToSteal:
+  - {fileID: 11400000, guid: 3e30a561d6f82914ca2bdb9c54cd0210, type: 2}
+  - {fileID: 11400000, guid: 08782535abeff7d47afed987f57f1f13, type: 2}
+  edibleItems:
+  - {fileID: 11400000, guid: 8acbb0feb4a8f2146b5d6e746fc814b0, type: 2}
+  - {fileID: 11400000, guid: 1dcec83eec81fd84caafcc79e4c4d0b8, type: 2}
+  - {fileID: 11400000, guid: 701ad5054899d7d4d84fb97cc13ac4c6, type: 2}
+  - {fileID: 11400000, guid: dd19e3d1cb44ea4468f82790f1c8c657, type: 2}
 --- !u!61 &4271307220339295742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -476,6 +490,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7417676386712511273
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4245366042938600193}
+  m_Layer: 13
+  m_Name: ItemHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4245366042938600193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7417676386712511273}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.18, y: -0.71, z: 0}
+  m_LocalScale: {x: 12.5, y: 12.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7645666417999991413}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8087120431652184446
 GameObject:
   m_ObjectHideFlags: 0

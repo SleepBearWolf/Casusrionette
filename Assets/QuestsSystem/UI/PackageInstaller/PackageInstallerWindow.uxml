@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="/Assets/QuestsSystem/UI/QuestsEditor/QuestsEditorWindow.uss" />
+    <ui:VisualElement name="Header" class="bottom-border" style="background-color: rgb(31, 31, 31); height: 151px;">
+        <ui:Label text="Quests system Installer" display-tooltip-when-elided="true" name="Title" class="title" />
+        <ui:VisualElement name="Welcome-Container" style="flex-direction: row; align-items: stretch; height: 99px; margin-left: 12px; margin-right: 12px; margin-top: 8px; margin-bottom: 8px; justify-content: space-between; flex-wrap: nowrap;">
+            <ui:VisualElement name="Logo-Image" style="width: 192px; height: 108px; background-color: rgb(0, 0, 0); margin-top: 0; margin-bottom: 0; background-image: url(&apos;/Assets/QuestsSystem/UI/PackageInstaller/PackageInstallerLogo.png&apos;); margin-left: 0; margin-right: 0; display: flex;" />
+            <ui:Label text="Welcome to the Quests system installer. Thank you for your purchase!" display-tooltip-when-elided="true" name="Welcome-Text" style="white-space: normal; flex-wrap: wrap; width: 172px; -unity-text-align: middle-center; height: 106px; font-size: 16px; border-left-color: rgb(21, 21, 21); border-right-color: rgb(21, 21, 21); border-top-color: rgb(21, 21, 21); border-bottom-color: rgb(21, 21, 21); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="Body" style="justify-content: space-between; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; height: auto; flex-grow: 1; flex-shrink: 1;">
+        <ui:Label text="This asset requires additional packages to work!" display-tooltip-when-elided="true" name="Notice-Text" style="margin-top: 0; margin-bottom: 10px; -unity-text-align: middle-center;" />
+        <ui:ScrollView name="Packages-List" style="height: 205px;" />
+        <ui:Button text="Install packages" display-tooltip-when-elided="true" name="PackagesInstall-Button" style="white-space: normal; display: none;" />
+        <ui:Button text="Import demo" display-tooltip-when-elided="true" name="DemoImport-Button" enable-rich-text="true" style="white-space: normal; display: none;" />
+        <ui:Label text="All required packages are installed!" display-tooltip-when-elided="true" name="PackagesInstallStatus-Text" class="title" style="-unity-text-align: upper-center; display: none;" />
+    </ui:VisualElement>
+    <QuestsSystem.CustomEditor.CustomProgressBar name="PackagesLoading-ProgressBar" style="position: absolute; width: 400px; height: 450px; background-color: rgba(0, 0, 0, 0.84); justify-content: center; padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px; display: none;" />
+</ui:UXML>

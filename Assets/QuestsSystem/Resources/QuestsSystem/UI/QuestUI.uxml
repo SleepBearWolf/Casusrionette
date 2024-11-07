@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="QuestUI.uss" />
+    <QuestsSystem.QuestUI name="QuestUI" style="background-color: rgba(0, 0, 0, 0.34); padding-top: 10px; padding-bottom: 10px; border-left-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-width: 2px; border-top-left-radius: 21px; border-bottom-left-radius: 21px; border-top-right-radius: 21px; border-bottom-right-radius: 21px; margin-top: 5px; margin-bottom: 5px;">
+        <ui:VisualElement name="ActiveQuest">
+            <ui:Label text="{Quest_Name}" display-tooltip-when-elided="true" name="QuestName-Text" class="label" style="color: rgb(255, 255, 255); font-size: 27px;" />
+            <ui:Label text="{Quest_Description}" display-tooltip-when-elided="true" name="QuestDescription-Text" class="label" style="color: rgb(255, 255, 255); font-size: 12px;" />
+            <ui:Label text="{Quest_Task_Description}" display-tooltip-when-elided="true" name="QuestTask-Text" class="label" style="color: rgb(255, 255, 255); font-size: 15px;" />
+        </ui:VisualElement>
+    </QuestsSystem.QuestUI>
+</ui:UXML>

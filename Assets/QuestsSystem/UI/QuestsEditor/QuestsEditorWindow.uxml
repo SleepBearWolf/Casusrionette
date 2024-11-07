@@ -1,0 +1,39 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="QuestsEditorWindow.uss" />
+    <ui:VisualElement name="QuestsEditor" style="height: 720px; width: 100%; min-height: auto; flex-direction: column; justify-content: flex-start;">
+        <ui:VisualElement name="Body" style="flex-direction: row; height: 100%; justify-content: space-between; border-left-color: rgb(36, 36, 36); border-right-color: rgb(36, 36, 36); border-top-color: rgb(36, 36, 36); border-bottom-color: rgb(36, 36, 36); border-bottom-width: 1px;">
+            <ui:VisualElement name="Quests-Container" class="panel" style="border-left-color: rgb(36, 36, 36); border-right-color: rgb(36, 36, 36); border-top-color: rgb(36, 36, 36); border-bottom-color: rgb(36, 36, 36); border-right-width: 1px;">
+                <ui:Label text="Quest-Editor" display-tooltip-when-elided="true" name="Title" class="title" />
+                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" vertical-scroller-visibility="Auto" show-horizontal-scroller="false" show-vertical-scroller="false" horizontal-scroller-visibility="Hidden" name="Quests-List" />
+                <ui:VisualElement name="Footer" style="position: absolute; left: 0; bottom: 0; height: 250px; width: 100%; flex-direction: column-reverse;">
+                    <ui:VisualElement name="CreateQuest-Field" style="margin-top: 0; margin-bottom: 0; padding-top: 2px; padding-bottom: 2px; background-color: rgb(37, 37, 37); position: relative; left: 0; width: 100%; bottom: 0; height: 50px;">
+                        <ui:TextField picking-mode="Ignore" label="New quest config name" value="filler text" text="New quest" name="CreateNewQuestName-TextField" />
+                        <ui:Button text="Create quest" display-tooltip-when-elided="true" name="CreateNewQuest-Button" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="SelectedItem-Container" class="panel" style="padding-left: 7px; padding-top: 7px; padding-right: 7px; padding-bottom: 7px; border-right-width: 1px; border-left-color: rgb(36, 36, 36); border-right-color: rgb(36, 36, 36); border-top-color: rgb(36, 36, 36); border-bottom-color: rgb(36, 36, 36);">
+                <ui:Label text="{Quest name}" display-tooltip-when-elided="true" name="QuestName-Text" style="font-size: 19px;" />
+                <ui:TextField picking-mode="Ignore" label="Quest name" value="filler text" text="Hello world quest" name="QuestName-TextField" />
+                <ui:TextField picking-mode="Ignore" label="Quest description" value="filler text" text="Here you can read description" name="QuestDescription-TextField" />
+                <ui:Button text="Save config changes" display-tooltip-when-elided="true" name="SaveConfigChanges-Button" style="visibility: visible; overflow: hidden; opacity: 1; display: flex; margin-left: 8px; margin-right: 8px; margin-top: 8px; margin-bottom: 8px;" />
+                <ui:VisualElement name="Spacer" class="spacer" />
+                <ui:Label text="Quest logic" display-tooltip-when-elided="true" name="QuestName-Text" style="font-size: 19px; margin-top: 3px; margin-bottom: 3px;" />
+                <ui:VisualElement name="QuestLogic-Container" class="ProgressBar" style="height: 100%; background-color: rgb(43, 43, 43); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Footer" style="height: 30px; background-color: rgb(64, 64, 64); flex-direction: row;">
+            <ui:VisualElement name="Left-Container" style="width: 50%; height: 100%; flex-direction: row; justify-content: space-between; align-items: stretch;">
+                <ui:Label text="Quests names:" display-tooltip-when-elided="true" name="QuestsEnum-Text" style="-unity-text-align: middle-left; margin-left: 10px; margin-right: 10px; width: 262px;" />
+                <ui:VisualElement name="EnumButtons-Container" style="flex-direction: row;">
+                    <ui:Button text="Update enum file" display-tooltip-when-elided="true" name="UpdateQuestsEnum-Button" />
+                    <ui:Button text="Open enum file" display-tooltip-when-elided="true" name="OpenQuestsEnumFile-Button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="Right-Container" style="width: 50%; height: 100%; flex-direction: row-reverse; justify-content: space-between; align-items: center;">
+                <ui:Button text="View documentation" display-tooltip-when-elided="true" name="ViewDocumentation-Button" style="width: 126px; height: 18px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(0, 0, 0, 0.62); border-right-color: rgba(0, 0, 0, 0.62); border-top-color: rgba(0, 0, 0, 0.62); border-bottom-color: rgba(0, 0, 0, 0.62); font-size: 11px;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <QuestsSystem.CustomEditor.CustomProgressBar name="Saving-ProgressBar" style="position: absolute; background-color: rgba(0, 0, 0, 0.68); width: 100%; height: 100%; justify-content: center; padding-left: 80px; padding-right: 80px; padding-top: 80px; padding-bottom: 80px; display: none;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="GameSampleUI.uss" />
+    <QuestGameSample.GameSampleUI name="GameSampleUI" style="width: 100%; height: 100%;">
+        <ui:VisualElement name="Game-Screen" class="screen" style="display: none;">
+            <QuestsSystem.QuestsUI style="width: 400px; height: auto; margin-left: 10px; margin-top: 10px;">
+                <ui:VisualElement name="QuestsList-Panel" />
+            </QuestsSystem.QuestsUI>
+        </ui:VisualElement>
+        <ui:VisualElement name="End-Screen" class="screen" style="display: none; align-items: center; justify-content: center;">
+            <ui:VisualElement name="Background" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.76);" />
+            <ui:Label text="Complete!" display-tooltip-when-elided="true" name="Title-Text" class="title" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Start-Screen" class="screen" style="display: none; flex-direction: column; align-items: center; justify-content: center;">
+            <ui:VisualElement name="Background" style="width: 100%; height: 100%; position: absolute; background-color: rgba(0, 0, 0, 0.76);" />
+            <ui:Label text="Quests system" display-tooltip-when-elided="true" name="Title-Text" class="title" />
+            <ui:Button text="Play" display-tooltip-when-elided="true" name="Play-Button" class="button" />
+        </ui:VisualElement>
+    </QuestGameSample.GameSampleUI>
+</ui:UXML>

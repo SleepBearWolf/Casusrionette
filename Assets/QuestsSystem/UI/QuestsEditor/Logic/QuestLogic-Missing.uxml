@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="QuestLogic.uss" />
+    <QuestsSystem.CustomEditor.QuestLogicMissing_EditorUI name="QuestLogic-Missing" class="logic-file-status" style="height: 100%; align-items: center;">
+        <ui:VisualElement name="LogicFileStatus-Indicator" class="logic-file-status-indicator" style="border-left-color: rgb(255, 12, 0); border-right-color: rgb(255, 12, 0); border-top-color: rgb(255, 12, 0); border-bottom-color: rgb(255, 12, 0);">
+            <ui:Label text="Logic is missing" display-tooltip-when-elided="true" style="font-size: 11px; color: rgb(255, 11, 0); -unity-text-align: upper-center;" />
+        </ui:VisualElement>
+        <ui:Button text="Create logic class" display-tooltip-when-elided="true" name="CreateLogic-Button" class="logic-interaction-button" />
+    </QuestsSystem.CustomEditor.QuestLogicMissing_EditorUI>
+</ui:UXML>

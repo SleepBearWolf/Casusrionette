@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Package-Item.uss" />
+    <Style src="/Assets/QuestsSystem/UI/QuestsEditor/QuestsEditorWindow.uss" />
+    <QuestsSystem.CustomEditor.PackageItem_EditorUI name="PackageItem_EditorUI" class="spacer bottom-border" style="flex-direction: row; justify-content: space-between; align-items: center; background-color: rgb(48, 48, 48); height: 26px; padding-left: 10px; padding-right: 10px;">
+        <ui:Label text="UI Builder" display-tooltip-when-elided="true" name="PackageName-Text" style="width: 30%;" />
+        <ui:Label text="com.unity.ui.builder" display-tooltip-when-elided="true" name="PackageUrl-Text" style="width: 45%;" />
+        <ui:Label text="{status}" display-tooltip-when-elided="true" name="PackageInstallStatus-Indicator" style="padding-right: 15px; padding-left: 15px; width: 25%; -unity-text-align: middle-center; height: 19px; white-space: nowrap; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 6px; border-bottom-left-radius: 6px; border-top-right-radius: 6px; border-bottom-right-radius: 6px; background-color: rgb(29, 30, 31);" />
+    </QuestsSystem.CustomEditor.PackageItem_EditorUI>
+</ui:UXML>

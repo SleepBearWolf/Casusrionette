@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="QuestItem_EditorUI.uss" />
+    <QuestsSystem.CustomEditor.QuestItem_EditorUI name="QuestItem_EditorUI" class="deselected" style="flex-direction: row; align-items: stretch; justify-content: space-between; flex-grow: 0; border-bottom-width: 1px; border-left-color: rgb(36, 36, 36); border-right-color: rgb(36, 36, 36); border-top-color: rgb(36, 36, 36); border-bottom-color: rgb(36, 36, 36);">
+        <ui:VisualElement name="QuestName" style="width: 50%; align-items: stretch; justify-content: space-around;">
+            <ui:Label text="{Quest_Name}" display-tooltip-when-elided="true" name="QuestName-Text" style="-unity-text-align: middle-left;" />
+            <ui:Label text="{Quest_Enum_Name}" display-tooltip-when-elided="true" name="QuestEnumName-Text" focusable="true" style="-unity-text-align: middle-left; font-size: 10px; margin-top: 2px; margin-bottom: 2px;" />
+            <ui:VisualElement name="QuestFileError" style="flex-direction: row; justify-content: flex-start; display: flex; visibility: visible;">
+                <ui:Label text="Quest file name doesn&apos;t synced" display-tooltip-when-elided="true" name="QuestFileName-Valid" style="-unity-text-align: middle-left; color: rgb(255, 0, 0);" />
+                <ui:Button text="Fix" display-tooltip-when-elided="true" name="QuestFileFix-Button" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:Button text="X" display-tooltip-when-elided="true" name="DeleteQuest-Button" style="height: 25px; width: 25px;" />
+    </QuestsSystem.CustomEditor.QuestItem_EditorUI>
+</ui:UXML>

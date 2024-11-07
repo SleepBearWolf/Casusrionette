@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="ProgressBar-Body" style="background-color: rgb(58, 58, 58); margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-left-color: rgb(128, 128, 128); border-right-color: rgb(128, 128, 128); border-top-color: rgb(128, 128, 128); border-bottom-color: rgb(128, 128, 128); width: 100%; height: 100%; align-items: stretch; justify-content: center;">
+        <ui:Label text="Saving" display-tooltip-when-elided="true" name="Title" style="font-size: 23px;" />
+        <ui:VisualElement name="Bar" style="width: 100%; height: 28px; background-color: rgb(72, 72, 72); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-top-left-radius: 1px; border-bottom-left-radius: 1px; border-top-right-radius: 1px; border-bottom-right-radius: 1px; border-left-color: rgb(36, 36, 36); border-right-color: rgb(36, 36, 36); border-top-color: rgb(36, 36, 36); border-bottom-color: rgb(36, 36, 36);">
+            <ui:VisualElement name="Progress-Indicator" style="flex-direction: row; width: 50%; height: 100%; background-color: rgb(127, 186, 0);" />
+        </ui:VisualElement>
+        <ui:Label text="{State}" display-tooltip-when-elided="true" name="ProgressState-Text" style="font-size: 11px; margin-top: 2px;" />
+    </ui:VisualElement>
+</ui:UXML>

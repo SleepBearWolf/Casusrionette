@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;  // Import TextMeshPro namespace
 
 public class PuzzleMenuUI : MonoBehaviour
 {
-    [SerializeField] private GameObject puzzleMenuUI; // UI ของร้านค้า
-    [SerializeField] private GameObject puzzlePromptUI; // UI บอกให้กดปุ่ม G เพื่อเปิดร้านค้า
-    private bool isPlayerInPuzzleArea = false; // เช็คว่าผู้เล่นอยู่ในบริเวณร้านค้าหรือไม่
-    private bool isPuzzleOpen = false; // สถานะของร้านค้าเปิดหรือปิด
+    [SerializeField] private GameObject puzzleMenuUI;
+    [SerializeField] private GameObject puzzlePromptUI;
+    [SerializeField] private CameraFollow cameraFollow;
+    [SerializeField] private TextMeshProUGUI timerText;  // TextMeshPro component for timer display
+    [SerializeField] private float puzzleTimeLimit = 30f; // Time limit in seconds
+
+    private bool isPlayerInPuzzleArea = false;
+    private bool isPuzzleOpen = false;
+    private float timeRemaining;  // Remaining time for countdown
+    private Coroutine timerCoroutine;
 
     private void Update()
     {
@@ -35,11 +42,19 @@ public class PuzzleMenuUI : MonoBehaviour
             puzzleMenuUI.SetActive(true);
             puzzlePromptUI.SetActive(false);
 
+            if (cameraFollow != null)
+            {
+                cameraFollow.enabled = false;
+            }
+
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            // Start the countdown timer
+            timeRemaining = puzzleTimeLimit;
+            timerCoroutine = StartCoroutine(CountdownTimer());
         }
     }
-
 
     public void DeactivateMenu()
     {
@@ -51,18 +66,60 @@ public class PuzzleMenuUI : MonoBehaviour
             puzzlePromptUI.SetActive(true);
             isPuzzleOpen = false;
 
+            if (cameraFollow != null)
+            {
+                cameraFollow.enabled = true;
+            }
+
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+
+            // Stop the countdown timer
+            if (timerCoroutine != null)
+            {
+                StopCoroutine(timerCoroutine);
+            }
         }
     }
 
+    private bool isGameComplete = false;
+
+    public void StopTimer()
+    {
+        isGameComplete = true;  // ตั้งค่าสถานะว่าเกมจบแล้ว
+        if (timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);  // หยุดการทำงานของ Coroutine
+        }
+        timerText.text = Mathf.Ceil(timeRemaining).ToString();  // แสดงเวลาที่เหลืออยู่
+    }
+
+
+
+
+    IEnumerator CountdownTimer()
+    {
+        while (timeRemaining > 0 && !isGameComplete)
+        {
+            timeRemaining -= Time.unscaledDeltaTime; // ใช้เวลา unscaled เพื่อไม่ให้หยุดเวลาเมื่อ Time.timeScale = 0
+            timerText.text = Mathf.Ceil(timeRemaining).ToString();  // Update the timer display
+            yield return null;
+        }
+
+        // เมื่อเวลาหมดหรือตัวต่อเสร็จ ให้ปิดเมนู
+        if (!isGameComplete)
+        {
+            DeactivateMenu();
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // ตรวจสอบว่าผู้เล่นเข้าใกล้ร้านค้า
         if (collision.CompareTag("Player"))
         {
             isPlayerInPuzzleArea = true;
-            puzzlePromptUI.SetActive(true); // แสดง UI บอกให้กด G
+            puzzlePromptUI.SetActive(true);
         }
     }
 

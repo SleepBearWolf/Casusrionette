@@ -6,16 +6,17 @@ public class GameManager2 : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
+    [SerializeField] private GameObject winUI;
+    [SerializeField] private GameObject rewardItem;  // ไอเท็มที่จะแสดงเมื่อเกมจบ
+    [SerializeField] private PuzzleMenuUI puzzleMenuUI;
 
     private List<Transform> pieces;
-    private int emptyLocation;
     private int size;
     private bool shuffling = false;
+    private bool gameComplete = false;
 
-    // Create the game setup with size x size pieces.
     private void CreateGamePieces(float gapThickness)
     {
-        // This is the width of each tile.
         float width = 1 / (float)size;
         for (int row = 0; row < size; row++)
         {
@@ -23,104 +24,96 @@ public class GameManager2 : MonoBehaviour
             {
                 Transform piece = Instantiate(piecePrefab, gameTransform);
                 pieces.Add(piece);
-                // Pieces will be in a game board going from -1 to +1.
                 piece.localPosition = new Vector3(-1 + (2 * width * col) + width,
                                                   +1 - (2 * width * row) - width,
                                                   0);
                 piece.localScale = ((2 * width) - gapThickness) * Vector3.one;
                 piece.name = $"{(row * size) + col}";
-                // We want an empty space in the bottom right.
-                if ((row == size - 1) && (col == size - 1))
-                {
-                    emptyLocation = (size * size) - 1;
-                    piece.gameObject.SetActive(false);
-                }
-                else
-                {
-                    // We want to map the UV coordinates appropriately, they are 0->1.
-                    float gap = gapThickness / 2;
-                    Mesh mesh = piece.GetComponent<MeshFilter>().mesh;
-                    Vector2[] uv = new Vector2[4];
-                    // UV coord order: (0, 1), (1, 1), (0, 0), (1, 0)
-                    uv[0] = new Vector2((width * col) + gap, 1 - ((width * (row + 1)) - gap));
-                    uv[1] = new Vector2((width * (col + 1)) - gap, 1 - ((width * (row + 1)) - gap));
-                    uv[2] = new Vector2((width * col) + gap, 1 - ((width * row) + gap));
-                    uv[3] = new Vector2((width * (col + 1)) - gap, 1 - ((width * row) + gap));
-                    // Assign our new UVs to the mesh.
-                    mesh.uv = uv;
-                }
             }
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         pieces = new List<Transform>();
         size = 3;
         CreateGamePieces(0.01f);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Check for completion.
-        if (!shuffling && CheckCompletion())
+        if (!shuffling && CheckMatching())
         {
             shuffling = true;
             StartCoroutine(WaitShuffle(0.5f));
         }
+    }
 
-        // On click send out ray to see if we click a piece.
-        if (Input.GetMouseButtonDown(0))
+    void Update()
+    {
+        if (!shuffling && !gameComplete)
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit)
+            if (CheckMatching())
             {
-                // Go through the list, the index tells us the position.
-                for (int i = 0; i < pieces.Count; i++)
-                {
-                    if (pieces[i] == hit.transform)
-                    {
-                        // Check each direction to see if valid move.
-                        // We break out on success so we don't carry on and swap back again.
-                        if (SwapIfValid(i, -size, size)) { break; }
-                        if (SwapIfValid(i, +size, size)) { break; }
-                        if (SwapIfValid(i, -1, 0)) { break; }
-                        if (SwapIfValid(i, +1, size - 1)) { break; }
-                    }
-                }
+                ClearMatchingPieces(); // ล้างชิ้นส่วนที่จับคู่กันได้
             }
+            else if (pieces.Count == 0) // เมื่อชิ้นส่วนทั้งหมดหายไป
+            {
+                ShowWinUI();  // แสดง Win UI
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && !gameComplete)
+        {
+            Shuffle(); // สุ่มชิ้นส่วนใหม่เมื่อกดปุ่ม R
         }
     }
 
-    // colCheck is used to stop horizontal moves wrapping.
-    private bool SwapIfValid(int i, int offset, int colCheck)
+    private bool CheckMatching()
     {
-        if (((i % size) != colCheck) && ((i + offset) == emptyLocation))
+        // ฟังก์ชันนี้ใช้ในการตรวจสอบว่ามีชิ้นส่วนไหนที่จับคู่ได้หรือไม่
+        // ตัวอย่างเช่น เช็คว่าชิ้นส่วนติดกันมีชื่อเหมือนกันหรือไม่
+        for (int i = 0; i < pieces.Count - 1; i++)
         {
-            // Swap them in game state.
-            (pieces[i], pieces[i + offset]) = (pieces[i + offset], pieces[i]);
-            // Swap their transforms.
-            (pieces[i].localPosition, pieces[i + offset].localPosition) = ((pieces[i + offset].localPosition, pieces[i].localPosition));
-            // Update empty location.
-            emptyLocation = i;
-            return true;
+            if (pieces[i] != null && pieces[i + 1] != null && pieces[i].name == pieces[i + 1].name)
+            {
+                return true;
+            }
         }
         return false;
     }
 
-    // We name the pieces in order so we can use this to check completion.
-    private bool CheckCompletion()
+    private void ClearMatchingPieces()
     {
-        for (int i = 0; i < pieces.Count; i++)
+        // ฟังก์ชันนี้จะทำการลบชิ้นส่วนที่จับคู่กันได้ออกจากหน้าจอ
+        for (int i = 0; i < pieces.Count - 1; i++)
         {
-            if (pieces[i].name != $"{i}")
+            if (pieces[i] != null && pieces[i + 1] != null && pieces[i].name == pieces[i + 1].name)
             {
-                return false;
+                Destroy(pieces[i].gameObject);
+                Destroy(pieces[i + 1].gameObject);
+                pieces.RemoveAt(i);
+                pieces.RemoveAt(i); // ลบตัวที่ถัดไปหลังลบตัวปัจจุบัน
+                break;
             }
         }
-        return true;
+    }
+
+    private void ShowWinUI()
+    {
+        if (winUI != null)
+        {
+            winUI.SetActive(true);  // แสดง Win UI
+        }
+
+        if (rewardItem != null)
+        {
+            rewardItem.SetActive(true);  // แสดงไอเท็มรางวัล
+        }
+
+        if (puzzleMenuUI != null)
+        {
+            puzzleMenuUI.StopTimer();  // หยุดจับเวลาเมื่อผู้เล่นชนะ
+        }
+
+        gameComplete = true;  // ตั้งค่าสถานะเกมให้เสร็จสมบูรณ์
     }
 
     private IEnumerator WaitShuffle(float duration)
@@ -130,36 +123,8 @@ public class GameManager2 : MonoBehaviour
         shuffling = false;
     }
 
-    // Brute force shuffling.
     private void Shuffle()
     {
-        int count = 0;
-        int last = 0;
-        while (count < (size * size * size))
-        {
-            // Pick a random location.
-            int rnd = Random.Range(0, size * size);
-            // Only thing we forbid is undoing the last move.
-            if (rnd == last) { continue; }
-            last = emptyLocation;
-            // Try surrounding spaces looking for valid move.
-            if (SwapIfValid(rnd, -size, size))
-            {
-                count++;
-            }
-            else if (SwapIfValid(rnd, +size, size))
-            {
-                count++;
-            }
-            else if (SwapIfValid(rnd, -1, 0))
-            {
-                count++;
-            }
-            else if (SwapIfValid(rnd, +1, size - 1))
-            {
-                count++;
-            }
-        }
+        // สุ่มชิ้นส่วนใหม่ตามเงื่อนไขที่กำหนด
     }
 }
-

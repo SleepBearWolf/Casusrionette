@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 83.4, y: 41.6}
+  m_AnchoredPosition: {x: 165.5, y: 31.6}
   m_SizeDelta: {x: 140, y: 29.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2269912367657598184
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Name.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  m_sharedMaterial: {fileID: 1708166496871560122, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 15
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 12
   m_fontSizeMax: 24
   m_fontStyle: 0
@@ -202,8 +202,8 @@ MonoBehaviour:
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
+  m_sharedMaterial: {fileID: 1708166496871560122, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -227,10 +227,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 15
+  m_fontSize: 25
+  m_fontSizeBase: 25
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 12
   m_fontSizeMax: 18
   m_fontStyle: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -161.62625, y: 24.21579, z: 0, w: 1.1263275}
+  m_margin: {x: -81.960266, y: 35.53093, z: 78.13861, w: 5.1440277}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -322,9 +322,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScrollText: 1
   ScrollSpeed: 1
-  BackgroundImage: {fileID: 21300000, guid: bf566e80557acbc45b9a695fcaa25327, type: 3}
+  BackgroundImage: {fileID: 21300000, guid: 82da11df5f1389e49aeb79da571f8aca, type: 3}
   BackgroundImageSliced: 1
-  OptionImage: {fileID: 21300000, guid: bf566e80557acbc45b9a695fcaa25327, type: 3}
+  OptionImage: {fileID: 21300000, guid: 82da11df5f1389e49aeb79da571f8aca, type: 3}
   OptionImageSliced: 1
   AllowMouseInteraction: 1
   DialoguePanel: {fileID: 3900108755395677323}
@@ -572,8 +572,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf566e80557acbc45b9a695fcaa25327, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 82da11df5f1389e49aeb79da571f8aca, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

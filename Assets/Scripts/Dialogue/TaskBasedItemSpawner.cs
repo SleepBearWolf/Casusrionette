@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DialogueEditor;
 
 public class TaskBasedItemSpawner : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class TaskBasedItemSpawner : MonoBehaviour
 
     private PlayerInventory playerInventory;
     private bool taskCompleted = false;
+
+    [Header("Dialogue System")]
+    public NPCConversation completeConversation;
+    public NPCConversation incompleteConversation;
 
     private void Start()
     {
@@ -37,16 +42,37 @@ public class TaskBasedItemSpawner : MonoBehaviour
                 RemoveRequiredItems();
                 SpawnItems();
                 taskCompleted = true;
+
+                // ตั้งค่า Parameter ว่ามีไอเท็มครบ
+                SetDialogueParameter(true);
+                StartConversation(completeConversation);
             }
             else
             {
                 Debug.Log("You don't have the required items to complete the task.");
+
+                // ตั้งค่า Parameter ว่าไม่มีไอเท็มครบ
+                SetDialogueParameter(false);
+                StartConversation(incompleteConversation);
             }
         }
         else
         {
             SpawnItems();
             taskCompleted = true;
+
+            // ตั้งค่า Parameter ว่ามีไอเท็มครบ
+            SetDialogueParameter(true);
+            StartConversation(completeConversation);
+        }
+    }
+
+    private void SetDialogueParameter(bool hasItems)
+    {
+        if (ConversationManager.Instance != null)
+        {
+            // ตั้งค่า Parameter "HasItems" ใน Dialogue Editor
+            ConversationManager.Instance.SetBool("HasItems", hasItems);
         }
     }
 
@@ -82,6 +108,18 @@ public class TaskBasedItemSpawner : MonoBehaviour
             }
 
             Debug.Log("Spawned item: " + item.itemName);
+        }
+    }
+
+    private void StartConversation(NPCConversation conversation)
+    {
+        if (conversation != null)
+        {
+            ConversationManager.Instance.StartConversation(conversation);
+        }
+        else
+        {
+            Debug.LogWarning("No conversation assigned for this condition.");
         }
     }
 

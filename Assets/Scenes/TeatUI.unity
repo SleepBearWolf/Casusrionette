@@ -10890,6 +10890,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2069321157}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &676509741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25945,6 +25957,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1088728660}
+  InMenuUI01: {fileID: 0}
+  InMenuUI02: {fileID: 0}
+  InMenuUI03: {fileID: 0}
   isPaused: 0
 --- !u!4 &1630324153
 Transform:
@@ -26213,7 +26228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1635010688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32508,6 +32523,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1668191457}
+  InMenuUI01: {fileID: 0}
+  InMenuUI02: {fileID: 0}
+  InMenuUI03: {fileID: 0}
   isPaused: 0
 --- !u!4 &2069321159
 Transform:

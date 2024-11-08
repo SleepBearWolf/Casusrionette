@@ -1,68 +1,67 @@
-using UnityEngine;
+๏ปฟusing UnityEngine;
 using UnityEngine.UI;
 
 public class InteractionUI : MonoBehaviour
 {
-    public GameObject interactionUI;  // อ้างอิงไปยัง UI ที่จะแสดงเมื่อเข้าใกล้
-    public float interactionDistance = 2f;  // ระยะที่สามารถ interact ได้
-    private GameObject player;  // อ้างอิงไปยังตัวผู้เล่น
-    private bool isPlayerNearby = false;  // ตรวจสอบว่าผู้เล่นอยู่ใกล้หรือไม่
+    public GameObject interactionUI;  // ๏ฟฝ๏ฟฝาง๏ฟฝิง๏ฟฝ๏ฟฝัง UI ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝสด๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+    public float interactionDistance = 2f;  // ๏ฟฝ๏ฟฝ๏ฟฝะท๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝรถ interact ๏ฟฝ๏ฟฝ
+    private GameObject player;  // ๏ฟฝ๏ฟฝาง๏ฟฝิง๏ฟฝ๏ฟฝัง๏ฟฝ๏ฟฝวผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
+    private bool isPlayerNearby = false;  // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝาผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player");  // หา player โดย tag
-        interactionUI.SetActive(false);  // ซ่อน UI ตอนเริ่มต้น
+        player = GameObject.FindWithTag("Player");  // ๏ฟฝ๏ฟฝ player ๏ฟฝ๏ฟฝ tag
+        interactionUI.SetActive(false);  // ๏ฟฝ๏ฟฝอน UI ๏ฟฝอน๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
     }
 
     void Update()
     {
-        CheckInteractionDistance();  // ตรวจสอบระยะห่างระหว่างผู้เล่นและจุด interact
+        CheckInteractionDistance();  // ๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝะจุด interact
     }
 
-    // ฟังก์ชันตรวจสอบระยะห่าง
+    // ๏ฟฝัง๏ฟฝ๏ฟฝัน๏ฟฝ๏ฟฝวจ๏ฟฝอบ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝาง
     void CheckInteractionDistance()
     {
         if (Vector2.Distance(player.transform.position, transform.position) <= interactionDistance)
         {
             if (!isPlayerNearby)
             {
-                ShowInteractionUI();  // แสดง UI เมื่อผู้เล่นอยู่ใกล้
+                ShowInteractionUI();  // ๏ฟฝสด๏ฟฝ UI ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ
             }
             isPlayerNearby = true;
 
-            // เมื่อผู้เล่นกดปุ่ม Interact เช่นปุ่ม E
+            // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ่นก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Interact ๏ฟฝ่นป๏ฟฝ๏ฟฝ๏ฟฝ E
             if (Input.GetKeyDown(KeyCode.B))
             {
-                Interact();  // เรียกฟังก์ชัน Interact
+                Interact();  // ๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝัง๏ฟฝ๏ฟฝัน Interact
             }
         }
         else
         {
             if (isPlayerNearby)
             {
-                HideInteractionUI();  // ซ่อน UI เมื่อผู้เล่นเดินออกไป
+                HideInteractionUI();  // ๏ฟฝ๏ฟฝอน UI ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝอผ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิน๏ฟฝอก๏ฟฝ
             }
             isPlayerNearby = false;
         }
     }
 
-    // ฟังก์ชันแสดง UI
+    // ๏ฟฝัง๏ฟฝ๏ฟฝัน๏ฟฝสด๏ฟฝ UI
     void ShowInteractionUI()
     {
         interactionUI.SetActive(true);
     }
 
-    // ฟังก์ชันซ่อน UI
+    // ๏ฟฝัง๏ฟฝ๏ฟฝัน๏ฟฝ๏ฟฝอน UI
     void HideInteractionUI()
     {
         interactionUI.SetActive(false);
     }
 
-    // ฟังก์ชันที่จะถูกเรียกเมื่อ Interact
+    // ๏ฟฝัง๏ฟฝ๏ฟฝัน๏ฟฝ๏ฟฝ๏ฟฝะถูก๏ฟฝ๏ฟฝ๏ฟฝยก๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ Interact
     void Interact()
     {
         Debug.Log("Player is interacting...");
-        // เพิ่มโค้ดสำหรับการทำสิ่งที่ต้องการ เช่น พูดคุยกับ NPC หรือเปิดประตู
+        // ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝับ๏ฟฝ๏ฟฝรท๏ฟฝ๏ฟฝ๏ฟฝ่งท๏ฟฝ๏ฟฝ๏ฟฝอง๏ฟฝ๏ฟฝ๏ฟฝ ๏ฟฝ๏ฟฝ ๏ฟฝูด๏ฟฝ๏ฟฝยกับ NPC ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝ๏ฟฝิด๏ฟฝ๏ฟฝะต๏ฟฝ
     }
 }
-

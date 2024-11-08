@@ -1350,6 +1350,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 37190541}
   spawnForce: 5
   isExchangeRequired: 1
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &37190543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8412,6 +8414,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 104972777}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &104972779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11117,6 +11121,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 159264983}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &159264985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17781,6 +17787,10 @@ PrefabInstance:
     - target: {fileID: 1800811113190733274, guid: 6972310fa462c2e4ab7585e75adb8a00, type: 3}
       propertyPath: m_Name
       value: CookedChicken
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800811113190733274, guid: 6972310fa462c2e4ab7585e75adb8a00, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3082979948973013757, guid: 6972310fa462c2e4ab7585e75adb8a00, type: 3}
       propertyPath: randomSeed
@@ -25637,6 +25647,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   spawnForce: 5
   isExchangeRequired: 1
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!1 &510566148
 GameObject:
   m_ObjectHideFlags: 0
@@ -28908,6 +28920,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 597084052}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &597084054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31847,6 +31861,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1418829043}
+  InMenuUI01: {fileID: 0}
+  InMenuUI02: {fileID: 0}
+  InMenuUI03: {fileID: 0}
   isPaused: 0
 --- !u!4 &673287811
 Transform:
@@ -39533,6 +39550,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 756603997}
   spawnForce: 5
   isExchangeRequired: 1
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &756603999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41744,6 +41763,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 810324496}
   spawnForce: 5
   isExchangeRequired: 1
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &810324498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44685,6 +44706,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 913727814}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &913727816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56728,6 +56751,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1109309304}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1109309306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57908,6 +57933,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1130038102}
   spawnForce: 5
   isExchangeRequired: 1
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1130038104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79852,6 +79879,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1469354354}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1469354356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83759,6 +83788,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1593335316}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1593335318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84381,6 +84412,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1612453251}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1612453253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85155,6 +85188,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1641700247}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1641700245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96580,9 +96615,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2488673881772402327, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5790578323221528563, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
       propertyPath: m_Name
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 5790578323221528563, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8607517018595313442, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
       propertyPath: ShapeModule.radius.value
@@ -104308,6 +104351,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 0}
   spawnForce: 5
   isExchangeRequired: 1
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1767179337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106794,6 +106839,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTransform: {fileID: 1021704331}
   piecePrefab: {fileID: 7778618904394582705, guid: 3ec8e2b73778a5d4cb21988db642da62, type: 3}
+  winUI: {fileID: 0}
+  rewardItem: {fileID: 0}
+  puzzleMenuUI: {fileID: 0}
 --- !u!4 &1831744261
 Transform:
   m_ObjectHideFlags: 0
@@ -117494,6 +117542,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1985356623}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &1985356625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117986,6 +118036,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzleMenuUI: {fileID: 1021704330}
   puzzlePromptUI: {fileID: 1626499330}
+  cameraFollow: {fileID: 0}
+  timerText: {fileID: 0}
+  puzzleTimeLimit: 30
 --- !u!1 &1994574145
 GameObject:
   m_ObjectHideFlags: 0
@@ -132419,6 +132472,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 2123557882}
   spawnForce: 5
   isExchangeRequired: 0
+  completeConversation: {fileID: 0}
+  incompleteConversation: {fileID: 0}
 --- !u!114 &2123557884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133381,6 +133436,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 1800811113190733274, guid: f0adbbcbed8cbbf45a0b785f02b93400, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8405034755929327386, guid: f0adbbcbed8cbbf45a0b785f02b93400, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.72
@@ -133437,6 +133496,10 @@ PrefabInstance:
     - target: {fileID: 1518035526002855346, guid: 9c45026de71f8d5458a9e4e069ccc75d, type: 3}
       propertyPath: m_Name
       value: Banana
+      objectReference: {fileID: 0}
+    - target: {fileID: 1518035526002855346, guid: 9c45026de71f8d5458a9e4e069ccc75d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5230126004493286112, guid: 9c45026de71f8d5458a9e4e069ccc75d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -133497,7 +133560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2426799372130530211, guid: 0cd5eb000b04a874288c790cb2182172, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2897589604437530346, guid: 0cd5eb000b04a874288c790cb2182172, type: 3}
       propertyPath: m_IsActive

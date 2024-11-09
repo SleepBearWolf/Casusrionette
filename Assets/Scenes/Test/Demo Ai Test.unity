@@ -28482,6 +28482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1418829043}
+  InMenuUI01: {fileID: 0}
+  InMenuUI02: {fileID: 0}
+  InMenuUI03: {fileID: 0}
   isPaused: 0
 --- !u!4 &673287811
 Transform:
@@ -30155,7 +30158,7 @@ Transform:
   m_GameObject: {fileID: 720715051}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.1, y: -5.03, z: -0}
+  m_LocalPosition: {x: -4.1, y: -4.16, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75682,6 +75685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4876848293284551899, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
+    - {fileID: 3411417502613609651, guid: 0acf508f42b8dc247bd82bd31a8a8157, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -79616,6 +79620,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 463650567186204364, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 691165304262507265, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.69
@@ -79744,6 +79752,22 @@ PrefabInstance:
       propertyPath: exhaustedDuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7056484552285463897, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184981830514023195, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: netStunEffectPrefab
+      value: 
+      objectReference: {fileID: 2426799372130530211, guid: 0cd5eb000b04a874288c790cb2182172, type: 3}
+    - target: {fileID: 7184981830514023195, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: baitTiredEffectPrefab
+      value: 
+      objectReference: {fileID: 2426799372130530211, guid: 0cd5eb000b04a874288c790cb2182172, type: 3}
+    - target: {fileID: 7184981830514023195, guid: 84e052aa5d929e64c8d65bc122946714, type: 3}
+      propertyPath: netDestroyEffectPrefab
+      value: 
+      objectReference: {fileID: 2426799372130530211, guid: 0cd5eb000b04a874288c790cb2182172, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120235,6 +120259,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 7003385246008995176, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -120266,6 +120294,18 @@ PrefabInstance:
     - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 4.0113
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.98849535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.98849535
+      objectReference: {fileID: 0}
+    - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.98849535
       objectReference: {fileID: 0}
     - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_LocalPosition.x

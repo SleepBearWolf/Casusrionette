@@ -34,10 +34,8 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children:
- HEAD
   - {fileID: 4707458691918004386}
   - {fileID: 1173779591902353784}
- 751ac69b07928d052af12e07867fc0ab215489c0
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7183179868322691713
@@ -197,7 +195,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
- HEAD
 --- !u!1 &4880200542264287343
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,12 +5038,24 @@ PrefabInstance:
       value: InteractionUI
       objectReference: {fileID: 0}
     - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.031999588
       objectReference: {fileID: 0}
     - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.878
+      value: 1.344
       objectReference: {fileID: 0}
     - target: {fileID: 4968975443625183427, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5158,4 +5167,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
   m_PrefabInstance: {fileID: 8550434437269171154}
   m_PrefabAsset: {fileID: 0}
- 751ac69b07928d052af12e07867fc0ab215489c0

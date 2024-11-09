@@ -6,14 +6,14 @@ public class BaitTrap : MonoBehaviour
 {
     public Vector2 boxSize = new Vector2(2f, 2f);
     public float lureDuration = 5f;
-    private bool isChickenLured = false; 
-    private ChickenAI luredChicken = null; 
-    private float lureTimer = 0f; 
+    private bool isChickenLured = false;
+    private ChickenAI luredChicken = null;
+    private float lureTimer = 0f;
 
     private void Update()
     {
-        CheckOverlapBox(); 
-        HandleLureTimer(); 
+        CheckOverlapBox();
+        HandleLureTimer();
     }
 
     private void CheckOverlapBox()
@@ -25,27 +25,27 @@ public class BaitTrap : MonoBehaviour
             ChickenAI chicken = hit.GetComponent<ChickenAI>();
             if (chicken != null && chicken.CurrentState != ChickenAI.ChickenState.Captured && chicken.CurrentState != ChickenAI.ChickenState.Tired)
             {
-                chicken.SetTired(lureDuration); 
+                chicken.SetTired(lureDuration);
                 isChickenLured = true;
                 luredChicken = chicken;
                 lureTimer = lureDuration;
 
-                ItemPickupAndDraggable itemPickup = chicken.GetComponent<ItemPickupAndDraggable>();
-                if (itemPickup != null && itemPickup.RequiresNet)
+                ChickenEffectController effectController = chicken.GetComponent<ChickenEffectController>();
+                if (effectController != null)
                 {
-                    itemPickup.SetInNet(); 
+                    effectController.ApplyBaitEffect(lureDuration);
                 }
 
                 Debug.Log("Chicken lured and tired for " + lureDuration + " seconds.");
 
-                Destroy(gameObject); 
+                Destroy(gameObject);
                 return;
             }
         }
 
         if (!isChickenLured)
         {
-            ReleaseChickenFromAll(); 
+            ReleaseChickenFromAll();
         }
     }
 
@@ -58,7 +58,7 @@ public class BaitTrap : MonoBehaviour
 
         if (lureTimer <= 0f && isChickenLured)
         {
-            ReleaseChicken(); 
+            ReleaseChicken();
         }
     }
 
@@ -66,7 +66,7 @@ public class BaitTrap : MonoBehaviour
     {
         if (luredChicken != null)
         {
-            luredChicken.CurrentState = ChickenAI.ChickenState.Patrol; 
+            luredChicken.CurrentState = ChickenAI.ChickenState.Patrol;
             luredChicken = null;
             isChickenLured = false;
             Debug.Log("Chicken is no longer tired.");
@@ -82,7 +82,7 @@ public class BaitTrap : MonoBehaviour
             ChickenAI chicken = hit.GetComponent<ChickenAI>();
             if (chicken != null && chicken.CurrentState == ChickenAI.ChickenState.Tired)
             {
-                chicken.CurrentState = ChickenAI.ChickenState.Patrol; 
+                chicken.CurrentState = ChickenAI.ChickenState.Patrol;
             }
         }
         luredChicken = null;
@@ -91,6 +91,6 @@ public class BaitTrap : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(transform.position, boxSize); 
+        Gizmos.DrawWireCube(transform.position, boxSize);
     }
 }

@@ -4863,10 +4863,8 @@ Transform:
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children:
- HEAD
   - {fileID: 268554617637335384}
   - {fileID: 804909942890179185}
- 751ac69b07928d052af12e07867fc0ab215489c0
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4640950451295029964
@@ -5025,12 +5023,24 @@ PrefabInstance:
       value: InteractionUI
       objectReference: {fileID: 0}
     - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5303
+      objectReference: {fileID: 0}
+    - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.031999588
+      value: 0.014999986
       objectReference: {fileID: 0}
     - target: {fileID: 2616486668877979058, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.321
+      value: 1.677
       objectReference: {fileID: 0}
     - target: {fileID: 4968975443625183427, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5038,7 +5048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5710901197992590924, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_Pivot.x

@@ -296,7 +296,7 @@ GameObject:
   m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -556,6 +556,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4451879326490301994}
+  m_Father: {fileID: 3137998725385924098}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2892156003247795470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4483199086601219290}
+  m_Layer: 8
+  m_Name: Ef
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4483199086601219290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892156003247795470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.71, y: 22.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 3137998725385924098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2926051879122451192
@@ -1238,6 +1269,7 @@ Transform:
   - {fileID: 3324290576020361616}
   - {fileID: 2998374187071435902}
   - {fileID: 7002435071017880007}
+  - {fileID: 4483199086601219290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &908354549629088977
@@ -1357,6 +1389,8 @@ MonoBehaviour:
   jumpAnimationClip: {fileID: 7400000, guid: 0a321e5569493414aa823a5d7527a277, type: 2}
   stunAnimationClip: {fileID: 7400000, guid: 060972711063a664d9e6a14985a4e627, type: 2}
   pushBackAnimationClip: {fileID: 7400000, guid: 060972711063a664d9e6a14985a4e627, type: 2}
+  stunEffectPrefab: {fileID: 2426799372130530211, guid: 0cd5eb000b04a874288c790cb2182172, type: 3}
+  stunEffectPosition: {fileID: 4483199086601219290}
   groundCheck: {fileID: 2998374187071435902}
   groundLayer:
     serializedVersion: 2

@@ -24,6 +24,11 @@ public class PlayerSystem : MonoBehaviour
     [SerializeField] private AnimationClip stunAnimationClip;
     [SerializeField] private AnimationClip pushBackAnimationClip;
 
+    [Header("Stun Effect Settings")]
+    [SerializeField] private GameObject stunEffectPrefab;
+    [SerializeField] private Transform stunEffectPosition; // ตำแหน่งของเอฟเฟกต์สตัน
+    private GameObject activeStunEffect;
+
     private Rigidbody2D rb2d;
     private bool isGrounded;
     private bool facingRight = true;
@@ -65,7 +70,7 @@ public class PlayerSystem : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -81,7 +86,7 @@ public class PlayerSystem : MonoBehaviour
             CheckIfGrounded();
             Jump();
             FlipCharacter();
-            UpdateAnimation(); 
+            UpdateAnimation();
 
             if (transform.position.x < minX || transform.position.x > maxX)
             {
@@ -314,33 +319,6 @@ public class PlayerSystem : MonoBehaviour
         }
     }
 
-    private void DragObject()
-    {
-        if (heldObject != null)
-        {
-            heldObject.transform.position = GetMouseWorldPosition2D() + mouseOffset;
-        }
-    }
-
-    private Vector3 GetMouseWorldPosition2D()
-    {
-        Vector3 mousePoint = Input.mousePosition;
-        mousePoint.z = Camera.main.nearClipPlane;
-        return Camera.main.ScreenToWorldPoint(mousePoint);
-    }
-
-    private void ResetItemPosition()
-    {
-        if (heldObject != null)
-        {
-            heldObject.transform.position = originalPosition;
-            heldObject.GetComponent<Rigidbody2D>().isKinematic = false;
-            heldObject = null;
-
-            Debug.Log("Item reset to original position");
-        }
-    }
-
     private void StartReturning()
     {
         isPaused = true;
@@ -377,23 +355,39 @@ public class PlayerSystem : MonoBehaviour
     public void Stun(float duration)
     {
         Debug.Log("Player stunned for " + duration + " seconds.");
-        PlayAnimation(stunAnimationClip); 
-        StartCoroutine(DisablePlayerControl(duration));
-    }
+        PlayAnimation(stunAnimationClip);
 
-    public void PushBack(Vector2 direction, float force)
-    {
-        Debug.Log("Player pushed back with force: " + force);
-        PlayAnimation(pushBackAnimationClip); 
-        StartCoroutine(PushBackCoroutine(direction, force));
+        if (stunEffectPrefab != null && activeStunEffect == null)
+        {
+            // กำหนดตำแหน่งของเอฟเฟกต์สตัน ถ้าไม่มี stunEffectPosition จะใช้ตำแหน่งปัจจุบันของ Player แทน
+            Transform effectPosition = stunEffectPosition != null ? stunEffectPosition : transform;
+            activeStunEffect = Instantiate(stunEffectPrefab, effectPosition.position, Quaternion.identity, effectPosition);
+        }
+
+        StartCoroutine(DisablePlayerControl(duration));
     }
 
     private IEnumerator DisablePlayerControl(float duration)
     {
         isPaused = true;
         rb2d.velocity = Vector2.zero;
+
         yield return new WaitForSeconds(duration);
+
         isPaused = false;
+
+        if (activeStunEffect != null)
+        {
+            Destroy(activeStunEffect);
+            activeStunEffect = null;
+        }
+    }
+
+    public void PushBack(Vector2 direction, float force)
+    {
+        Debug.Log("Player pushed back with force: " + force);
+        PlayAnimation(pushBackAnimationClip);
+        StartCoroutine(PushBackCoroutine(direction, force));
     }
 
     private IEnumerator PushBackCoroutine(Vector2 direction, float force)

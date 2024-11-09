@@ -204,28 +204,44 @@ public class MonkeyAI : MonoBehaviour
 
     private void ScatterItemsFromPlayer()
     {
-        if (playerInventory.items.Count > 0)
+        List<ItemBaseData> itemsToDrop = new List<ItemBaseData>();
+
+        foreach (var item in playerInventory.items)
         {
-            foreach (var item in playerInventory.items)
+            if (edibleItems.Contains(item))
             {
-                if (item != null)
-                {
-                    GameObject itemObject = Instantiate(item.itemPrefab, transform.position, Quaternion.identity);
-                    Rigidbody2D itemRb = itemObject.GetComponent<Rigidbody2D>();
-
-                    if (itemRb != null)
-                    {
-                        Vector2 scatterDirection = Random.insideUnitCircle.normalized;
-                        itemRb.AddForce(scatterDirection * 5f, ForceMode2D.Impulse);
-                        droppedItems.Add(itemObject);
-                    }
-                }
+                Debug.Log("Destroyed edible item: " + item.itemName);
             }
-
-            playerInventory.items.Clear();
-            playerInventory.UpdateInventoryUI();
-            Debug.Log("Monkey scattered items from the player!");
+            else
+            {
+                itemsToDrop.Add(item);
+            }
         }
+
+        playerInventory.items.Clear();
+        playerInventory.UpdateInventoryUI();
+
+        foreach (var item in itemsToDrop)
+        {
+            if (item != null)
+            {
+                GameObject itemObject = Instantiate(item.itemPrefab, transform.position, Quaternion.identity);
+                Rigidbody2D itemRb = itemObject.GetComponent<Rigidbody2D>();
+
+                if (itemRb != null)
+                {
+                    Vector2 scatterDirection = Random.insideUnitCircle.normalized;
+                    itemRb.AddForce(scatterDirection * 5f, ForceMode2D.Impulse);
+                    droppedItems.Add(itemObject);
+                }
+
+                playerInventory.items.Clear();
+                playerInventory.UpdateInventoryUI();
+                playerInventory.items.Add(item);
+            }
+        }
+
+        Debug.Log("Monkey scattered non-edible items from the player and destroyed edible items!");
     }
 
     private void CollectAndEatItems()

@@ -6,6 +6,7 @@ public class BaitTrap : MonoBehaviour
 {
     public Vector2 boxSize = new Vector2(2f, 2f);
     public float lureDuration = 5f;
+    public GameObject baitReleaseEffectPrefab;
     private bool isChickenLured = false;
     private ChickenAI luredChicken = null;
     private float lureTimer = 0f;
@@ -30,10 +31,10 @@ public class BaitTrap : MonoBehaviour
                 luredChicken = chicken;
                 lureTimer = lureDuration;
 
-                ChickenEffectController effectController = chicken.GetComponent<ChickenEffectController>();
-                if (effectController != null)
+                ItemPickupAndDraggable itemPickup = chicken.GetComponent<ItemPickupAndDraggable>();
+                if (itemPickup != null && itemPickup.RequiresNet)
                 {
-                    effectController.ApplyBaitEffect(lureDuration);
+                    itemPickup.SetInNet();
                 }
 
                 Debug.Log("Chicken lured and tired for " + lureDuration + " seconds.");
@@ -58,18 +59,30 @@ public class BaitTrap : MonoBehaviour
 
         if (lureTimer <= 0f && isChickenLured)
         {
-            ReleaseChicken();
+            ReleaseChickenWithEffect();
         }
     }
 
-    private void ReleaseChicken()
+    private void ReleaseChickenWithEffect()
     {
         if (luredChicken != null)
         {
+            TriggerBaitReleaseEffect();
+
             luredChicken.CurrentState = ChickenAI.ChickenState.Patrol;
             luredChicken = null;
             isChickenLured = false;
-            Debug.Log("Chicken is no longer tired.");
+
+            Debug.Log("Chicken released from bait effect after timer ended.");
+        }
+    }
+
+    private void TriggerBaitReleaseEffect()
+    {
+        if (baitReleaseEffectPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            Instantiate(baitReleaseEffectPrefab, spawnPosition, Quaternion.identity);
         }
     }
 

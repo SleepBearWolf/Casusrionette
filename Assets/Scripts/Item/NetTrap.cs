@@ -5,8 +5,8 @@ using UnityEngine;
 public class NetTrap : MonoBehaviour
 {
     public Vector2 boxSize = new Vector2(2f, 2f);
-    public float captureDuration = 5f; // เวลาที่จับไก่ได้
-    public GameObject netDestroyEffectPrefab; // เอฟเฟคที่จะแสดงเมื่อ Net พัง
+    public float captureDuration = 5f;
+    public GameObject netReleaseEffectPrefab; 
     private bool isChickenCaptured = false;
     private ChickenAI capturedChicken = null;
     private float captureTimer = 0f;
@@ -33,6 +33,12 @@ public class NetTrap : MonoBehaviour
                 capturedChicken = chicken;
                 captureTimer = captureDuration;
 
+                ItemPickupAndDraggable itemPickup = chicken.GetComponent<ItemPickupAndDraggable>();
+                if (itemPickup != null && itemPickup.RequiresNet)
+                {
+                    itemPickup.SetInNet();
+                }
+
                 Debug.Log("Chicken captured for " + captureDuration + " seconds.");
                 break;
             }
@@ -54,7 +60,7 @@ public class NetTrap : MonoBehaviour
 
         if (captureTimer <= 0f && isChickenCaptured)
         {
-            ReleaseChickenWithEffect(); 
+            ReleaseChickenWithEffect();
         }
     }
 
@@ -62,23 +68,22 @@ public class NetTrap : MonoBehaviour
     {
         if (capturedChicken != null)
         {
+            TriggerNetReleaseEffect();
+
             capturedChicken.ReleaseChicken();
-            isChickenCaptured = false;
-
-            TriggerNetDestroyEffect();
-
             capturedChicken = null;
+            isChickenCaptured = false;
 
             Debug.Log("Chicken released with net destroy effect after timer ended.");
         }
     }
 
-    private void TriggerNetDestroyEffect()
+    private void TriggerNetReleaseEffect()
     {
-        if (netDestroyEffectPrefab != null)
+        if (netReleaseEffectPrefab != null)
         {
             Vector3 spawnPosition = transform.position;
-            Instantiate(netDestroyEffectPrefab, spawnPosition, Quaternion.identity);
+            Instantiate(netReleaseEffectPrefab, spawnPosition, Quaternion.identity);
         }
     }
 

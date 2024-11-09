@@ -5044,11 +5044,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4968975443625183427, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.116999276
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968975443625183427, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.03700006
       objectReference: {fileID: 0}
     - target: {fileID: 5710901197992590924, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890185145076143169, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890185145076143169, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[0].emitter
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7413809545623073450, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_Pivot.x
@@ -5142,8 +5154,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8871835371297451103, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3b0837be56766044b726456f06b9870, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1241742443491977622, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}

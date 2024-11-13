@@ -16568,6 +16568,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Banana
       objectReference: {fileID: 0}
+    - target: {fileID: 2972105859329972079, guid: 9c45026de71f8d5458a9e4e069ccc75d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.11699927
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972105859329972079, guid: 9c45026de71f8d5458a9e4e069ccc75d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.03700018
+      objectReference: {fileID: 0}
     - target: {fileID: 5230126004493286112, guid: 9c45026de71f8d5458a9e4e069ccc75d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.030344
@@ -19172,7 +19180,6 @@ GameObject:
   - component: {fileID: 410011177}
   - component: {fileID: 410011183}
   - component: {fileID: 410011182}
-  - component: {fileID: 410011184}
   - component: {fileID: 410011185}
   m_Layer: 0
   m_Name: GameManager
@@ -19290,31 +19297,6 @@ MonoBehaviour:
     boxSize: {x: 0.83, y: 17.05}
   collisionCooldown: 10
   transitionDuration: 3
---- !u!114 &410011184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 410011175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f2c8c06da78eea4d86f047727a43fb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnWithoutExchangeKey: 0
-  spawnWithExchangeKey: 101
-  itemsToSpawn: []
-  requiredItems: []
-  spawnPoint: {fileID: 1884624695}
-  spawnForce: 5
-  cooldownTime: 2
-  overlapBoxSize: {x: 1.44, y: 2.33}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  unlimitedDrops: 0
-  maxDropCount: 1
 --- !u!114 &410011185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20371,6 +20353,14 @@ PrefabInstance:
     - target: {fileID: 1800811113190733274, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
       propertyPath: m_Name
       value: Wheat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628887581520372497, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.122999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628887581520372497, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029000044
       objectReference: {fileID: 0}
     - target: {fileID: 8405034755929327386, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24123,6 +24113,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2971778730785919000, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.120000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971778730785919000, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029999971
+      objectReference: {fileID: 0}
     - target: {fileID: 5790578323221528563, guid: a3eda9707e6bcb74a99720d397959e8f, type: 3}
       propertyPath: m_Name
       value: Apple
@@ -27454,6 +27452,14 @@ PrefabInstance:
     - target: {fileID: 1800811113190733274, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
       propertyPath: m_Name
       value: Wheat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628887581520372497, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.122999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628887581520372497, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029000044
       objectReference: {fileID: 0}
     - target: {fileID: 8405034755929327386, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54874,6 +54880,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orange
       objectReference: {fileID: 0}
+    - target: {fileID: 7683095008292864639, guid: f0adbbcbed8cbbf45a0b785f02b93400, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.116999984
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683095008292864639, guid: f0adbbcbed8cbbf45a0b785f02b93400, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.03699994
+      objectReference: {fileID: 0}
     - target: {fileID: 8405034755929327386, guid: f0adbbcbed8cbbf45a0b785f02b93400, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.302296
@@ -58309,6 +58323,14 @@ PrefabInstance:
     - target: {fileID: 1800811113190733274, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
       propertyPath: m_Name
       value: Wheat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628887581520372497, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.122999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628887581520372497, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.029000044
       objectReference: {fileID: 0}
     - target: {fileID: 8405034755929327386, guid: cf97a38924a40374c8f5af0634bf13bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -120938,6 +120960,14 @@ PrefabInstance:
     - target: {fileID: 463593196951173349, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_Name
       value: InteractionUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 775457440934041394, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 775457440934041394, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 1247074605647652259, guid: b5ed4c286fad103498f602cda2f6145e, type: 3}
       propertyPath: m_Camera

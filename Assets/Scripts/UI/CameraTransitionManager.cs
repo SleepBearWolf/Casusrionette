@@ -6,40 +6,35 @@ using UnityEngine.UI;
 public class CameraTransitionManager : MonoBehaviour
 {
     [Header("Camera Settings")]
-    public List<Camera> cameras = new List<Camera>(); // รายการกล้องทั้งหมด
-    public float transitionSpeed = 2f; // ความเร็วของการเปลี่ยนกล้อง
+    public List<Camera> cameras = new List<Camera>(); 
+    public float transitionSpeed = 2f; 
 
     [Header("Arrow Settings")]
-    public List<ArrowSettings> arrowSettings = new List<ArrowSettings>(); // การตั้งค่าลูกศร
+    public List<ArrowSettings> arrowSettings = new List<ArrowSettings>();
 
     [Header("Fade Settings")]
-    public float fadeDuration = 1f; // ระยะเวลาการเฟด
-    private Canvas fadeCanvas; // Canvas สำหรับจอดำ
-    private Image fadeImage; // Image สีดำใน Canvas
+    public float fadeDuration = 1f; 
+    private Canvas fadeCanvas; 
+    private Image fadeImage;
 
     [Header("Canvas Settings")]
-    public List<Canvas> canvases = new List<Canvas>(); // รายการ Canvas ที่ต้องอัปเดต Event Camera
+    public List<Canvas> canvases = new List<Canvas>();
 
-    private int currentCameraIndex = 0; // กล้องปัจจุบัน
+    private int currentCameraIndex = 0; 
 
     void Start()
     {
-        // สร้าง Canvas และ Fade Image
         CreateFadeCanvas();
 
-        // เปิดกล้องเริ่มต้นและปิดกล้องอื่นๆ
         for (int i = 0; i < cameras.Count; i++)
         {
             cameras[i].enabled = (i == currentCameraIndex);
         }
 
-        // อัปเดต Event Camera ของ Canvas
         UpdateCanvasCamera();
 
-        // อัปเดตสถานะลูกศร
         UpdateArrows();
 
-        // ปิด Fade Canvas เมื่อไม่ได้ใช้งาน
         if (fadeCanvas != null)
         {
             fadeCanvas.gameObject.SetActive(false);
@@ -56,20 +51,17 @@ public class CameraTransitionManager : MonoBehaviour
 
     private IEnumerator SwitchCamera(int newCameraIndex)
     {
-        // เปิด Fade Canvas และจอดำ (Fade to Black)
         if (fadeCanvas != null)
         {
             fadeCanvas.gameObject.SetActive(true);
             yield return StartCoroutine(FadeScreen(true));
         }
 
-        // ปิดกล้องปัจจุบัน
         if (cameras[currentCameraIndex] != null)
         {
             cameras[currentCameraIndex].enabled = false;
         }
 
-        // เปลี่ยนไปยังกล้องใหม่
         currentCameraIndex = newCameraIndex;
 
         if (cameras[currentCameraIndex] != null)
@@ -77,17 +69,14 @@ public class CameraTransitionManager : MonoBehaviour
             cameras[currentCameraIndex].enabled = true;
         }
 
-        // อัปเดต Event Camera ของ Canvas
         UpdateCanvasCamera();
 
-        // จางจากจอดำกลับมา (Fade to Clear)
         if (fadeCanvas != null)
         {
             yield return StartCoroutine(FadeScreen(false));
-            fadeCanvas.gameObject.SetActive(false); // ปิด Fade Canvas หลังจางกลับมา
+            fadeCanvas.gameObject.SetActive(false); 
         }
 
-        // อัปเดตสถานะลูกศร
         UpdateArrows();
     }
 
@@ -103,14 +92,14 @@ public class CameraTransitionManager : MonoBehaviour
             float newAlpha = Mathf.Lerp(alpha, targetAlpha, elapsedTime / fadeDuration);
             if (fadeImage != null)
             {
-                fadeImage.color = new Color(0, 0, 0, newAlpha); // เปลี่ยนความโปร่งใสของสีดำ
+                fadeImage.color = new Color(0, 0, 0, newAlpha); 
             }
             yield return null;
         }
 
         if (fadeImage != null)
         {
-            fadeImage.color = new Color(0, 0, 0, targetAlpha); // ตั้งค่าความโปร่งใสสุดท้าย
+            fadeImage.color = new Color(0, 0, 0, targetAlpha); 
         }
     }
 
@@ -131,38 +120,34 @@ public class CameraTransitionManager : MonoBehaviour
         {
             if (canvas != null)
             {
-                canvas.worldCamera = cameras[currentCameraIndex]; // อัปเดต Event Camera ให้ตรงกับกล้องปัจจุบัน
+                canvas.worldCamera = cameras[currentCameraIndex]; 
             }
         }
     }
 
     private void CreateFadeCanvas()
     {
-        // สร้าง Canvas
         fadeCanvas = new GameObject("FadeCanvas").AddComponent<Canvas>();
-        fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay; // ตั้งค่าเป็น Screen Space - Overlay
-        fadeCanvas.sortingOrder = 100; // ให้ Canvas อยู่บนสุด
+        fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay; 
+        fadeCanvas.sortingOrder = 100; 
 
-        // เพิ่ม CanvasScaler
         fadeCanvas.gameObject.AddComponent<CanvasScaler>();
 
-        // เพิ่ม GraphicRaycaster
         fadeCanvas.gameObject.AddComponent<GraphicRaycaster>();
 
-        // สร้าง Image สีดำ
         fadeImage = new GameObject("FadeImage").AddComponent<Image>();
-        fadeImage.transform.SetParent(fadeCanvas.transform, false); // ทำให้ Image เป็นลูกของ Canvas
-        fadeImage.rectTransform.anchorMin = Vector2.zero; // ยืดเต็มจอ
-        fadeImage.rectTransform.anchorMax = Vector2.one;  // ยืดเต็มจอ
-        fadeImage.rectTransform.offsetMin = Vector2.zero; // ไม่มี Offset
-        fadeImage.rectTransform.offsetMax = Vector2.zero; // ไม่มี Offset
-        fadeImage.color = new Color(0, 0, 0, 0); // เริ่มต้นโปร่งใส
+        fadeImage.transform.SetParent(fadeCanvas.transform, false); 
+        fadeImage.rectTransform.anchorMin = Vector2.zero; 
+        fadeImage.rectTransform.anchorMax = Vector2.one;  
+        fadeImage.rectTransform.offsetMin = Vector2.zero; 
+        fadeImage.rectTransform.offsetMax = Vector2.zero; 
+        fadeImage.color = new Color(0, 0, 0, 0); 
     }
 
     [System.Serializable]
     public class ArrowSettings
     {
-        public GameObject arrowObject; // ตัวลูกศรในฉาก
-        public int targetCameraIndex; // กล้องเป้าหมายที่ลูกศรนี้จะชี้ไป
+        public GameObject arrowObject;
+        public int targetCameraIndex;
     }
 }

@@ -7,20 +7,20 @@ public class InventorySystem : MonoBehaviour
     public List<ItemBaseData> items = new List<ItemBaseData>();
     public Transform inventoryUIParent;
     public GameObject inventorySlotPrefab;
-    public int inventoryCapacity = 10; 
+    public int inventoryCapacity = 10;
 
     private int selectedIndex = -1; 
 
     private void Start()
     {
-        UpdateInventoryUI(); 
+        UpdateInventoryUI();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1) && selectedIndex != -1) 
+        if (Input.GetMouseButtonDown(1) && selectedIndex != -1)
         {
-            DeselectItem();
+            DeselectItem(); 
         }
     }
 
@@ -29,7 +29,7 @@ public class InventorySystem : MonoBehaviour
         if (items.Count < inventoryCapacity)
         {
             items.Add(item);
-            CreateSlot(item); 
+            CreateSlot(item);
             return true;
         }
         else
@@ -45,7 +45,7 @@ public class InventorySystem : MonoBehaviour
         {
             int index = items.IndexOf(item);
             items.Remove(item);
-            DestroySlot(index); 
+            DestroySlot(index);
             UpdateInventoryUI();
         }
     }
@@ -54,7 +54,7 @@ public class InventorySystem : MonoBehaviour
     {
         GameObject slot = Instantiate(inventorySlotPrefab, inventoryUIParent);
         Button button = slot.GetComponent<Button>();
-        int slotIndex = items.Count - 1; 
+        int slotIndex = items.Count - 1;
 
         button.onClick.AddListener(() => OnSlotClicked(slotIndex));
 
@@ -71,7 +71,7 @@ public class InventorySystem : MonoBehaviour
         if (index < inventoryUIParent.childCount)
         {
             Transform slot = inventoryUIParent.GetChild(index);
-            Destroy(slot.gameObject); 
+            Destroy(slot.gameObject);
         }
     }
 
@@ -97,17 +97,17 @@ public class InventorySystem : MonoBehaviour
     {
         if (slotIndex < 0 || slotIndex >= inventoryCapacity) return;
 
-        if (slotIndex < items.Count) 
+        if (slotIndex < items.Count)
         {
-            if (selectedIndex == -1) 
+            if (selectedIndex == -1)
             {
                 SelectItem(slotIndex);
             }
-            else if (selectedIndex == slotIndex) 
+            else if (selectedIndex == slotIndex)
             {
                 DeselectItem();
             }
-            else 
+            else
             {
                 TryCombineItems(selectedIndex, slotIndex);
                 DeselectItem();
@@ -126,7 +126,7 @@ public class InventorySystem : MonoBehaviour
     {
         if (selectedIndex != -1)
         {
-            HighlightSlot(selectedIndex, false); 
+            HighlightSlot(selectedIndex, false);
             selectedIndex = -1;
             Debug.Log("Deselected item.");
         }
@@ -141,7 +141,7 @@ public class InventorySystem : MonoBehaviour
 
         if (slotImage != null)
         {
-            slotImage.color = isActive ? Color.green : Color.white; 
+            slotImage.color = isActive ? Color.green : Color.white;
         }
     }
 
@@ -164,10 +164,10 @@ public class InventorySystem : MonoBehaviour
             {
                 Debug.Log($"Combining {itemA.itemName} with {itemB.itemName} to create {resultItem.itemName}");
 
-                items[indexA] = resultItem; 
-                items.RemoveAt(indexB); 
+                items[indexA] = resultItem;
+                items.RemoveAt(indexB);
 
-                DestroySlot(indexB); 
+                DestroySlot(indexB);
                 UpdateInventoryUI();
             }
             else

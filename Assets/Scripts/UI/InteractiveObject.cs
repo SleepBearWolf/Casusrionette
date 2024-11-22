@@ -4,23 +4,23 @@ public class InteractiveObject : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    public Color highlightColor = Color.yellow; 
-    public float blinkDuration = 0.5f; 
-    public float blinkFrequency = 0.1f; 
+    public Color highlightColor = Color.yellow;
+    public float blinkDuration = 0.5f;
+    public float blinkFrequency = 0.1f;
 
     [Header("Camera Settings")]
     public CameraTransitionManager cameraManager;
     public int targetCameraIndex;
 
     [Header("Transition Settings")]
-    public bool useTransition = true; 
+    public bool useTransition = true;
     public float transitionDelay = 0.5f;
 
     [Header("Trigger Settings")]
-    public string triggerTag = "Player"; 
-    public KeyCode interactKey = KeyCode.E; 
+    public string triggerTag = "Player";
+    public KeyCode interactKey = KeyCode.E;
 
-    private bool isPlayerInRange = false; 
+    private bool isPlayerInRange = false;
 
     private void Start()
     {
@@ -61,14 +61,17 @@ public class InteractiveObject : MonoBehaviour
 
     private void OnMouseDown()
     {
-        HandleInteraction();
+        if (IsMouseOver())
+        {
+            HandleInteraction();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(triggerTag))
         {
-            isPlayerInRange = true; 
+            isPlayerInRange = true;
         }
     }
 
@@ -76,8 +79,16 @@ public class InteractiveObject : MonoBehaviour
     {
         if (collision.CompareTag(triggerTag))
         {
-            isPlayerInRange = false; 
+            isPlayerInRange = false;
         }
+    }
+
+    private bool IsMouseOver()
+    {
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+        return hit.collider != null && hit.collider.gameObject == gameObject;
     }
 
     private void HandleInteraction()

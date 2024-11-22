@@ -17,6 +17,9 @@ public class ItemBaseData : ScriptableObject
     public Sprite itemIcon;
     public GameObject itemPrefab;
 
+    [Header("Combination Settings")]
+    public ItemBaseData combinationWith; 
+    public ItemBaseData resultItem;     
 
     public void Use()
     {

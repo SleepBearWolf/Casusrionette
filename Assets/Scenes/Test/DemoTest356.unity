@@ -518,7 +518,7 @@ RectTransform:
   m_GameObject: {fileID: 42785137}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6177808, y: 1.6177808, z: 1.6177808}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 394768964}
@@ -526,8 +526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 153.04362}
-  m_SizeDelta: {x: 195.881, y: 40.9393}
+  m_AnchoredPosition: {x: 1.9864, y: 264.22787}
+  m_SizeDelta: {x: 301.4778, y: 43.088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42785139
 MonoBehaviour:
@@ -3201,7 +3201,7 @@ MonoBehaviour:
   items: []
   inventoryUIParent: {fileID: 1179508226}
   inventorySlotPrefab: {fileID: 1942100163873323433, guid: b2500d3702f8fd94689ca9c138a9134a, type: 3}
-  inventoryCapacity: 6
+  inventoryCapacity: 7
 --- !u!1 &623070978
 GameObject:
   m_ObjectHideFlags: 0
@@ -4972,8 +4972,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.026184082, y: 88.256195}
-  m_SizeDelta: {x: -19.9992, y: -410.1624}
+  m_AnchoredPosition: {x: -0.026184082, y: 115.40018}
+  m_SizeDelta: {x: -19.9991, y: -669.8386}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179508227
 MonoBehaviour:
@@ -5497,14 +5497,14 @@ RectTransform:
   m_GameObject: {fileID: 1534827766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6541, y: 1.6541, z: 1.6541}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1943221375}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -559, y: 250}
+  m_AnchoredPosition: {x: -887, y: 394}
   m_SizeDelta: {x: 41.5646, y: 49.7154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1534827768
@@ -6198,10 +6198,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -6266,8 +6266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 1960537321}
-  hiddenPosition: {x: 6, y: 421.2, z: 0}
-  visiblePosition: {x: 6, y: 320.7, z: 0}
+  hiddenPosition: {x: 6, y: 691.4, z: 0}
+  visiblePosition: {x: 6, y: 478.6, z: 0}
   animationDuration: 0.5
 --- !u!1 &1947550045
 GameObject:
@@ -6437,7 +6437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8, y: 420.3}
+  m_AnchoredPosition: {x: 8, y: 691}
   m_SizeDelta: {x: -685.1813, y: -80.5675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960537322

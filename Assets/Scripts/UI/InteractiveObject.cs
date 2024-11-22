@@ -4,13 +4,17 @@ public class InteractiveObject : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
-    public Color highlightColor = Color.yellow;
+    public Color highlightColor = Color.yellow; 
     public float blinkDuration = 0.5f; 
     public float blinkFrequency = 0.1f; 
 
     [Header("Camera Settings")]
     public CameraTransitionManager cameraManager; 
     public int targetCameraIndex; 
+
+    [Header("Transition Settings")]
+    public bool useTransition = true; 
+    public float transitionDelay = 0.5f; 
 
     private void Start()
     {
@@ -50,7 +54,14 @@ public class InteractiveObject : MonoBehaviour
 
         if (cameraManager != null)
         {
-            cameraManager.MoveToCamera(targetCameraIndex);
+            if (useTransition)
+            {
+                StartCoroutine(TransitionWithDelay());
+            }
+            else
+            {
+                cameraManager.MoveToCamera(targetCameraIndex);
+            }
         }
         else
         {
@@ -73,5 +84,12 @@ public class InteractiveObject : MonoBehaviour
         }
 
         spriteRenderer.color = originalColor;
+    }
+
+    private System.Collections.IEnumerator TransitionWithDelay()
+    {
+        yield return new WaitForSeconds(transitionDelay);
+
+        cameraManager.MoveToCamera(targetCameraIndex);
     }
 }

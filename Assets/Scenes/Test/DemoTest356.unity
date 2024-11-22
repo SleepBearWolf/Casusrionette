@@ -563,6 +563,8 @@ MonoBehaviour:
   targetCameraIndex: 4
   useTransition: 1
   transitionDelay: 1
+  triggerTag: Player
+  interactKey: 0
 --- !u!61 &29356038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1232,6 +1234,8 @@ MonoBehaviour:
   targetCameraIndex: 0
   useTransition: 1
   transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
 --- !u!61 &220825408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2804,6 +2808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 564407167}
   - component: {fileID: 564407168}
+  - component: {fileID: 564407170}
   - component: {fileID: 564407169}
   m_Layer: 0
   m_Name: Buddha
@@ -2924,6 +2929,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 15.269962, y: 20.709011}
   m_EdgeRadius: 0
+--- !u!114 &564407170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564407166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 0
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 0
 --- !u!1 &581758984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3149,6 +3175,8 @@ MonoBehaviour:
   targetCameraIndex: 1
   useTransition: 1
   transitionDelay: 1
+  triggerTag: Player
+  interactKey: 0
 --- !u!61 &614352083
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4379,6 +4407,8 @@ MonoBehaviour:
   targetCameraIndex: 0
   useTransition: 1
   transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
 --- !u!1 &836162114
 GameObject:
   m_ObjectHideFlags: 0
@@ -4801,8 +4831,10 @@ MonoBehaviour:
   blinkFrequency: 0.1
   cameraManager: {fileID: 616228425}
   targetCameraIndex: 0
-  useTransition: 1
+  useTransition: 0
   transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 0
 --- !u!61 &976252211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6009,6 +6041,8 @@ MonoBehaviour:
   targetCameraIndex: 0
   useTransition: 1
   transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
 --- !u!1 &1432133123
 GameObject:
   m_ObjectHideFlags: 0
@@ -7843,6 +7877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2087377621}
   - component: {fileID: 2087377622}
+  - component: {fileID: 2087377624}
   - component: {fileID: 2087377623}
   m_Layer: 0
   m_Name: broom
@@ -7963,6 +7998,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.0910087, y: 20.665794}
   m_EdgeRadius: 0
+--- !u!114 &2087377624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087377620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 0
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 0
 --- !u!1 &2134871010
 GameObject:
   m_ObjectHideFlags: 0

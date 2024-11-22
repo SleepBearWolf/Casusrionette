@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 898183951957499065}
   - component: {fileID: 2217567345251829041}
-  - component: {fileID: 8317082043386984194}
+  - component: {fileID: 5485518470239143125}
   - component: {fileID: 734036083690842362}
   - component: {fileID: 4968729690489893717}
   m_Layer: 7
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 2d1da35ab59901b428592bfd3ea35149, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5943396, g: 0.5943396, b: 0.5943396, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8317082043386984194
+--- !u!114 &5485518470239143125
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,11 +96,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5656235676474009004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 523317bea85dce94caddbe3319d9aff9, type: 3}
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: {fileID: 11400000, guid: 1a2f4367cbbc54a44a75e9a58c4302e6, type: 2}
-  destroyOnUse: 1
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
 --- !u!114 &734036083690842362
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,69 +3,73 @@ using UnityEngine;
 
 public class WaypointMover : MonoBehaviour
 {
-    public List<Transform> waypoints; 
+    [Header("Waypoint Settings")]
+    public List<Vector3> waypoints = new List<Vector3>(); 
     public float moveSpeed = 2f; 
+    public LeanTweenType moveEaseType = LeanTweenType.linear; 
+
     private int currentWaypointIndex = 0; 
     private bool isMoving = false; 
 
-    [Header("Input Settings")]
-    public KeyCode interactKey = KeyCode.E; 
-
-    [Header("Trigger Settings")]
-    public string triggerTag = "InteractiveObject"; 
-
-    void Update()
-    {
-        if (isMoving && waypoints.Count > 0)
-        {
-            MoveTowardsWaypoint();
-        }
-
-        if (Input.GetKeyDown(interactKey) && !isMoving)
-        {
-            MoveToNextWaypoint();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag(triggerTag))
-        {
-            MoveToNextWaypoint(); 
-        }
-    }
+    [Header("Debug Gizmos")]
+    public bool showGizmos = true; 
+    public Color gizmoColor = Color.green; 
 
     private void OnMouseDown()
     {
-        if (!isMoving)
+        if (!isMoving && waypoints.Count > 0) 
         {
             MoveToNextWaypoint();
         }
     }
 
-    public void MoveToNextWaypoint()
+    public void AddWaypoint(Vector3 position)
     {
-        if (!isMoving)
-        {
-            isMoving = true;
-        }
+        waypoints.Add(position); 
     }
 
-    private void MoveTowardsWaypoint()
+    public void ClearWaypoints()
     {
-        Transform targetWaypoint = waypoints[currentWaypointIndex];
+        waypoints.Clear(); 
+    }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
+    private void MoveToNextWaypoint()
+    {
+        if (waypoints.Count == 0 || isMoving) return;
 
-        if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
-        {
-            isMoving = false; 
+        isMoving = true;
 
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= waypoints.Count)
+        Vector3 targetWaypoint = waypoints[currentWaypointIndex];
+
+        LeanTween.move(gameObject, targetWaypoint, moveSpeed)
+            .setEase(moveEaseType)
+            .setOnComplete(() =>
             {
-                currentWaypointIndex = 0; 
-            }
+                isMoving = false;
+
+                currentWaypointIndex++;
+                if (currentWaypointIndex >= waypoints.Count)
+                {
+                    currentWaypointIndex = 0; 
+                }
+            });
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!showGizmos || waypoints == null) return;
+
+        Gizmos.color = gizmoColor;
+
+        foreach (var point in waypoints)
+        {
+            Gizmos.DrawSphere(point, 0.2f);
+        }
+
+        Gizmos.color = Color.red;
+        for (int i = 0; i < waypoints.Count - 1; i++)
+        {
+            Gizmos.DrawLine(waypoints[i], waypoints[i + 1]);
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 898183951957499065}
   - component: {fileID: 2217567345251829041}
   - component: {fileID: 734036083690842362}
+  - component: {fileID: 213289206199412563}
   - component: {fileID: 4968729690489893717}
   m_Layer: 7
   m_Name: LS 02
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 2112529659, guid: d93c770ac1e53344f92049388678344e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,6 +101,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySystem: {fileID: 0}
   itemData: {fileID: 11400000, guid: 272050af7373ce9459e694edb887a998, type: 2}
+--- !u!114 &213289206199412563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656235676474009004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 6
+  useTransition: 0
+  transitionDelay: 0.2
+  triggerTag: Player
+  interactKey: 0
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
 --- !u!61 &4968729690489893717
 BoxCollider2D:
   m_ObjectHideFlags: 0

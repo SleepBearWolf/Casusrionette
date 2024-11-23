@@ -9,28 +9,51 @@ public class InventorySystem : MonoBehaviour
     public GameObject inventorySlotPrefab;
     public int inventoryCapacity = 10;
 
-    private int selectedIndex = -1; 
+    private int selectedIndex = -1;
 
     private void Start()
     {
-        UpdateInventoryUI();
+        UpdateInventoryUI(); 
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(1) && selectedIndex != -1)
         {
-            DeselectItem(); 
+            DeselectItem();
         }
+    }
+
+    public ItemBaseData GetSelectedItem()
+    {
+        if (selectedIndex >= 0 && selectedIndex < items.Count)
+        {
+            return items[selectedIndex];
+        }
+        return null;
+    }
+
+    public bool HasItem(ItemBaseData item)
+    {
+        return items.Contains(item);
     }
 
     public bool AddItem(ItemBaseData item)
     {
         if (items.Count < inventoryCapacity)
         {
-            items.Add(item);
-            CreateSlot(item);
-            return true;
+            if (item != null)
+            {
+                items.Add(item);
+                CreateSlot(item);
+                Debug.Log($"Added item: {item.itemName}");
+                return true;
+            }
+            else
+            {
+                Debug.LogWarning("Item data is null!");
+                return false;
+            }
         }
         else
         {
@@ -81,14 +104,27 @@ public class InventorySystem : MonoBehaviour
         {
             Transform slot = inventoryUIParent.GetChild(i);
             Image slotImage = slot.GetComponentInChildren<Image>();
+            Text usageText = slot.GetComponentInChildren<Text>();
+
             if (i < items.Count)
             {
                 slotImage.sprite = items[i].itemIcon;
                 slotImage.enabled = true;
+
+                if (items[i].maxUses > 1)
+                {
+                    usageText.text = $"{items[i].currentUses}/{items[i].maxUses}";
+                    usageText.enabled = true;
+                }
+                else
+                {
+                    usageText.enabled = false;
+                }
             }
             else
             {
                 slotImage.enabled = false;
+                if (usageText != null) usageText.enabled = false;
             }
         }
     }
@@ -109,7 +145,7 @@ public class InventorySystem : MonoBehaviour
             }
             else
             {
-                TryCombineItems(selectedIndex, slotIndex);
+                TryUseItem(selectedIndex, slotIndex); 
                 DeselectItem();
             }
         }
@@ -145,39 +181,39 @@ public class InventorySystem : MonoBehaviour
         }
     }
 
-    private void TryCombineItems(int indexA, int indexB)
+    private void TryUseItem(int indexA, int indexB)
     {
         if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count)
         {
-            Debug.LogWarning("Invalid item indices for combination.");
+            Debug.LogWarning("Invalid item indices for usage.");
             return;
         }
 
         ItemBaseData itemA = items[indexA];
         ItemBaseData itemB = items[indexB];
 
-        if (itemA.combinationWith == itemB)
+        if (itemA.usageWith == itemB)
         {
             ItemBaseData resultItem = itemA.resultItem;
 
             if (resultItem != null)
             {
-                Debug.Log($"Combining {itemA.itemName} with {itemB.itemName} to create {resultItem.itemName}");
+                Debug.Log($"Using {itemA.itemName} with {itemB.itemName} to create {resultItem.itemName}");
 
-                items[indexA] = resultItem;
-                items.RemoveAt(indexB);
+                items[indexA] = resultItem; 
+                items.RemoveAt(indexB); 
 
                 DestroySlot(indexB);
                 UpdateInventoryUI();
             }
             else
             {
-                Debug.LogWarning("Combination result item is not defined!");
+                Debug.LogWarning("Usage result item is not defined!");
             }
         }
         else
         {
-            Debug.LogWarning($"{itemA.itemName} cannot be combined with {itemB.itemName}!");
+            Debug.LogWarning($"{itemA.itemName} cannot be used with {itemB.itemName}!");
         }
     }
 }

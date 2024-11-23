@@ -20,6 +20,12 @@ public class InteractiveObject : MonoBehaviour
     public string triggerTag = "Player";
     public KeyCode interactKey = KeyCode.E;
 
+    [Header("Item Usage Settings")]
+    public bool requiresItem = false; 
+    public ItemBaseData requiredItem; 
+    public GameObject targetObject; 
+    private InventorySystem inventorySystem; 
+
     private bool isPlayerInRange = false;
 
     private void Start()
@@ -32,6 +38,12 @@ public class InteractiveObject : MonoBehaviour
         else
         {
             Debug.LogError("SpriteRenderer not found on this object!");
+        }
+
+        inventorySystem = FindObjectOfType<InventorySystem>();
+        if (inventorySystem == null)
+        {
+            Debug.LogError("InventorySystem not found in the scene!");
         }
     }
 
@@ -93,6 +105,26 @@ public class InteractiveObject : MonoBehaviour
 
     private void HandleInteraction()
     {
+        if (requiresItem && inventorySystem != null)
+        {
+            ItemBaseData selectedItem = inventorySystem.GetSelectedItem();
+            if (selectedItem != null && selectedItem == requiredItem)
+            {
+                UseItem();
+            }
+            else
+            {
+                Debug.LogWarning("Incorrect item or no item selected!");
+            }
+        }
+        else
+        {
+            PerformStandardInteraction();
+        }
+    }
+
+    private void PerformStandardInteraction()
+    {
         if (spriteRenderer != null)
         {
             StartCoroutine(Blink());
@@ -112,6 +144,34 @@ public class InteractiveObject : MonoBehaviour
         else
         {
             Debug.LogWarning("CameraTransitionManager is not assigned!");
+        }
+    }
+
+    private void UseItem()
+    {
+        if (requiredItem != null && inventorySystem != null)
+        {
+            if (inventorySystem.HasItem(requiredItem))
+            {
+                requiredItem.currentUses++;
+                Debug.Log($"Using {requiredItem.itemName}: {requiredItem.currentUses}/{requiredItem.maxUses} uses");
+
+                if (requiredItem.currentUses >= requiredItem.maxUses)
+                {
+                    inventorySystem.RemoveItem(requiredItem);
+                    Debug.Log($"Item {requiredItem.itemName} has been fully used and removed from inventory.");
+                }
+
+                if (targetObject != null)
+                {
+                    Destroy(targetObject);
+                    Debug.Log($"Destroyed {targetObject.name}");
+                }
+            }
+            else
+            {
+                Debug.LogWarning($"Item {requiredItem.itemName} not found in inventory.");
+            }
         }
     }
 

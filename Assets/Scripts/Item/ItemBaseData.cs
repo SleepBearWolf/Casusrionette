@@ -17,12 +17,22 @@ public class ItemBaseData : ScriptableObject
     public Sprite itemIcon;
     public GameObject itemPrefab;
 
-    [Header("Combination Settings")]
-    public ItemBaseData combinationWith; 
-    public ItemBaseData resultItem;     
+    [Header("Usage Settings")]
+    public ItemBaseData usageWith;
+    public ItemBaseData resultItem; 
+    public int maxUses = 1; 
+    public int currentUses = 1;
+
+    public bool IsUsable()
+    {
+        return currentUses > 0;
+    }
 
     public void Use()
     {
-        Debug.Log("Using item: " + itemName);
+        if (currentUses > 0)
+        {
+            currentUses--;
+        }
     }
 }

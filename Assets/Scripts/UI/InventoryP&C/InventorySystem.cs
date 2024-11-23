@@ -13,6 +13,10 @@ public class InventorySystem : MonoBehaviour
 
     private void Start()
     {
+        foreach (var item in items)
+        {
+            item.ResetUses();
+        }
         UpdateInventoryUI(); 
     }
 
@@ -44,9 +48,11 @@ public class InventorySystem : MonoBehaviour
         {
             if (item != null)
             {
+                item.ResetUses();
+                item.currentUses = 0;
                 items.Add(item);
                 CreateSlot(item);
-                Debug.Log($"Added item: {item.itemName}");
+                Debug.Log($"Added item: {item.itemName} with uses reset to {item.currentUses}/{item.maxUses}");
                 return true;
             }
             else
@@ -194,16 +200,30 @@ public class InventorySystem : MonoBehaviour
 
         if (itemA.usageWith == itemB)
         {
+            if (itemA.currentUses >= itemA.maxUses)
+            {
+                Debug.LogWarning($"{itemA.itemName} has reached its maximum uses and cannot be used anymore.");
+                return; 
+            }
+
             ItemBaseData resultItem = itemA.resultItem;
 
             if (resultItem != null)
             {
                 Debug.Log($"Using {itemA.itemName} with {itemB.itemName} to create {resultItem.itemName}");
 
-                items[indexA] = resultItem; 
-                items.RemoveAt(indexB); 
+                itemA.currentUses++; 
+                Debug.Log($"Current Uses: {itemA.currentUses}/{itemA.maxUses}");
 
+                if (itemA.currentUses >= itemA.maxUses)
+                {
+                    Debug.Log($"{itemA.itemName} has reached its max uses and will be replaced.");
+                    items[indexA] = resultItem; 
+                }
+
+                items.RemoveAt(indexB); 
                 DestroySlot(indexB);
+
                 UpdateInventoryUI();
             }
             else

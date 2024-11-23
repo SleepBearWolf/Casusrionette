@@ -35,4 +35,10 @@ public class ItemBaseData : ScriptableObject
             currentUses--;
         }
     }
+    public void ResetUses()
+    {
+        currentUses = 0;
+        Debug.Log($"Item {itemName} uses reset to {currentUses}/{maxUses}");
+    }
+
 }

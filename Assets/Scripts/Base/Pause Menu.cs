@@ -51,8 +51,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ActivateMenuIn01()
     {
-        Time.timeScale = 0;
-        AudioListener.pause = true;
+        Time.timeScale = 1;
+        //AudioListener.pause = true;
         InMenuUI01.SetActive(true);
         
         /*Cursor.visible = true;
@@ -63,7 +63,7 @@ public class PauseMenu : MonoBehaviour
     public void DeactivateMenuIn01()
     {
         Time.timeScale = 1;
-        AudioListener.pause = false;
+        //AudioListener.pause = false;
         InMenuUI01.SetActive(false);
         
         /*Cursor.visible = false;

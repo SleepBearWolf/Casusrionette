@@ -117,6 +117,10 @@ public class InteractiveObject : MonoBehaviour
                 Debug.LogWarning("Incorrect item or no item selected!");
             }
         }
+        else if (inventorySystem == null)
+        {
+            Debug.LogError("InventorySystem is not assigned!");
+        }
         else
         {
             PerformStandardInteraction();

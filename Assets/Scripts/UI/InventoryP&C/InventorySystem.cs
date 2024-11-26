@@ -17,7 +17,13 @@ public class InventorySystem : MonoBehaviour
         {
             item.ResetUses();
         }
-        UpdateInventoryUI(); 
+
+        UpdateInventoryUI();
+
+        if (inventoryUIParent == null)
+        {
+            Debug.LogError("InventoryUIParent is not assigned in the Inspector!");
+        }
     }
 
     private void Update()
@@ -49,7 +55,6 @@ public class InventorySystem : MonoBehaviour
             if (item != null)
             {
                 item.ResetUses();
-                item.currentUses = 0;
                 items.Add(item);
                 CreateSlot(item);
                 Debug.Log($"Added item: {item.itemName} with uses reset to {item.currentUses}/{item.maxUses}");
@@ -72,10 +77,17 @@ public class InventorySystem : MonoBehaviour
     {
         if (items.Contains(item))
         {
-            int index = items.IndexOf(item);
+            Debug.Log($"Removing item: {item.itemName}");
+
+            // ลบไอเท็มออกจากรายการ
             items.Remove(item);
-            DestroySlot(index);
+
+            // อัปเดต UI
             UpdateInventoryUI();
+        }
+        else
+        {
+            Debug.LogWarning($"Item {item.itemName} not found in inventory.");
         }
     }
 
@@ -106,20 +118,33 @@ public class InventorySystem : MonoBehaviour
 
     private void UpdateInventoryUI()
     {
-        for (int i = 0; i < inventoryUIParent.childCount; i++)
+        Debug.Log("Updating Inventory UI...");
+
+        // ลบ Slot ทั้งหมดก่อน
+        foreach (Transform child in inventoryUIParent)
         {
-            Transform slot = inventoryUIParent.GetChild(i);
-            Image slotImage = slot.GetComponentInChildren<Image>();
-            Text usageText = slot.GetComponentInChildren<Text>();
+            Destroy(child.gameObject);
+        }
 
-            if (i < items.Count)
+        // สร้าง Slot ใหม่ตามรายการไอเท็ม
+        foreach (var item in items)
+        {
+            GameObject newSlot = Instantiate(inventorySlotPrefab, inventoryUIParent);
+
+            Image slotImage = newSlot.GetComponentInChildren<Image>();
+            Text usageText = newSlot.GetComponentInChildren<Text>();
+
+            if (slotImage != null)
             {
-                slotImage.sprite = items[i].itemIcon;
+                slotImage.sprite = item.itemIcon;
                 slotImage.enabled = true;
+            }
 
-                if (items[i].maxUses > 1)
+            if (usageText != null)
+            {
+                if (item.maxUses > 1)
                 {
-                    usageText.text = $"{items[i].currentUses}/{items[i].maxUses}";
+                    usageText.text = $"{item.currentUses}/{item.maxUses}";
                     usageText.enabled = true;
                 }
                 else
@@ -127,33 +152,27 @@ public class InventorySystem : MonoBehaviour
                     usageText.enabled = false;
                 }
             }
-            else
-            {
-                slotImage.enabled = false;
-                if (usageText != null) usageText.enabled = false;
-            }
         }
+
+        Debug.Log("Inventory UI updated successfully.");
     }
 
     private void OnSlotClicked(int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= inventoryCapacity) return;
 
-        if (slotIndex < items.Count)
+        if (selectedIndex == -1)
         {
-            if (selectedIndex == -1)
-            {
-                SelectItem(slotIndex);
-            }
-            else if (selectedIndex == slotIndex)
-            {
-                DeselectItem();
-            }
-            else
-            {
-                TryUseItem(selectedIndex, slotIndex); 
-                DeselectItem();
-            }
+            SelectItem(slotIndex);
+        }
+        else if (selectedIndex == slotIndex)
+        {
+            DeselectItem();
+        }
+        else
+        {
+            TryUseItem(selectedIndex, slotIndex);
+            DeselectItem();
         }
     }
 
@@ -200,40 +219,27 @@ public class InventorySystem : MonoBehaviour
 
         if (itemA.usageWith == itemB)
         {
+            itemA.currentUses++;
+            Debug.Log($"Using {itemA.itemName}: {itemA.currentUses}/{itemA.maxUses}");
+
+            // ถ้าไอเท็มถูกใช้จนหมด
             if (itemA.currentUses >= itemA.maxUses)
             {
-                Debug.LogWarning($"{itemA.itemName} has reached its maximum uses and cannot be used anymore.");
-                return; 
-            }
+                items[indexA] = itemA.resultItem ?? null;
 
-            ItemBaseData resultItem = itemA.resultItem;
-
-            if (resultItem != null)
-            {
-                Debug.Log($"Using {itemA.itemName} with {itemB.itemName} to create {resultItem.itemName}");
-
-                itemA.currentUses++; 
-                Debug.Log($"Current Uses: {itemA.currentUses}/{itemA.maxUses}");
-
-                if (itemA.currentUses >= itemA.maxUses)
+                if (itemA.resultItem == null)
                 {
-                    Debug.Log($"{itemA.itemName} has reached its max uses and will be replaced.");
-                    items[indexA] = resultItem; 
+                    RemoveItem(itemA); // ลบเฉพาะไอเท็มนี้
                 }
-
-                items.RemoveAt(indexB); 
-                DestroySlot(indexB);
-
-                UpdateInventoryUI();
             }
-            else
-            {
-                Debug.LogWarning("Usage result item is not defined!");
-            }
+
+            RemoveItem(itemB); // ลบไอเท็มอีกชิ้นที่ใช้ร่วม
         }
         else
         {
             Debug.LogWarning($"{itemA.itemName} cannot be used with {itemB.itemName}!");
         }
+
+        UpdateInventoryUI(); // อัปเดต UI เมื่อเสร็จสิ้น
     }
 }

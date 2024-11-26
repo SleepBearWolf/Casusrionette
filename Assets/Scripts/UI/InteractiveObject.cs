@@ -21,10 +21,10 @@ public class InteractiveObject : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
 
     [Header("Item Usage Settings")]
-    public bool requiresItem = false; 
-    public ItemBaseData requiredItem; 
-    public GameObject targetObject; 
-    private InventorySystem inventorySystem; 
+    public bool requiresItem = false;
+    public ItemBaseData requiredItem;
+    public GameObject targetObject;
+    private InventorySystem inventorySystem;
 
     private bool isPlayerInRange = false;
 
@@ -117,10 +117,6 @@ public class InteractiveObject : MonoBehaviour
                 Debug.LogWarning("Incorrect item or no item selected!");
             }
         }
-        else if (inventorySystem == null)
-        {
-            Debug.LogError("InventorySystem is not assigned!");
-        }
         else
         {
             PerformStandardInteraction();
@@ -162,13 +158,13 @@ public class InteractiveObject : MonoBehaviour
 
                 if (requiredItem.currentUses >= requiredItem.maxUses)
                 {
-                    inventorySystem.RemoveItem(requiredItem);
+                    inventorySystem.RemoveItem(requiredItem); // ตรวจสอบว่าถูกลบออกจาก Inventory
                     Debug.Log($"Item {requiredItem.itemName} has been fully used and removed from inventory.");
                 }
 
                 if (targetObject != null)
                 {
-                    Destroy(targetObject);
+                    Destroy(targetObject); // ตรวจสอบว่า Object ถูกทำลาย
                     Debug.Log($"Destroyed {targetObject.name}");
                 }
             }

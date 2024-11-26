@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -7,7 +8,9 @@ public class PuzzleManager : MonoBehaviour
     public List<Instrument> instruments; // รายการเครื่องดนตรี
     private List<Instrument> correctOrder; // ลำดับที่ถูกต้อง
     private int currentStep = 0; // ขั้นตอนปัจจุบัน
-    public Door door; // ประตูที่จะปลดล็อค
+    //public Door door; // ประตูที่จะปลดล็อค
+    public GameObject Wall;
+    
 
     void Awake()
     {
@@ -23,7 +26,7 @@ public class PuzzleManager : MonoBehaviour
             currentStep++;
             if (currentStep >= correctOrder.Count)
             {
-                door.UnlockDoor(); // ถ้าผ่านทั้งหมดแล้วให้ปลดล็อคประตู
+                Destroy(Wall);
             }
         }
         else

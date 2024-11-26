@@ -6,8 +6,7 @@ public class GameManager3 : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
-    [SerializeField] private GameObject winUI;
-    [SerializeField] private PuzzleMenuUI puzzleMenuUI;
+    [SerializeField] private GameObject openGameobject;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -68,17 +67,25 @@ public class GameManager3 : MonoBehaviour
         if (!shuffling && !gameComplete && CheckCompletion())
         {
             Debug.Log("Game Complete!");
-            ShowWinUI();  // เรียกใช้งานเมื่อชิ้นส่วนตัวต่อเสร็จ
+            ShowopenGameobject();  // เรียกใช้งานเมื่อชิ้นส่วนตัวต่อเสร็จ
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !gameComplete)
+        if (Input.GetMouseButtonDown(1) && !gameComplete)
         {
             Shuffle(); // สุ่มชิ้นส่วนใหม่เมื่อกดปุ่ม R
         }
 
-        if (puzzleMenuUI != null)
+        // เปิดใช้งาน gameTransform เมื่อกดเมาส์ซ้าย
+        if (Input.GetMouseButtonDown(1) && !gameTransform.gameObject.activeSelf)
         {
-            puzzleMenuUI.StopTimer();  // หยุดจับเวลาเมื่อผู้เล่นชนะ
+            gameTransform.gameObject.SetActive(true);
+            Debug.Log("Game Transform is now active!");
+        }
+
+        if (!shuffling && CheckCompletion() && gameTransform.gameObject.activeSelf)
+        {
+            gameTransform.gameObject.SetActive(false);
+            Debug.Log("Game Transform has been deactivated as the game is complete.");
         }
 
         if (Input.GetMouseButtonDown(0) && !gameComplete)
@@ -99,7 +106,6 @@ public class GameManager3 : MonoBehaviour
             }
         }
     }
-
 
     private bool SwapIfValid(int i, int offset, int colCheck)
     {
@@ -125,21 +131,14 @@ public class GameManager3 : MonoBehaviour
         return true;
     }
 
-    private void ShowWinUI()
+    private void ShowopenGameobject()
     {
-        if (winUI != null)
+        if (openGameobject != null)
         {
-            winUI.SetActive(true);  // แสดง Win UI
-        }
-
-        /*
-        if (puzzleMenuUI != null)
-        {
-            puzzleMenuUI.StopTimer();  // หยุดจับเวลาเมื่อผู้เล่นชนะ
+            openGameobject.SetActive(true);  // แสดง Win UI
         }
 
         gameComplete = true;  // ตั้งค่าสถานะเกมให้เสร็จสมบูรณ์
-        */
     }
 
     private IEnumerator WaitShuffle(float duration)

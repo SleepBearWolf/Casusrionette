@@ -49,7 +49,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ActivateMenuIn01()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
         //AudioListener.pause = true;
         InMenuUI01.SetActive(true);
         

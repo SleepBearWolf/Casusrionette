@@ -10,6 +10,7 @@ public class InventorySystem : MonoBehaviour
     public int inventoryCapacity = 10;
 
     private int selectedIndex = -1;
+    private bool isUsingItem = false;
 
     private void Start()
     {
@@ -78,18 +79,15 @@ public class InventorySystem : MonoBehaviour
         if (items.Contains(item))
         {
             Debug.Log($"Removing item: {item.itemName}");
-
-            // ลบไอเท็มออกจากรายการ
             items.Remove(item);
 
-            // อัปเดต UI
+            selectedIndex = -1;
+            isUsingItem = false;
+
             UpdateInventoryUI();
         }
-        else
-        {
-            Debug.LogWarning($"Item {item.itemName} not found in inventory.");
-        }
     }
+
 
     private void CreateSlot(ItemBaseData item)
     {
@@ -120,14 +118,12 @@ public class InventorySystem : MonoBehaviour
     {
         Debug.Log("Updating Inventory UI...");
 
-        // ลบ Slot ทั้งหมดก่อน
         foreach (Transform child in inventoryUIParent)
         {
             Destroy(child.gameObject);
         }
 
-        // สร้าง Slot ใหม่ตามรายการไอเท็ม
-        foreach (var item in items)
+        for (int i = 0; i < items.Count; i++)
         {
             GameObject newSlot = Instantiate(inventorySlotPrefab, inventoryUIParent);
 
@@ -136,15 +132,15 @@ public class InventorySystem : MonoBehaviour
 
             if (slotImage != null)
             {
-                slotImage.sprite = item.itemIcon;
+                slotImage.sprite = items[i].itemIcon;
                 slotImage.enabled = true;
             }
 
             if (usageText != null)
             {
-                if (item.maxUses > 1)
+                if (items[i].maxUses > 1)
                 {
-                    usageText.text = $"{item.currentUses}/{item.maxUses}";
+                    usageText.text = $"{items[i].currentUses}/{items[i].maxUses}";
                     usageText.enabled = true;
                 }
                 else
@@ -152,6 +148,9 @@ public class InventorySystem : MonoBehaviour
                     usageText.enabled = false;
                 }
             }
+
+            int slotIndex = i; 
+            newSlot.GetComponent<Button>().onClick.AddListener(() => OnSlotClicked(slotIndex));
         }
 
         Debug.Log("Inventory UI updated successfully.");
@@ -159,20 +158,20 @@ public class InventorySystem : MonoBehaviour
 
     private void OnSlotClicked(int slotIndex)
     {
-        if (slotIndex < 0 || slotIndex >= inventoryCapacity) return;
+        if (slotIndex < 0 || slotIndex >= items.Count) return;
 
         if (selectedIndex == -1)
         {
-            SelectItem(slotIndex);
+            SelectItem(slotIndex); 
         }
         else if (selectedIndex == slotIndex)
         {
-            DeselectItem();
+            DeselectItem(); 
         }
         else
         {
-            TryUseItem(selectedIndex, slotIndex);
-            DeselectItem();
+            TryUseItem(selectedIndex, slotIndex); 
+            DeselectItem(); 
         }
     }
 
@@ -208,6 +207,14 @@ public class InventorySystem : MonoBehaviour
 
     private void TryUseItem(int indexA, int indexB)
     {
+        if (isUsingItem)
+        {
+            Debug.LogWarning("Item is already being used!");
+            return;
+        }
+
+        isUsingItem = true;
+
         if (indexA < 0 || indexB < 0 || indexA >= items.Count || indexB >= items.Count)
         {
             Debug.LogWarning("Invalid item indices for usage.");
@@ -222,24 +229,29 @@ public class InventorySystem : MonoBehaviour
             itemA.currentUses++;
             Debug.Log($"Using {itemA.itemName}: {itemA.currentUses}/{itemA.maxUses}");
 
-            // ถ้าไอเท็มถูกใช้จนหมด
             if (itemA.currentUses >= itemA.maxUses)
             {
                 items[indexA] = itemA.resultItem ?? null;
 
                 if (itemA.resultItem == null)
                 {
-                    RemoveItem(itemA); // ลบเฉพาะไอเท็มนี้
+                    RemoveItem(itemA);
                 }
             }
 
-            RemoveItem(itemB); // ลบไอเท็มอีกชิ้นที่ใช้ร่วม
+            RemoveItem(itemB);
+
+            selectedIndex = -1;
+            isUsingItem = false;
+
+            Debug.Log("Item used successfully. Ready for next action.");
         }
         else
         {
             Debug.LogWarning($"{itemA.itemName} cannot be used with {itemB.itemName}!");
         }
 
-        UpdateInventoryUI(); // อัปเดต UI เมื่อเสร็จสิ้น
+        UpdateInventoryUI();
+        isUsingItem = false;
     }
 }

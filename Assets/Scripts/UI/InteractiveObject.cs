@@ -158,13 +158,13 @@ public class InteractiveObject : MonoBehaviour
 
                 if (requiredItem.currentUses >= requiredItem.maxUses)
                 {
-                    inventorySystem.RemoveItem(requiredItem); // ตรวจสอบว่าถูกลบออกจาก Inventory
+                    inventorySystem.RemoveItem(requiredItem); 
                     Debug.Log($"Item {requiredItem.itemName} has been fully used and removed from inventory.");
                 }
 
                 if (targetObject != null)
                 {
-                    Destroy(targetObject); // ตรวจสอบว่า Object ถูกทำลาย
+                    Destroy(targetObject); 
                     Debug.Log($"Destroyed {targetObject.name}");
                 }
             }

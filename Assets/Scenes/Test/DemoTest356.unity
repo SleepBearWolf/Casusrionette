@@ -5153,6 +5153,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!61 &29356038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7206,6 +7208,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!61 &220825408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7659,6 +7663,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &250392743
 GameObject:
   m_ObjectHideFlags: 0
@@ -8474,6 +8480,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &281799821
 GameObject:
   m_ObjectHideFlags: 0
@@ -9438,6 +9446,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &368942405
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.376595
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.376595
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.376595
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9336016
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5410501
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 898183951957499065, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656235676474009004, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
+      propertyPath: m_Name
+      value: K
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1158edd7dbe7a5343a83fc92823752c1, type: 3}
 --- !u!1 &374357217
 GameObject:
   m_ObjectHideFlags: 0
@@ -22307,6 +22384,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &520087564
 GameObject:
   m_ObjectHideFlags: 0
@@ -23167,6 +23246,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 1a2f4367cbbc54a44a75e9a58c4302e6, type: 2}
   targetObject: {fileID: 564407166}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &567423741
 GameObject:
   m_ObjectHideFlags: 0
@@ -23553,6 +23634,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &594987559
 GameObject:
   m_ObjectHideFlags: 0
@@ -25467,6 +25550,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &721464736
 GameObject:
   m_ObjectHideFlags: 0
@@ -26661,6 +26746,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!212 &768946829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28338,6 +28425,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 1a2f4367cbbc54a44a75e9a58c4302e6, type: 2}
   targetObject: {fileID: 833925566}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &840762812
 GameObject:
   m_ObjectHideFlags: 0
@@ -30488,6 +30577,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 272050af7373ce9459e694edb887a998, type: 2}
   targetObject: {fileID: 924860745}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1001 &929019512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35882,6 +35973,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!61 &976252211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36663,6 +36756,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!61 &1007556619
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36732,6 +36827,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!4 &1008294938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 898183951957499065, guid: cfecf87509cad4340982f7737c245233, type: 3}
@@ -42188,6 +42285,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &1068340693
 GameObject:
   m_ObjectHideFlags: 0
@@ -48482,6 +48581,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 282b909b44bbab3449851753d45a5953, type: 2}
   targetObject: {fileID: 1159240069}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &1159245646
 GameObject:
   m_ObjectHideFlags: 0
@@ -49417,6 +49518,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!114 &1225951372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51296,6 +51399,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 1a2f4367cbbc54a44a75e9a58c4302e6, type: 2}
   targetObject: {fileID: 1341482914}
+  givesRewardItem: 1
+  rewardItem: {fileID: 11400000, guid: fc8e51e1fa3926944bb3497080068c38, type: 2}
 --- !u!1 &1348067266
 GameObject:
   m_ObjectHideFlags: 0
@@ -57358,6 +57463,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &1437621729
 GameObject:
   m_ObjectHideFlags: 0
@@ -59042,6 +59149,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 61bc0ed9ef4c71d4ead1b2ee12e08913, type: 2}
   targetObject: {fileID: 1638282131}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &1649609306
 GameObject:
   m_ObjectHideFlags: 0
@@ -60648,6 +60757,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!61 &1702245906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -60717,6 +60828,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!95 &1702245908
 Animator:
   serializedVersion: 5
@@ -66984,6 +67097,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &1782461032
 GameObject:
   m_ObjectHideFlags: 0
@@ -72454,6 +72569,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &1822517856
 GameObject:
   m_ObjectHideFlags: 0
@@ -74013,6 +74130,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!212 &1903187243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -76406,6 +76525,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &2007193190
 GameObject:
   m_ObjectHideFlags: 0
@@ -77095,6 +77216,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &2054805637
 GameObject:
   m_ObjectHideFlags: 0
@@ -78133,6 +78256,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &2087377620
 GameObject:
   m_ObjectHideFlags: 0
@@ -78288,6 +78413,8 @@ MonoBehaviour:
   requiresItem: 0
   requiredItem: {fileID: 0}
   targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1 &2123236980
 GameObject:
   m_ObjectHideFlags: 0
@@ -78698,6 +78825,8 @@ MonoBehaviour:
   requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 7ba6265dd61a84844b80ee6c329a9195, type: 2}
   targetObject: {fileID: 2145941720}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
 --- !u!1001 &7996850499649558387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78827,3 +78956,4 @@ SceneRoots:
   - {fileID: 503838279}
   - {fileID: 762520640}
   - {fileID: 727965640}
+  - {fileID: 368942405}

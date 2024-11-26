@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68b73bb6120f20e4c9d9fb7d6d1b7d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySystem: {fileID: 0}
   itemData: {fileID: 11400000, guid: fc8e51e1fa3926944bb3497080068c38, type: 2}
 --- !u!61 &4968729690489893717
 BoxCollider2D:
@@ -132,7 +131,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.048069, y: 0.0721035}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -143,5 +142,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.48, y: 20.48}
+  m_Size: {x: 4.0405445, y: 4.953844}
   m_EdgeRadius: 0

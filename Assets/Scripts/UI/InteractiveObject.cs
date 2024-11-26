@@ -24,8 +24,12 @@ public class InteractiveObject : MonoBehaviour
     public bool requiresItem = false;
     public ItemBaseData requiredItem;
     public GameObject targetObject;
-    private InventorySystem inventorySystem;
 
+    [Header("Reward Settings")]
+    public bool givesRewardItem = false; 
+    public ItemBaseData rewardItem;      
+
+    private InventorySystem inventorySystem;
     private bool isPlayerInRange = false;
 
     private void Start()
@@ -153,24 +157,51 @@ public class InteractiveObject : MonoBehaviour
         {
             if (inventorySystem.HasItem(requiredItem))
             {
+                if (targetObject != null && givesRewardItem && rewardItem != null && !inventorySystem.CanAddItem())
+                {
+                    Debug.LogWarning("Cannot destroy object. Inventory is full!");
+                    return; 
+                }
+
                 requiredItem.currentUses++;
                 Debug.Log($"Using {requiredItem.itemName}: {requiredItem.currentUses}/{requiredItem.maxUses} uses");
 
                 if (requiredItem.currentUses >= requiredItem.maxUses)
                 {
-                    inventorySystem.RemoveItem(requiredItem); 
+                    inventorySystem.RemoveItem(requiredItem);
                     Debug.Log($"Item {requiredItem.itemName} has been fully used and removed from inventory.");
                 }
 
                 if (targetObject != null)
                 {
-                    Destroy(targetObject); 
+                    Destroy(targetObject);
                     Debug.Log($"Destroyed {targetObject.name}");
+
+                    if (givesRewardItem && rewardItem != null)
+                    {
+                        GiveRewardItem();
+                    }
                 }
             }
             else
             {
                 Debug.LogWarning($"Item {requiredItem.itemName} not found in inventory.");
+            }
+        }
+    }
+
+    private void GiveRewardItem()
+    {
+        if (rewardItem != null && inventorySystem != null)
+        {
+            if (inventorySystem.CanAddItem())
+            {
+                inventorySystem.AddItem(rewardItem);
+                Debug.Log($"Added reward item: {rewardItem.itemName}");
+            }
+            else
+            {
+                Debug.LogWarning($"Cannot add reward item: {rewardItem.itemName}. Inventory is full!");
             }
         }
     }

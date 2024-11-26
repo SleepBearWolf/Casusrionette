@@ -44,6 +44,11 @@ public class InventorySystem : MonoBehaviour
         return null;
     }
 
+    public bool CanAddItem()
+    {
+        return items.Count < inventoryCapacity;
+    }
+
     public bool HasItem(ItemBaseData item)
     {
         return items.Contains(item);

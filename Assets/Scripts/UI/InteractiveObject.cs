@@ -26,8 +26,12 @@ public class InteractiveObject : MonoBehaviour
     public GameObject targetObject;
 
     [Header("Reward Settings")]
-    public bool givesRewardItem = false; 
-    public ItemBaseData rewardItem;      
+    public bool givesRewardItem = false;
+    public ItemBaseData rewardItem;
+
+    [Header("Canvas Settings")]
+    public bool toggleCanvas = false; 
+    public GameObject canvasObject; 
 
     private InventorySystem inventorySystem;
     private bool isPlayerInRange = false;
@@ -125,6 +129,11 @@ public class InteractiveObject : MonoBehaviour
         {
             PerformStandardInteraction();
         }
+
+        if (toggleCanvas && canvasObject != null)
+        {
+            ToggleCanvas();
+        }
     }
 
     private void PerformStandardInteraction()
@@ -157,12 +166,6 @@ public class InteractiveObject : MonoBehaviour
         {
             if (inventorySystem.HasItem(requiredItem))
             {
-                if (targetObject != null && givesRewardItem && rewardItem != null && !inventorySystem.CanAddItem())
-                {
-                    Debug.LogWarning("Cannot destroy object. Inventory is full!");
-                    return; 
-                }
-
                 requiredItem.currentUses++;
                 Debug.Log($"Using {requiredItem.itemName}: {requiredItem.currentUses}/{requiredItem.maxUses} uses");
 
@@ -188,6 +191,13 @@ public class InteractiveObject : MonoBehaviour
                 Debug.LogWarning($"Item {requiredItem.itemName} not found in inventory.");
             }
         }
+    }
+
+    private void ToggleCanvas()
+    {
+        bool isActive = canvasObject.activeSelf;
+        canvasObject.SetActive(!isActive); 
+        Debug.Log($"Canvas {canvasObject.name} is now {(isActive ? "hidden" : "shown")}");
     }
 
     private void GiveRewardItem()

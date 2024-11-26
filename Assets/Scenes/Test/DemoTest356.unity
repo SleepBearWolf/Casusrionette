@@ -5675,6 +5675,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!61 &29356038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8665,6 +8667,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!61 &220825408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9246,6 +9250,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &250074351
 GameObject:
   m_ObjectHideFlags: 0
@@ -9485,6 +9491,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &281799821
 GameObject:
   m_ObjectHideFlags: 0
@@ -25237,6 +25245,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &520723319
 GameObject:
   m_ObjectHideFlags: 0
@@ -26807,6 +26817,8 @@ MonoBehaviour:
   targetObject: {fileID: 564407166}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &565723726
 GameObject:
   m_ObjectHideFlags: 0
@@ -27335,6 +27347,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &591158246
 GameObject:
   m_ObjectHideFlags: 0
@@ -27516,6 +27530,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &594987559
 GameObject:
   m_ObjectHideFlags: 0
@@ -28147,6 +28163,7 @@ MonoBehaviour:
   - {fileID: 281799825}
   - {fileID: 1986770348}
   - {fileID: 1718430027}
+  - {fileID: 2136114956}
   transitionSpeed: 0.1
   arrowSettings:
   - arrowObject: {fileID: 191708097}
@@ -28175,6 +28192,8 @@ MonoBehaviour:
   - {fileID: 461581769}
   - {fileID: 237009642}
   - {fileID: 30196875}
+  - {fileID: 1729263362}
+  - {fileID: 748131143}
 --- !u!4 &616228426
 Transform:
   m_ObjectHideFlags: 0
@@ -28859,6 +28878,7 @@ Transform:
   m_Children:
   - {fileID: 716635435}
   - {fileID: 1593495810}
+  - {fileID: 1729263359}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &662874920
@@ -30375,6 +30395,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &716635434
 GameObject:
   m_ObjectHideFlags: 0
@@ -30412,7 +30434,6 @@ Transform:
   - {fileID: 1578777682}
   - {fileID: 204357304}
   - {fileID: 404930202}
-  - {fileID: 1729263359}
   - {fileID: 281799822}
   - {fileID: 840762814}
   - {fileID: 2008301134}
@@ -31092,6 +31113,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!212 &768946829
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32491,6 +32514,8 @@ MonoBehaviour:
   targetObject: {fileID: 833925566}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &839229490
 GameObject:
   m_ObjectHideFlags: 0
@@ -34818,6 +34843,8 @@ MonoBehaviour:
   targetObject: {fileID: 924860745}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1001 &929019512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40611,6 +40638,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!61 &976252211
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41116,6 +41145,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1006602015
 GameObject:
   m_ObjectHideFlags: 0
@@ -41262,6 +41293,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!4 &1008294938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 898183951957499065, guid: cfecf87509cad4340982f7737c245233, type: 3}
@@ -46995,6 +47028,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!212 &1046484073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -47688,6 +47723,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1068340693
 GameObject:
   m_ObjectHideFlags: 0
@@ -53901,6 +53938,8 @@ MonoBehaviour:
   targetObject: {fileID: 1159240069}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1161701939
 GameObject:
   m_ObjectHideFlags: 0
@@ -54093,6 +54132,8 @@ MonoBehaviour:
   targetObject: {fileID: 1163822403}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 1
+  canvasObject: {fileID: 1225951367}
 --- !u!212 &1163822407
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55436,7 +55477,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1225951368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -55575,6 +55616,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!114 &1225951372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57762,6 +57805,8 @@ MonoBehaviour:
   targetObject: {fileID: 1341482914}
   givesRewardItem: 1
   rewardItem: {fileID: 11400000, guid: 61bc0ed9ef4c71d4ead1b2ee12e08913, type: 2}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1342894192
 GameObject:
   m_ObjectHideFlags: 0
@@ -64275,6 +64320,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1437057137
 GameObject:
   m_ObjectHideFlags: 0
@@ -66205,7 +66252,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -67091,6 +67138,8 @@ MonoBehaviour:
   targetObject: {fileID: 1638282131}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1649609306
 GameObject:
   m_ObjectHideFlags: 0
@@ -68749,6 +68798,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!61 &1702245906
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -68820,6 +68871,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!95 &1702245908
 Animator:
   serializedVersion: 5
@@ -73921,7 +73974,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1901862951}
-  m_Father: {fileID: 716635435}
+  m_Father: {fileID: 651977642}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -74906,6 +74959,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1780484152
 GameObject:
   m_ObjectHideFlags: 0
@@ -75017,6 +75072,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1782461032
 GameObject:
   m_ObjectHideFlags: 0
@@ -80087,6 +80144,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1806595394
 GameObject:
   m_ObjectHideFlags: 0
@@ -80507,6 +80566,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &1822517856
 GameObject:
   m_ObjectHideFlags: 0
@@ -80905,6 +80966,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!212 &1833642320
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -82017,6 +82080,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!212 &1903187243
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -84533,6 +84598,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &2007193190
 GameObject:
   m_ObjectHideFlags: 0
@@ -85310,6 +85377,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &2056626577
 GameObject:
   m_ObjectHideFlags: 0
@@ -85864,6 +85933,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &2084289683
 GameObject:
   m_ObjectHideFlags: 0
@@ -86105,6 +86176,8 @@ MonoBehaviour:
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &2114660873
 GameObject:
   m_ObjectHideFlags: 0
@@ -86744,6 +86817,8 @@ MonoBehaviour:
   targetObject: {fileID: 2145941720}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
 --- !u!1 &2146936394
 GameObject:
   m_ObjectHideFlags: 0

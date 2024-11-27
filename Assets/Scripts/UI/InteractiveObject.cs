@@ -30,8 +30,13 @@ public class InteractiveObject : MonoBehaviour
     public ItemBaseData rewardItem;
 
     [Header("Canvas Settings")]
-    public bool toggleCanvas = false; 
-    public GameObject canvasObject; 
+    public bool toggleCanvas = false;
+    public GameObject canvasObject;
+
+    [Header("Object Toggle Settings")]
+    public bool toggleWithItem = false; 
+    public GameObject objectToToggle;   
+    public bool toggleState = false;   
 
     private InventorySystem inventorySystem;
     private bool isPlayerInRange = false;
@@ -123,17 +128,21 @@ public class InteractiveObject : MonoBehaviour
             else
             {
                 Debug.LogWarning("Incorrect item or no item selected!");
+                return;
             }
         }
-        else
+
+        if (toggleWithItem && objectToToggle != null)
         {
-            PerformStandardInteraction();
+            ToggleObjectWithItem();
         }
 
         if (toggleCanvas && canvasObject != null)
         {
             ToggleCanvas();
         }
+
+        PerformStandardInteraction();
     }
 
     private void PerformStandardInteraction()
@@ -193,10 +202,26 @@ public class InteractiveObject : MonoBehaviour
         }
     }
 
+    private void ToggleObjectWithItem()
+    {
+        ItemBaseData selectedItem = inventorySystem.GetSelectedItem();
+        if (selectedItem != null && selectedItem == requiredItem)
+        {
+            objectToToggle.SetActive(toggleState);
+            Debug.Log($"Object {objectToToggle.name} is now {(toggleState ? "active" : "inactive")}");
+
+            inventorySystem.RemoveItem(selectedItem);
+        }
+        else
+        {
+            Debug.LogWarning("Correct item not selected for toggling the object.");
+        }
+    }
+
     private void ToggleCanvas()
     {
         bool isActive = canvasObject.activeSelf;
-        canvasObject.SetActive(!isActive); 
+        canvasObject.SetActive(!isActive);
         Debug.Log($"Canvas {canvasObject.name} is now {(isActive ? "hidden" : "shown")}");
     }
 

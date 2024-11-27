@@ -52,19 +52,35 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             if (newSlot.currentObject != null && newSlot.currentObject != this)
             {
                 DraggableObject swappedObject = newSlot.currentObject;
-                swappedObject.transform.position = originalSlot.transform.position; 
-                originalSlot.currentObject = swappedObject;
+
+                if (originalSlot != null)
+                {
+                    swappedObject.transform.position = originalSlot.transform.position;
+                    originalSlot.currentObject = swappedObject;
+                }
+                else
+                {
+                    swappedObject.transform.position = swappedObject.initialPosition;
+                }
+
                 swappedObject.originalSlot = originalSlot;
             }
 
             newSlot.currentObject = this;
             originalSlot = newSlot;
-            transform.position = newSlot.transform.position; 
+            transform.position = newSlot.transform.position;
         }
         else
         {
-            transform.position = originalSlot.transform.position;
-            originalSlot.currentObject = this;
+            if (originalSlot != null)
+            {
+                transform.position = originalSlot.transform.position;
+                originalSlot.currentObject = this;
+            }
+            else
+            {
+                transform.position = initialPosition;
+            }
         }
 
         sequenceManager.CheckSequence();

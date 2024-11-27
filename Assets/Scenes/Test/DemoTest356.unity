@@ -13925,6 +13925,7 @@ GameObject:
   - component: {fileID: 416239538}
   - component: {fileID: 416239537}
   - component: {fileID: 416239536}
+  - component: {fileID: 416239539}
   m_Layer: 0
   m_Name: Camera DarkRoom02
   m_TagString: MainCamera
@@ -14050,6 +14051,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &416239539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416239534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &417154380
 GameObject:
   m_ObjectHideFlags: 0
@@ -29730,7 +29747,7 @@ Transform:
   m_GameObject: {fileID: 658861611}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.08, y: 0.0082912445, z: 0.14332351}
+  m_LocalPosition: {x: -0.08, y: 0.0082912445, z: 0.14332351}
   m_LocalScale: {x: 0.5392729, y: 5.7834, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29748,7 +29765,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlot: {fileID: 0}
 --- !u!61 &658861615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32032,7 +32048,7 @@ Transform:
   m_GameObject: {fileID: 757535413}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9, y: 0.0082912445, z: 0.14332351}
+  m_LocalPosition: {x: -2.08, y: 0.0082912445, z: 0.14332351}
   m_LocalScale: {x: 0.5392729, y: 5.7834, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32050,7 +32066,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlot: {fileID: 0}
 --- !u!61 &757535417
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -32176,7 +32191,7 @@ Transform:
   m_GameObject: {fileID: 758084576}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.08, y: 0.0082912445, z: 0.14332351}
+  m_LocalPosition: {x: 1.9, y: 0.0082912445, z: 0.14332351}
   m_LocalScale: {x: 0.5392729, y: 5.7834, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32194,7 +32209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlot: {fileID: 0}
 --- !u!61 &758084580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48356,6 +48370,7 @@ GameObject:
   - component: {fileID: 1034398130}
   - component: {fileID: 1034398132}
   - component: {fileID: 1034398131}
+  - component: {fileID: 1034398134}
   m_Layer: 0
   m_Name: Camera DarkRoom01
   m_TagString: MainCamera
@@ -48481,6 +48496,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 446642339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1034398134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034398129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &1035886799
 GameObject:
   m_ObjectHideFlags: 0
@@ -49573,7 +49604,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1084783810
 Transform:
   m_ObjectHideFlags: 0
@@ -58691,7 +58722,7 @@ Transform:
   m_GameObject: {fileID: 1292844136}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.11, y: -28.51, z: 0}
+  m_LocalPosition: {x: 13.78, y: -28.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -65241,7 +65272,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTransform: {fileID: 1084783810}
   piecePrefab: {fileID: 3432463835652943725, guid: dba4966bdb1863043a249f43e0d865d9, type: 3}
-  openGameobject: {fileID: 1816997748}
+  openGameobjects:
+  - {fileID: 1816997748}
+  - {fileID: 1292844136}
 --- !u!1 &1364414830
 GameObject:
   m_ObjectHideFlags: 0
@@ -66788,7 +66821,7 @@ Transform:
   m_GameObject: {fileID: 1442622760}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.9, y: 0.0082912445, z: 0.14332351}
+  m_LocalPosition: {x: 0.9, y: 0.0082912445, z: 0.14332351}
   m_LocalScale: {x: 0.5392729, y: 5.7834, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66806,7 +66839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlot: {fileID: 0}
 --- !u!61 &1442622764
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -82962,6 +82994,7 @@ GameObject:
   - component: {fileID: 1826626584}
   - component: {fileID: 1826626583}
   - component: {fileID: 1826626582}
+  - component: {fileID: 1826626585}
   m_Layer: 0
   m_Name: Camera DarkRoom03
   m_TagString: MainCamera
@@ -83087,6 +83120,22 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1826626585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826626580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &1827266554
 GameObject:
   m_ObjectHideFlags: 0
@@ -87965,7 +88014,7 @@ Transform:
   m_GameObject: {fileID: 2076298846}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 0.0082912445, z: 0.14332351}
+  m_LocalPosition: {x: -1.08, y: 0.0082912445, z: 0.14332351}
   m_LocalScale: {x: 0.5392729, y: 5.7834, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87983,7 +88032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalSlot: {fileID: 0}
 --- !u!61 &2076298850
 BoxCollider2D:
   m_ObjectHideFlags: 0

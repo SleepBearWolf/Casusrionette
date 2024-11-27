@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableObject : MonoBehaviour
 {
-    private Vector3 initialPosition; 
-    private TargetSlot originalSlot; 
-    private ObjectSequenceManager sequenceManager; 
+    private Vector3 initialPosition;
+    private TargetSlot originalSlot;
+    private ObjectSequenceManager sequenceManager;
+    private bool isDragging = false;
+
+    [Header("Gizmos Settings")]
+    public Vector2 gizmosSize = new Vector2(1f, 1f); 
 
     private void Start()
     {
@@ -13,34 +17,42 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         sequenceManager = FindObjectOfType<ObjectSequenceManager>();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    private void OnMouseDown()
     {
-        originalSlot = null;
+        isDragging = true;
 
         foreach (var slot in sequenceManager.targetSlots)
         {
             if (slot.currentObject == this)
             {
                 originalSlot = slot;
-                slot.currentObject = null; 
+                slot.currentObject = null;
                 break;
             }
         }
     }
 
-    public void OnDrag(PointerEventData eventData)
+    private void OnMouseDrag()
     {
+        if (!isDragging) return;
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mousePosition.x, mousePosition.y, initialPosition.z);
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    private void OnMouseUp()
     {
+        if (!isDragging) return;
+        isDragging = false;
+
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, gizmosSize, 0f);
+
         TargetSlot newSlot = null;
 
-        foreach (var slot in sequenceManager.targetSlots)
+        foreach (var hit in hits)
         {
-            if (Vector3.Distance(transform.position, slot.transform.position) < 0.5f)
+            TargetSlot slot = hit.GetComponent<TargetSlot>();
+            if (slot != null)
             {
                 newSlot = slot;
                 break;
@@ -84,5 +96,11 @@ public class DraggableObject : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
 
         sequenceManager.CheckSequence();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, gizmosSize);
     }
 }

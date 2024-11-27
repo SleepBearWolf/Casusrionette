@@ -9241,6 +9241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 1, y: 1}
 --- !u!61 &208634504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11917,6 +11918,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 1614627800}
   currentObject: {fileID: 1672096362}
+  gizmosSize: {x: 1, y: 1}
 --- !u!212 &290503509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13144,7 +13146,7 @@ Transform:
   m_GameObject: {fileID: 334170958}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2200012, y: -1.21, z: -1.3565112}
+  m_LocalPosition: {x: -3.2200012, y: -1.21, z: -0.5}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13259,6 +13261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 2, y: 2}
 --- !u!1 &337251550
 GameObject:
   m_ObjectHideFlags: 0
@@ -22094,6 +22097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 1396188849}
   currentObject: {fileID: 1899331516}
+  gizmosSize: {x: 1, y: 1}
 --- !u!212 &471267943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28051,7 +28055,7 @@ Transform:
   m_GameObject: {fileID: 515141536}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7900009, y: 3.6500006, z: -1.3565112}
+  m_LocalPosition: {x: 1.7900009, y: 3.6500006, z: -0.5}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28166,6 +28170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 2, y: 2}
 --- !u!1001 &519698113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29119,7 +29124,7 @@ Transform:
   m_GameObject: {fileID: 537651377}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11000061, y: -0.26000118, z: -1.3565112}
+  m_LocalPosition: {x: 0.11000061, y: -0.26000118, z: -0.5}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29234,6 +29239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 2, y: 2}
 --- !u!1 &540102957
 GameObject:
   m_ObjectHideFlags: 0
@@ -30482,6 +30488,7 @@ GameObject:
   - component: {fileID: 586289448}
   - component: {fileID: 586289447}
   - component: {fileID: 586289449}
+  - component: {fileID: 586289450}
   m_Layer: 0
   m_Name: Volcano
   m_TagString: Untagged
@@ -30587,6 +30594,51 @@ MonoBehaviour:
   toggleWithItem: 0
   objectToToggle: {fileID: 0}
   toggleState: 0
+--- !u!61 &586289450
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586289446}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.48, y: 20.48}
+    newSize: {x: 20.48, y: 20.48}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.48, y: 20.48}
+  m_EdgeRadius: 0
 --- !u!1 &591158246
 GameObject:
   m_ObjectHideFlags: 0
@@ -32463,6 +32515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 1672096362}
   currentObject: {fileID: 1614627800}
+  gizmosSize: {x: 1, y: 1}
 --- !u!212 &674471451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -32608,6 +32661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 208634503}
   currentObject: {fileID: 2073864439}
+  gizmosSize: {x: 1, y: 1}
 --- !u!212 &677470769
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -33066,7 +33120,7 @@ Transform:
   m_GameObject: {fileID: 693692368}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.119995, y: 0.8400011, z: -1.3565112}
+  m_LocalPosition: {x: 4.119995, y: 0.8400011, z: -0.5}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -33181,6 +33235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 2, y: 2}
 --- !u!1 &694195408
 GameObject:
   m_ObjectHideFlags: 0
@@ -33895,7 +33950,7 @@ Transform:
   m_GameObject: {fileID: 713003563}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 2.5199995, z: -1.3565112}
+  m_LocalPosition: {x: -2, y: 2.5199995, z: -0.5}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34010,6 +34065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &715093824
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34539,7 +34595,7 @@ Transform:
   m_GameObject: {fileID: 736764968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7900009, y: 3.6500006, z: -1.3565112}
+  m_LocalPosition: {x: 1.7900009, y: 3.6500006, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34611,6 +34667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 693692372}
   currentObject: {fileID: 515141540}
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &736764972
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34887,7 +34944,7 @@ Transform:
   m_GameObject: {fileID: 748103239}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11000061, y: -0.26000118, z: -1.3565112}
+  m_LocalPosition: {x: 0.11000061, y: -0.26000118, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34959,6 +35016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 1439606343}
   currentObject: {fileID: 537651381}
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &748103243
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52614,6 +52672,7 @@ GameObject:
   - component: {fileID: 1046484071}
   - component: {fileID: 1046484073}
   - component: {fileID: 1046484072}
+  - component: {fileID: 1046484074}
   m_Layer: 0
   m_Name: Sanke
   m_TagString: Untagged
@@ -52657,15 +52716,15 @@ MonoBehaviour:
   transitionDelay: 0.5
   triggerTag: Player
   interactKey: 0
-  requiresItem: 0
+  requiresItem: 1
   requiredItem: {fileID: 11400000, guid: 1dcc68435736f0e449887828f9946c3f, type: 2}
   targetObject: {fileID: 0}
   givesRewardItem: 0
   rewardItem: {fileID: 0}
   toggleCanvas: 1
   canvasObject: {fileID: 1780484152}
-  toggleWithItem: 0
-  objectToToggle: {fileID: 0}
+  toggleWithItem: 1
+  objectToToggle: {fileID: 1780484152}
   toggleState: 0
 --- !u!212 &1046484073
 SpriteRenderer:
@@ -52719,6 +52778,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1046484074
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046484070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20.45, y: 20.25}
+    newSize: {x: 20.45, y: 20.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 20.45, y: 20.25}
+  m_EdgeRadius: 0
 --- !u!1 &1050054527
 GameObject:
   m_ObjectHideFlags: 0
@@ -52842,6 +52946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 1899331516}
   currentObject: {fileID: 1396188849}
+  gizmosSize: {x: 1, y: 1}
 --- !u!212 &1053192624
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -53789,7 +53894,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -63940,8 +64045,8 @@ MonoBehaviour:
   rewardItem: {fileID: 11400000, guid: 1dcc68435736f0e449887828f9946c3f, type: 2}
   toggleCanvas: 1
   canvasObject: {fileID: 239114397}
-  toggleWithItem: 0
-  objectToToggle: {fileID: 0}
+  toggleWithItem: 1
+  objectToToggle: {fileID: 239114397}
   toggleState: 0
 --- !u!1 &1309100011
 GameObject:
@@ -70774,6 +70879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 1, y: 1}
 --- !u!61 &1396188850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71199,8 +71305,8 @@ MonoBehaviour:
   rewardItem: {fileID: 0}
   toggleCanvas: 1
   canvasObject: {fileID: 29356034}
-  toggleWithItem: 0
-  objectToToggle: {fileID: 0}
+  toggleWithItem: 1
+  objectToToggle: {fileID: 29356034}
   toggleState: 0
 --- !u!212 &1414023594
 SpriteRenderer:
@@ -72397,7 +72503,7 @@ Transform:
   m_GameObject: {fileID: 1439606339}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1399994, y: 3.090001, z: -1.3565112}
+  m_LocalPosition: {x: -6.1399994, y: 3.090001, z: -0.5}
   m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -72512,6 +72618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 2, y: 2}
 --- !u!1 &1443431315
 GameObject:
   m_ObjectHideFlags: 0
@@ -76115,6 +76222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 1, y: 1}
 --- !u!61 &1614627801
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -76188,7 +76296,7 @@ Transform:
   m_GameObject: {fileID: 1624485858}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 2.5199995, z: -1.3565112}
+  m_LocalPosition: {x: -2, y: 2.5199995, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -76260,6 +76368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 334170962}
   currentObject: {fileID: 713003567}
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &1624485862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -77334,6 +77443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 1, y: 1}
 --- !u!61 &1672096363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -84644,7 +84754,7 @@ Transform:
   m_GameObject: {fileID: 1781959742}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2200012, y: -1.21, z: -1.3565112}
+  m_LocalPosition: {x: -3.2200012, y: -1.21, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84716,6 +84826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 713003567}
   currentObject: {fileID: 334170962}
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &1781959746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89731,6 +89842,7 @@ GameObject:
   - component: {fileID: 1791487088}
   - component: {fileID: 1791487087}
   - component: {fileID: 1791487089}
+  - component: {fileID: 1791487090}
   m_Layer: 0
   m_Name: ShipWrecked
   m_TagString: Untagged
@@ -89836,6 +89948,51 @@ MonoBehaviour:
   toggleWithItem: 0
   objectToToggle: {fileID: 0}
   toggleState: 0
+--- !u!61 &1791487090
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791487086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.24, y: 10.24}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.24, y: 10.24}
+  m_EdgeRadius: 0
 --- !u!1 &1800115953
 GameObject:
   m_ObjectHideFlags: 0
@@ -91636,7 +91793,7 @@ Transform:
   m_GameObject: {fileID: 1886917466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.119995, y: 0.8400011, z: -1.3565112}
+  m_LocalPosition: {x: 4.119995, y: 0.8400011, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -91708,6 +91865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 515141540}
   currentObject: {fileID: 693692372}
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &1886917470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -91931,6 +92089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 1, y: 1}
 --- !u!61 &1899331517
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -94344,7 +94503,7 @@ Transform:
   m_GameObject: {fileID: 1969424919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1399994, y: 3.090001, z: -1.3565112}
+  m_LocalPosition: {x: -6.1399994, y: 3.090001, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -94416,6 +94575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 537651381}
   currentObject: {fileID: 1439606343}
+  gizmosSize: {x: 2, y: 2}
 --- !u!61 &1969424923
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96453,6 +96613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmosSize: {x: 1, y: 1}
 --- !u!61 &2073864440
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96632,6 +96793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctObject: {fileID: 2073864439}
   currentObject: {fileID: 208634503}
+  gizmosSize: {x: 1, y: 1}
 --- !u!212 &2089913217
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -5,12 +5,11 @@ public class ObjectSequenceManager : MonoBehaviour
 {
     [Header("Slots and Objects")]
     public List<TargetSlot> targetSlots; 
-    public List<DraggableObject> draggableObjects;
-
+    public List<DraggableObject> draggableObjects; 
 
     [Header("Success Settings")]
-    public GameObject successIndicator; 
-    public List<GameObject> objectsToActivate; 
+    public GameObject successIndicator;
+    public List<GameObject> objectsToActivate;
     public List<GameObject> objectsToDeactivate;
 
     private void Start()
@@ -47,6 +46,8 @@ public class ObjectSequenceManager : MonoBehaviour
 
     private void OnSequenceSuccess()
     {
+        Debug.Log("Sequence complete!");
+
         if (successIndicator != null)
         {
             successIndicator.SetActive(true);

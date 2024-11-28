@@ -33,6 +33,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         pauseMenuUI.SetActive(true);
+
+
     }
 
     public void DeactivateMenu()
@@ -41,18 +43,22 @@ public class PauseMenu : MonoBehaviour
         AudioListener.pause = false;
         pauseMenuUI.SetActive(false);
         isPaused = false;
+
     }
 
     public void ActivateMenuIn01()
     {
         Time.timeScale = 0;
         InMenuUI01.SetActive(true);
+
     }
 
     public void DeactivateMenuIn01()
     {
         Time.timeScale = 1;
         InMenuUI01.SetActive(false);
+
+
     }
 
     public void ActivateMenuIn02()
@@ -60,6 +66,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         InMenuUI02.SetActive(true);
+
+ 
     }
 
     public void DeactivateMenuIn02()
@@ -67,6 +75,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         InMenuUI02.SetActive(false);
+
     }
 
     public void ActivateMenuIn03()
@@ -74,6 +83,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         InMenuUI03.SetActive(true);
+
     }
 
     public void DeactivateMenuIn03()
@@ -81,5 +91,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         InMenuUI03.SetActive(false);
+
     }
 }

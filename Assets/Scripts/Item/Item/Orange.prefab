@@ -5037,7 +5037,7 @@ GameObject:
   - component: {fileID: 8405034755929327386}
   - component: {fileID: 7183179868322691713}
   - component: {fileID: 4523049941187964469}
-  - component: {fileID: 6360155503676191645}
+  - component: {fileID: 6303670658730562628}
   - component: {fileID: 3547153548569057833}
   m_Layer: 7
   m_Name: Orange
@@ -5142,7 +5142,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6360155503676191645
+--- !u!114 &6303670658730562628
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5151,16 +5151,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1800811113190733274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369abd773e64a3149a2e9b0239bbc045, type: 3}
+  m_Script: {fileID: 11500000, guid: 68b73bb6120f20e4c9d9fb7d6d1b7d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 701ad5054899d7d4d84fb97cc13ac4c6, type: 2}
-  isDraggable: 0
-  dragSpeed: 5
-  hasBeenInInventory: 0
-  isInNet: 0
-  timeInNet: 5
-  requiresNet: 0
 --- !u!61 &3547153548569057833
 BoxCollider2D:
   m_ObjectHideFlags: 0

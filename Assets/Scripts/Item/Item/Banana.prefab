@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5230126004493286112}
   - component: {fileID: 8172193288814501821}
-  - component: {fileID: 7555644291625758690}
-  - component: {fileID: 4412386511445931998}
   - component: {fileID: 3330368398063260697}
   m_Layer: 7
   m_Name: Banana
@@ -89,52 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7555644291625758690
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518035526002855346}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 896
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &4412386511445931998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518035526002855346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369abd773e64a3149a2e9b0239bbc045, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 1dcec83eec81fd84caafcc79e4c4d0b8, type: 2}
-  isDraggable: 0
-  dragSpeed: 5
-  hasBeenInInventory: 0
-  isInNet: 0
-  timeInNet: 5
-  requiresNet: 0
 --- !u!61 &3330368398063260697
 BoxCollider2D:
   m_ObjectHideFlags: 0

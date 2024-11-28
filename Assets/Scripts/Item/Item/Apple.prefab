@@ -14895,8 +14895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 367819372097268693}
   - component: {fileID: 4640950451295029964}
-  - component: {fileID: 7018047875020177622}
-  - component: {fileID: 6567606877747037717}
+  - component: {fileID: 5269285623739224134}
   - component: {fileID: 680643472621869057}
   m_Layer: 7
   m_Name: Apple
@@ -14974,34 +14973,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &7018047875020177622
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5790578323221528563}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 896
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &6567606877747037717
+--- !u!114 &5269285623739224134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15010,16 +14982,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5790578323221528563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 369abd773e64a3149a2e9b0239bbc045, type: 3}
+  m_Script: {fileID: 11500000, guid: 68b73bb6120f20e4c9d9fb7d6d1b7d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 8acbb0feb4a8f2146b5d6e746fc814b0, type: 2}
-  isDraggable: 0
-  dragSpeed: 5
-  hasBeenInInventory: 0
-  isInNet: 0
-  timeInNet: 5
-  requiresNet: 0
 --- !u!61 &680643472621869057
 BoxCollider2D:
   m_ObjectHideFlags: 0

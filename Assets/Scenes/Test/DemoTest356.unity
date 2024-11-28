@@ -12790,6 +12790,7 @@ GameObject:
   - component: {fileID: 249531989}
   - component: {fileID: 249531988}
   - component: {fileID: 249531987}
+  - component: {fileID: 249531991}
   m_Layer: 0
   m_Name: Ching
   m_TagString: Untagged
@@ -12922,6 +12923,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260890768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 32.005}
+--- !u!114 &249531991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249531986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &250074351
 GameObject:
   m_ObjectHideFlags: 0
@@ -41880,6 +41912,7 @@ GameObject:
   - component: {fileID: 794208375}
   - component: {fileID: 794208374}
   - component: {fileID: 794208373}
+  - component: {fileID: 794208377}
   m_Layer: 0
   m_Name: Gong
   m_TagString: Untagged
@@ -42012,6 +42045,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260890768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &794208377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794208372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &799734546
 GameObject:
   m_ObjectHideFlags: 0
@@ -45839,6 +45903,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891679644}
   - component: {fileID: 891679645}
+  - component: {fileID: 891679646}
   m_Layer: 0
   m_Name: 11
   m_TagString: Untagged
@@ -45913,6 +45978,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &891679646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 891679643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &892769427
 GameObject:
   m_ObjectHideFlags: 0
@@ -46273,6 +46369,7 @@ GameObject:
   - component: {fileID: 903016962}
   - component: {fileID: 903016961}
   - component: {fileID: 903016960}
+  - component: {fileID: 903016963}
   m_Layer: 0
   m_Name: Can
   m_TagString: Untagged
@@ -46405,6 +46502,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &903016963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903016958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &911943638
 GameObject:
   m_ObjectHideFlags: 0
@@ -70269,6 +70397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1200446020}
   - component: {fileID: 1200446021}
+  - component: {fileID: 1200446022}
   m_Layer: 0
   m_Name: 04
   m_TagString: Untagged
@@ -70343,6 +70472,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1200446022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200446019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &1200575050
 GameObject:
   m_ObjectHideFlags: 0
@@ -70435,6 +70595,7 @@ GameObject:
   - component: {fileID: 1203158412}
   - component: {fileID: 1203158411}
   - component: {fileID: 1203158410}
+  - component: {fileID: 1203158414}
   m_Layer: 0
   m_Name: Drum
   m_TagString: Untagged
@@ -70567,6 +70728,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260890768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1203158414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203158409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &1204927675
 GameObject:
   m_ObjectHideFlags: 0
@@ -73372,6 +73564,7 @@ GameObject:
   - component: {fileID: 1297673793}
   - component: {fileID: 1297673792}
   - component: {fileID: 1297673791}
+  - component: {fileID: 1297673794}
   m_Layer: 0
   m_Name: Pin
   m_TagString: Untagged
@@ -73504,6 +73697,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1297673794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297673789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &1298046584
 GameObject:
   m_ObjectHideFlags: 0
@@ -84729,6 +84953,7 @@ GameObject:
   - component: {fileID: 1476093226}
   - component: {fileID: 1476093225}
   - component: {fileID: 1476093224}
+  - component: {fileID: 1476093227}
   m_Layer: 0
   m_Name: Ponglung
   m_TagString: Untagged
@@ -84861,6 +85086,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1476093227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476093222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0
 --- !u!1 &1478500690
 GameObject:
   m_ObjectHideFlags: 0

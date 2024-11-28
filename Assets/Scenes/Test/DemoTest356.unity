@@ -5604,9 +5604,9 @@ MonoBehaviour:
   givesRewardItem: 0
   rewardItem: {fileID: 0}
   toggleCanvas: 1
-  canvasObject: {fileID: 1698616052}
+  canvasObject: {fileID: 369600927}
   toggleWithItem: 1
-  objectToToggle: {fileID: 1698616052}
+  objectToToggle: {fileID: 369600927}
   toggleState: 0
 --- !u!61 &19643118
 BoxCollider2D:
@@ -5810,10 +5810,10 @@ MonoBehaviour:
   targetObject: {fileID: 24479701}
   givesRewardItem: 1
   rewardItem: {fileID: 11400000, guid: 070996425370dd24096c9a3ac03aa4ab, type: 2}
-  toggleCanvas: 0
-  canvasObject: {fileID: 0}
-  toggleWithItem: 0
-  objectToToggle: {fileID: 0}
+  toggleCanvas: 1
+  canvasObject: {fileID: 642694289}
+  toggleWithItem: 1
+  objectToToggle: {fileID: 369600927}
   toggleState: 0
 --- !u!1 &26304764
 GameObject:
@@ -18147,6 +18147,7 @@ Transform:
   - {fileID: 251153098}
   - {fileID: 122290915}
   - {fileID: 195093943}
+  - {fileID: 1698616053}
   m_Father: {fileID: 1298046585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370868696
@@ -91486,7 +91487,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1880517642}
+    m_TransformParent: {fileID: 369600928}
     m_Modifications:
     - target: {fileID: -9121311425461791885, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_Color.b
@@ -91546,27 +91547,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.22413367
+      value: 0.9477512
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.22413367
+      value: 0.9477512
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.22413367
+      value: 0.9477512
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2299995
+      value: 126.379364
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.209999
+      value: 36.829704
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.07397519
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -91769,11 +91770,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
---- !u!1 &1698616052 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8653719598885068355, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
-  m_PrefabInstance: {fileID: 1698616051}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1698616053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7552582706839291426, guid: ea54698d4c1f1bd49805ac4b665ab5e3, type: 3}
@@ -106901,7 +106897,6 @@ Transform:
   - {fileID: 1986770345}
   - {fileID: 2038884187}
   - {fileID: 1160570275}
-  - {fileID: 1698616053}
   - {fileID: 19643116}
   - {fileID: 8061727470452859320}
   - {fileID: 6085115146902651823}

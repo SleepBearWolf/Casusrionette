@@ -305,7 +305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &386977309
 Transform:
   m_ObjectHideFlags: 0
@@ -461,12 +461,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 545225759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 565b4c0c7800af44faa13ecf2a285af1, type: 3}
+  m_Script: {fileID: 11500000, guid: c954484404d7aee42bc948c8d496c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTransform: {fileID: 1951500616}
+  gameTransform: {fileID: 386977309}
   piecePrefab: {fileID: 3432463835652943725, guid: dba4966bdb1863043a249f43e0d865d9, type: 3}
-  openGameobject: {fileID: 1312715763}
+  openGameobjects:
+  - {fileID: 1312715763}
 --- !u!1 &689428974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,9 +1241,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 1480497763}
   - {fileID: 545225761}
-  - {fileID: 1951500616}
   - {fileID: 386977309}
   - {fileID: 1399152854}
+  - {fileID: 1951500616}
   - {fileID: 153671612}
   - {fileID: 177973727}
   - {fileID: 1623970608}

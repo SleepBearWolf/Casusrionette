@@ -1,12 +1,12 @@
-๏ปฟusing System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager3 : MonoBehaviour
+public class GameManager4 : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
-    [SerializeField] private List<GameObject> openGameobjects; 
+    [SerializeField] private GameObject openGameobject;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -69,11 +69,28 @@ public class GameManager3 : MonoBehaviour
         if (!shuffling && !gameComplete && CheckCompletion())
         {
             Debug.Log("Game Complete!");
-            ShowopenGameobject();
-            return;
+            ShowopenGameobject();  // เรียกใช้งานเมื่อชิ้นส่วนตัวต่อเสร็จ
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1) && !gameComplete)
+        {
+            Shuffle(); // สุ่มชิ้นส่วนใหม่เมื่อกดปุ่ม R
+        }
+
+        // เปิดใช้งาน gameTransform เมื่อกดเมาส์ซ้าย
+        if (Input.GetMouseButtonDown(1) && !gameTransform.gameObject.activeSelf)
+        {
+            gameTransform.gameObject.SetActive(true);
+            Debug.Log("Game Transform is now active!");
+        }
+
+        if (!shuffling && CheckCompletion() && gameTransform.gameObject.activeSelf)
+        {
+            gameTransform.gameObject.SetActive(false);
+            Debug.Log("Game Transform has been deactivated as the game is complete.");
+        }
+
+        if (Input.GetMouseButtonDown(0) && !gameComplete)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit)
@@ -89,24 +106,6 @@ public class GameManager3 : MonoBehaviour
                     }
                 }
             }
-            else
-            {
-                if (!gameTransform.gameObject.activeSelf)
-                {
-                    gameTransform.gameObject.SetActive(true);
-                    Debug.Log("Game Transform is now active!");
-                }
-                else
-                {
-                    Debug.Log("Game Transform is already active!");
-                }
-            }
-        }
-
-        if (!shuffling && gameComplete && gameTransform.gameObject.activeSelf)
-        {
-            gameTransform.gameObject.SetActive(false);
-            Debug.Log("Game Transform has been deactivated as the game is complete.");
         }
     }
 
@@ -136,15 +135,12 @@ public class GameManager3 : MonoBehaviour
 
     private void ShowopenGameobject()
     {
-        foreach (var obj in openGameobjects)
+        if (openGameobject != null)
         {
-            if (obj != null)
-            {
-                obj.SetActive(!obj.activeSelf);
-            }
+            openGameobject.SetActive(true);  // แสดง Win UI
         }
 
-        gameComplete = true; 
+        gameComplete = true;  // ตั้งค่าสถานะเกมให้เสร็จสมบูรณ์
     }
 
     private IEnumerator WaitShuffle(float duration)

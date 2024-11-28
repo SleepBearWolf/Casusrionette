@@ -5,20 +5,26 @@ public class DraggableObject : MonoBehaviour
 {
     private Vector3 initialPosition;
     private TargetSlot originalSlot;
-    private ObjectSequenceManager sequenceManager;
+    [SerializeField] private ObjectSequenceManager sequenceManager;
     private bool isDragging = false;
 
     [Header("Gizmos Settings")]
-    public Vector2 gizmosSize = new Vector2(1f, 1f); 
+    public Vector2 gizmosSize = new Vector2(1f, 1f);
 
     private void Start()
     {
         initialPosition = transform.position;
-        sequenceManager = FindObjectOfType<ObjectSequenceManager>();
+
+        if (sequenceManager == null)
+        {
+            Debug.LogError($"DraggableObject {gameObject.name} does not have an assigned SequenceManager!");
+        }
     }
 
     private void OnMouseDown()
     {
+        if (sequenceManager == null) return;
+
         isDragging = true;
 
         foreach (var slot in sequenceManager.targetSlots)
@@ -34,7 +40,7 @@ public class DraggableObject : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (!isDragging) return;
+        if (!isDragging || sequenceManager == null) return;
 
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mousePosition.x, mousePosition.y, initialPosition.z);
@@ -42,7 +48,7 @@ public class DraggableObject : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (!isDragging) return;
+        if (!isDragging || sequenceManager == null) return;
         isDragging = false;
 
         Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, gizmosSize, 0f);
@@ -52,7 +58,7 @@ public class DraggableObject : MonoBehaviour
         foreach (var hit in hits)
         {
             TargetSlot slot = hit.GetComponent<TargetSlot>();
-            if (slot != null)
+            if (slot != null && sequenceManager.targetSlots.Contains(slot)) 
             {
                 newSlot = slot;
                 break;

@@ -4,8 +4,8 @@ using UnityEngine;
 public class ObjectSequenceManager : MonoBehaviour
 {
     [Header("Slots and Objects")]
-    public List<TargetSlot> targetSlots; 
-    public List<DraggableObject> draggableObjects; 
+    public List<TargetSlot> targetSlots;
+    public List<DraggableObject> draggableObjects;
 
     [Header("Success Settings")]
     public GameObject successIndicator;

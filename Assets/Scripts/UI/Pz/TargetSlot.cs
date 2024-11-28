@@ -2,11 +2,11 @@
 
 public class TargetSlot : MonoBehaviour
 {
-    public DraggableObject correctObject; 
+    public DraggableObject correctObject;
     public DraggableObject currentObject;
 
     [Header("Gizmos Settings")]
-    public Vector2 gizmosSize = new Vector2(1f, 1f); 
+    public Vector2 gizmosSize = new Vector2(1f, 1f);
 
     private void OnDrawGizmos()
     {

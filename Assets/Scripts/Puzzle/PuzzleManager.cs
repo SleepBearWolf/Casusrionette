@@ -10,6 +10,7 @@ public class PuzzleManager : MonoBehaviour
     private int currentStep = 0; // ขั้นตอนปัจจุบัน
     //public Door door; // ประตูที่จะปลดล็อค
     public GameObject Wall;
+    public GameObject GameBoard;
     
 
     void Awake()
@@ -27,6 +28,7 @@ public class PuzzleManager : MonoBehaviour
             if (currentStep >= correctOrder.Count)
             {
                 Destroy(Wall);
+                GameBoard.SetActive(true);
             }
         }
         else

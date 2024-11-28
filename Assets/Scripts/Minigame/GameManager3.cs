@@ -6,7 +6,8 @@ public class GameManager3 : MonoBehaviour
 {
     [SerializeField] private Transform gameTransform;
     [SerializeField] private Transform piecePrefab;
-    [SerializeField] private List<GameObject> openGameobjects; 
+    [SerializeField] private List<GameObject> openGameobjects;
+    [SerializeField] private List<GameObject> closeGameobjects;
 
     private List<Transform> pieces;
     private int emptyLocation;
@@ -70,6 +71,7 @@ public class GameManager3 : MonoBehaviour
         {
             Debug.Log("Game Complete!");
             ShowopenGameobject();
+            ShowcloseGameobject();
             return;
         }
 
@@ -146,6 +148,21 @@ public class GameManager3 : MonoBehaviour
 
         gameComplete = true; 
     }
+
+    private void ShowcloseGameobject()
+    {
+        foreach (var obj in closeGameobjects)
+        {
+            if (obj != null)
+            {
+                obj.SetActive(false);
+            }
+        }
+
+        gameComplete = true;
+    }
+
+
 
     private IEnumerator WaitShuffle(float duration)
     {

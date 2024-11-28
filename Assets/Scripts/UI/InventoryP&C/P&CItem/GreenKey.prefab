@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2217567345251829041}
   - component: {fileID: 734036083690842362}
   - component: {fileID: 4968729690489893717}
+  - component: {fileID: -4007404557321407268}
   m_Layer: 7
   m_Name: GreenKey
   m_TagString: Item
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 233114337497b0448a2c41e0796930d7, type: 3}
-  m_Color: {r: 0.120120525, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.08142807, g: 0.6698113, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,3 +145,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 20.063179, y: 6.5896626}
   m_EdgeRadius: 0
+--- !u!114 &-4007404557321407268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5656235676474009004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.09772431, g: 1, b: 0.015686274, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0

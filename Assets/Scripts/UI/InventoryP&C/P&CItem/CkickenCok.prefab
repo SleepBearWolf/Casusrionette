@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6015835064642139577}
   - component: {fileID: 2010482041088405009}
   - component: {fileID: 1872140344936590210}
+  - component: {fileID: 1091285508592981190}
   m_Layer: 0
   m_Name: CkickenCok
   m_TagString: Untagged
@@ -144,3 +145,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 99.770004, y: 80.77083}
   m_EdgeRadius: 0
+--- !u!114 &1091285508592981190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385152350949881968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bea1e805c54b91e42b23e559fdf320a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  blinkDuration: 0.5
+  blinkFrequency: 0.1
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
+  useTransition: 1
+  transitionDelay: 0.5
+  triggerTag: Player
+  interactKey: 101
+  requiresItem: 0
+  requiredItem: {fileID: 0}
+  targetObject: {fileID: 0}
+  givesRewardItem: 0
+  rewardItem: {fileID: 0}
+  toggleCanvas: 0
+  canvasObject: {fileID: 0}
+  toggleWithItem: 0
+  objectToToggle: {fileID: 0}
+  toggleState: 0

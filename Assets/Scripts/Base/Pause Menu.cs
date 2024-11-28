@@ -9,21 +9,21 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject InMenuUI02;
     [SerializeField] private GameObject InMenuUI03;
 
-    [SerializeField] private bool isPaused = false; 
+    [SerializeField] private bool isPaused = false;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPaused = !isPaused; 
+            isPaused = !isPaused;
 
             if (isPaused)
             {
-                ActivateMenu(); 
+                ActivateMenu();
             }
             else
             {
-                DeactivateMenu(); 
+                DeactivateMenu();
             }
         }
     }
@@ -31,42 +31,28 @@ public class PauseMenu : MonoBehaviour
     void ActivateMenu()
     {
         Time.timeScale = 0;
-        AudioListener.pause = true; 
-        pauseMenuUI.SetActive(true); 
-
-
+        AudioListener.pause = true;
+        pauseMenuUI.SetActive(true);
     }
 
     public void DeactivateMenu()
     {
-        Time.timeScale = 1; 
-        AudioListener.pause = false; 
-        pauseMenuUI.SetActive(false); 
-        isPaused = false; 
-
-
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+        pauseMenuUI.SetActive(false);
+        isPaused = false;
     }
 
     public void ActivateMenuIn01()
     {
         Time.timeScale = 0;
-        //AudioListener.pause = true;
         InMenuUI01.SetActive(true);
-        
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        
     }
 
     public void DeactivateMenuIn01()
     {
         Time.timeScale = 1;
-        //AudioListener.pause = false;
         InMenuUI01.SetActive(false);
-        
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
     public void ActivateMenuIn02()
@@ -74,10 +60,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         InMenuUI02.SetActive(true);
-
-        /*Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        */
     }
 
     public void DeactivateMenuIn02()
@@ -85,10 +67,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         InMenuUI02.SetActive(false);
-
-        /*Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        */
     }
 
     public void ActivateMenuIn03()
@@ -96,10 +74,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         AudioListener.pause = true;
         InMenuUI03.SetActive(true);
-
-        /*Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        */
     }
 
     public void DeactivateMenuIn03()
@@ -107,9 +81,5 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         AudioListener.pause = false;
         InMenuUI03.SetActive(false);
-
-        /*Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        */
     }
 }

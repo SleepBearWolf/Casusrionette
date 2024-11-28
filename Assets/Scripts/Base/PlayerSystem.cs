@@ -26,7 +26,7 @@ public class PlayerSystem : MonoBehaviour
 
     [Header("Stun Effect Settings")]
     [SerializeField] private GameObject stunEffectPrefab;
-    [SerializeField] private Transform stunEffectPosition; // ตำแหน่งของเอฟเฟกต์สตัน
+    [SerializeField] private Transform stunEffectPosition; 
     private GameObject activeStunEffect;
 
     private Rigidbody2D rb2d;
@@ -67,8 +67,6 @@ public class PlayerSystem : MonoBehaviour
         toolUI.SetActive(false);
         toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
 
         animator = GetComponent<Animator>();
     }
@@ -235,14 +233,10 @@ public class PlayerSystem : MonoBehaviour
         if (isPointAndClickMode)
         {
             ShowToolUI();
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
         else
         {
             HideToolUI();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
         }
     }
 
@@ -359,7 +353,6 @@ public class PlayerSystem : MonoBehaviour
 
         if (stunEffectPrefab != null && activeStunEffect == null)
         {
-            // กำหนดตำแหน่งของเอฟเฟกต์สตัน ถ้าไม่มี stunEffectPosition จะใช้ตำแหน่งปัจจุบันของ Player แทน
             Transform effectPosition = stunEffectPosition != null ? stunEffectPosition : transform;
             activeStunEffect = Instantiate(stunEffectPrefab, effectPosition.position, Quaternion.identity, effectPosition);
         }

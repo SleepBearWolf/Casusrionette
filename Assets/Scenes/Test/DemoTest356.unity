@@ -15459,7 +15459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 282615266}
   - component: {fileID: 282615265}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseMenuController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72372,8 +72372,8 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   blinkDuration: 0.5
   blinkFrequency: 0.1
-  cameraManager: {fileID: 616228425}
-  targetCameraIndex: 3
+  cameraManager: {fileID: 0}
+  targetCameraIndex: 0
   useTransition: 0
   transitionDelay: 0.5
   triggerTag: Player
@@ -99483,7 +99483,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1751626686}
   - component: {fileID: 1751626687}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ConversationEventInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,13 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private bool isPaused = false;
 
+    private Collider2D[] allColliders;
+
+    private void Start()
+    {
+        allColliders = FindObjectsOfType<Collider2D>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -30,67 +37,69 @@ public class PauseMenu : MonoBehaviour
 
     void ActivateMenu()
     {
-        Time.timeScale = 0;
-        AudioListener.pause = true;
         pauseMenuUI.SetActive(true);
-
-
+        SetCollidersActive(false); 
+        Debug.Log("Pause Menu Activated");
     }
 
     public void DeactivateMenu()
     {
-        Time.timeScale = 1;
-        AudioListener.pause = false;
         pauseMenuUI.SetActive(false);
+        SetCollidersActive(true);
         isPaused = false;
-
+        Debug.Log("Pause Menu Deactivated");
     }
 
     public void ActivateMenuIn01()
     {
-        Time.timeScale = 0;
         InMenuUI01.SetActive(true);
-
+        SetCollidersActive(false); 
+        Debug.Log("InMenuUI01 Activated");
     }
 
     public void DeactivateMenuIn01()
     {
-        Time.timeScale = 1;
         InMenuUI01.SetActive(false);
-
-
+        SetCollidersActive(true); 
+        Debug.Log("InMenuUI01 Deactivated");
     }
 
     public void ActivateMenuIn02()
     {
-        Time.timeScale = 0;
-        AudioListener.pause = true;
         InMenuUI02.SetActive(true);
-
- 
+        SetCollidersActive(false); 
+        Debug.Log("InMenuUI02 Activated");
     }
 
     public void DeactivateMenuIn02()
     {
-        Time.timeScale = 1;
-        AudioListener.pause = false;
         InMenuUI02.SetActive(false);
-
+        SetCollidersActive(true); 
+        Debug.Log("InMenuUI02 Deactivated");
     }
 
     public void ActivateMenuIn03()
     {
-        Time.timeScale = 0;
-        AudioListener.pause = true;
         InMenuUI03.SetActive(true);
-
+        SetCollidersActive(false); 
+        Debug.Log("InMenuUI03 Activated");
     }
 
     public void DeactivateMenuIn03()
     {
-        Time.timeScale = 1;
-        AudioListener.pause = false;
         InMenuUI03.SetActive(false);
+        SetCollidersActive(true);
+        Debug.Log("InMenuUI03 Deactivated");
+    }
 
+    private void SetCollidersActive(bool isActive)
+    {
+        foreach (var collider in allColliders)
+        {
+            if (collider.gameObject.layer != LayerMask.NameToLayer("UI")) 
+            {
+                collider.enabled = isActive;
+            }
+        }
     }
 }

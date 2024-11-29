@@ -67,6 +67,8 @@ public class PlayerSystem : MonoBehaviour
         toolUI.SetActive(false);
         toolUIRectTransform.anchoredPosition = new Vector2(toolUIRectTransform.anchoredPosition.x, hidePositionY);
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         animator = GetComponent<Animator>();
     }
@@ -233,10 +235,14 @@ public class PlayerSystem : MonoBehaviour
         if (isPointAndClickMode)
         {
             ShowToolUI();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
         else
         {
             HideToolUI();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 

@@ -9022,7 +9022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.16, y: 0.16}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &148554320
@@ -11126,7 +11126,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -33815,7 +33815,7 @@ Transform:
   m_GameObject: {fileID: 591158246}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.388731, y: 4.355711, z: 0}
+  m_LocalPosition: {x: -2.388731, y: 4.355711, z: -2}
   m_LocalScale: {x: 1.002, y: 1.3371, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33857,7 +33857,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.9722805, y: -4.3866305}
+  m_Offset: {x: 2.9330282, y: -4.3964357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -33868,7 +33868,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 13.471874, y: 2.0267384}
+  m_Size: {x: 13.053175, y: 1.6933613}
   m_EdgeRadius: 0
 --- !u!114 &591158251
 MonoBehaviour:
@@ -37991,7 +37991,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.07622266}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -38002,7 +38002,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8475547}
   m_EdgeRadius: 0
 --- !u!1 &703538998
 GameObject:
@@ -39298,7 +39298,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 1, b: 0.034508705, a: 1}
   m_FlipX: 0
@@ -40728,7 +40728,7 @@ Transform:
   m_GameObject: {fileID: 768946826}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.388731, y: 1.8899994, z: 0}
+  m_LocalPosition: {x: -2.388731, y: 1.8899994, z: -2}
   m_LocalScale: {x: 1.002, y: 1.3371, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -42541,7 +42541,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 29ab13ba74e6fc74d8804c678d8107a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -69122,7 +69122,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.3679245, g: 0.19263972, b: 0.19263972, a: 1}
   m_FlipX: 0
@@ -69611,7 +69611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E1E\u0E23\u0E30\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C\u0E17\u0E35\u0E35\u0E48\u0E2B\u0E32\u0E22\u0E44\u0E1B\n\u0E41\u0E25\u0E30\u0E19\u0E33\u0E44\u0E1B\u0E23\u0E27\u0E1A\u0E01\u0E31\u0E1A\u0E20\u0E32\u0E1E\u0E27\u0E32\u0E14\n\u0E41\u0E25\u0E49\u0E27\u0E19\u0E33\u0E44\u0E1B\u0E43\u0E2A\u0E48\u0E43\u0E19\u0E01\u0E23\u0E2D\u0E1A\u0E23\u0E39\u0E1B\n\u0E41\u0E25\u0E30\u0E2A\u0E33\u0E23\u0E27\u0E08\u0E2B\u0E49\u0E2D\u0E07\u0E43\u0E2B\u0E49\u0E25\u0E30\u0E40\u0E2D\u0E35\u0E22\u0E14\u0E46\n"
+  m_text: "\u0E15\u0E32\u0E21\u0E2B\u0E32\u0E1E\u0E23\u0E30\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C\u0E17\u0E35\u0E35\u0E48\u0E2B\u0E32\u0E22\u0E44\u0E1B\n\u0E41\u0E25\u0E30\u0E19\u0E33\u0E44\u0E1B\u0E23\u0E27\u0E1A\u0E01\u0E31\u0E1A\u0E20\u0E32\u0E1E\u0E27\u0E32\u0E14\n\u0E41\u0E25\u0E49\u0E27\u0E19\u0E33\u0E44\u0E1B\u0E43\u0E2A\u0E48\u0E43\u0E19\u0E01\u0E23\u0E2D\u0E1A\u0E23\u0E39\u0E1B\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   m_sharedMaterial: {fileID: 1708166496871560122, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
@@ -74599,7 +74599,7 @@ Transform:
   m_GameObject: {fileID: 1330353532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.957386, y: -1.9721, z: 0}
+  m_LocalPosition: {x: 2.957386, y: -1.9721, z: -1}
   m_LocalScale: {x: 12.97055, y: 3.1779807, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74676,8 +74676,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 0.2}
-  m_Center: {x: -0.00000023841858, y: 0.00000023841858, z: 0}
+  m_Size: {x: 1, y: 0.959397, z: 0.2}
+  m_Center: {x: -0.00000022013813, y: 0.020301733, z: 0}
 --- !u!1 &1333737932
 GameObject:
   m_ObjectHideFlags: 0
@@ -111763,7 +111763,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.2264151, g: 0.10786757, b: 0.10786757, a: 1}
   m_FlipX: 0
@@ -113510,7 +113510,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0E40\u0E23\u0E35\u0E22\u0E07\u0E25\u0E33\u0E14\u0E31\u0E1A\r\n\u0E02\u0E2D\u0E07\u0E01\u0E23\u0E30\u0E1A\u0E2D\u0E01\u0E2A\u0E35\r\n\u0E43\u0E2B\u0E49\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\n"
+  m_text: "\u0E40\u0E23\u0E35\u0E22\u0E07\u0E25\u0E33\u0E14\u0E31\u0E1A\r\n\u0E02\u0E2D\u0E07\u0E41\u0E01\u0E49\u0E27\u0E2A\u0E35\r\n\u0E43\u0E2B\u0E49\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}
   m_sharedMaterial: {fileID: 1708166496871560122, guid: 278ddd30a27e7cf4f813325cdb532201, type: 2}

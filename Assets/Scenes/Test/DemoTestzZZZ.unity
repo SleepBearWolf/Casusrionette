@@ -7096,6 +7096,11 @@ MonoBehaviour:
   - {fileID: 1203158410}
   - {fileID: 794208373}
   Wall: {fileID: 169179195}
+  GameBoard: {fileID: 0}
+  hintDelay: 1
+  hintColors: []
+  errorColor: {r: 1, g: 0, b: 0, a: 1}
+  blinkDuration: 1
 --- !u!1 &79008460
 GameObject:
   m_ObjectHideFlags: 0
@@ -9149,6 +9154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &177892586
 BoxCollider2D:
@@ -10166,6 +10172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &205040306
 BoxCollider2D:
@@ -12060,6 +12067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: ee1246cbd5b1f244d81daca3fd399562, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &249531988
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15109,6 +15117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 2, y: 2}
 --- !u!1 &337251550
 GameObject:
@@ -24080,6 +24089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &468110691
 BoxCollider2D:
@@ -30216,6 +30226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 2, y: 2}
 --- !u!1001 &519698113
 PrefabInstance:
@@ -31617,6 +31628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 2, y: 2}
 --- !u!1 &540102957
 GameObject:
@@ -36101,6 +36113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 2, y: 2}
 --- !u!1 &694195408
 GameObject:
@@ -36741,6 +36754,8 @@ MonoBehaviour:
   InMenuUI02: {fileID: 0}
   InMenuUI03: {fileID: 0}
   isPaused: 0
+  disableCollidersOnPause: 1
+  alwaysShowMouse: 1
 --- !u!4 &708251298
 Transform:
   m_ObjectHideFlags: 0
@@ -37065,6 +37080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 2, y: 2}
 --- !u!61 &715093824
 BoxCollider2D:
@@ -39119,6 +39135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &754411485
 BoxCollider2D:
@@ -40046,6 +40063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: ac41fb53d4e2f714398edad06851bded, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &794208374
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41533,6 +41551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &824032454
 BoxCollider2D:
@@ -44682,6 +44701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: a577174f9682978469ee112571d6d559, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &903016961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -65361,6 +65381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &1111650205
 BoxCollider2D:
@@ -68555,6 +68576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 54f7557118a80c94fa6f778256029fad, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &1203158411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -71091,6 +71113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: a7d63878a026c0f4383e890b266fb312, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &1297673792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78220,6 +78243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &1352660951
 BoxCollider2D:
@@ -78444,6 +78468,7 @@ MonoBehaviour:
   piecePrefab: {fileID: 1084783810}
   openGameobjects:
   - {fileID: 0}
+  closeGameobjects: []
 --- !u!1 &1363294145
 GameObject:
   m_ObjectHideFlags: 0
@@ -81210,6 +81235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 2, y: 2}
 --- !u!1 &1443431315
 GameObject:
@@ -82009,6 +82035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 8300000, guid: 0f9b76b4dad174b4faab5e76a089ec06, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!61 &1476093225
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -101427,6 +101454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ecb781bc0952ea47bb3dab9857f3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sequenceManager: {fileID: 0}
   gizmosSize: {x: 1, y: 1.5}
 --- !u!61 &1823919415
 BoxCollider2D:

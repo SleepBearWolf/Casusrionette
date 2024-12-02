@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3509830969031593513}
   - component: {fileID: 2857256761522106562}
   - component: {fileID: 4994579459115887435}
-  - component: {fileID: 2357361005088587308}
+  - component: {fileID: 80089109276123079}
   m_Layer: 0
   m_Name: SkypicFull
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 31380e9cc01b1b445b7be838276c162c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52bb440276ac842478031f683457d40d, type: 3}
   m_Color: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   toggleWithItem: 0
   objectToToggle: {fileID: 0}
   toggleState: 0
---- !u!61 &2357361005088587308
+--- !u!61 &80089109276123079
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,12 +167,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 2.6}
+    oldSize: {x: 3.57, y: 4.67}
     newSize: {x: 1.92, y: 2.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.92, y: 2.6}
+  m_Size: {x: 3.57, y: 4.67}
   m_EdgeRadius: 0

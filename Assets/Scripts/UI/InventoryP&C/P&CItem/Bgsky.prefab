@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7640390157406022761}
   - component: {fileID: 7664285750389539895}
   - component: {fileID: 4890519584944062800}
-  - component: {fileID: 4750063056591623704}
+  - component: {fileID: 2662886766318155619}
   m_Layer: 0
   m_Name: Bgsky
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4b0c6082560929b4f84cf23ecc1bcd0f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee63abfe99ce7984a8444e78447d3b2f, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 1010394d162f386488b8dd712b32c373, type: 2}
---- !u!61 &4750063056591623704
+--- !u!61 &2662886766318155619
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,12 +167,12 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.35, y: 2.02}
+    oldSize: {x: 3.4, y: 4.69}
     newSize: {x: 1.35, y: 2.02}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.35, y: 2.02}
+  m_Size: {x: 3.4, y: 4.69}
   m_EdgeRadius: 0
